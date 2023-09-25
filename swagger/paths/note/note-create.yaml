@@ -1,0 +1,36 @@
+tags:
+  - Note
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Note
+operationId: addNote
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          model_name:
+            type: string
+          name:
+            type: string
+          model_record_id:
+            type: integer
+          description:
+            type: string
+          created_by:
+            type: integer
+          updated_by:
+            type: integer
+          organization_id:
+            type: integer
+          is_drafted:
+            type: boolean
+responses:
+  200:
+    description: Note created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

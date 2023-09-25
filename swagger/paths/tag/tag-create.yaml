@@ -1,0 +1,30 @@
+tags:
+  - Tag
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Tag
+operationId: craeteTag
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          color:
+            type: string
+          created_by:
+            type: integer
+          updated_by:
+            type: integer
+          organization_id:
+            type: integer
+responses:
+  200:
+    description: Tag created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

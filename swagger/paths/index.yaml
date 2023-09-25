@@ -165,3 +165,90 @@
 /leads/getWonLostStages/{id}:
   get:
     $ref: ./lead/lead-get-won-lost-stages.yaml
+
+# Tag API
+/tags:
+  post:
+    $ref: ./tag/tag-create.yaml
+  delete:
+    $ref: ./tag/tag-delete.yaml
+/tags/get-data:
+  get:
+    $ref: ./tag/tag-get-data.yaml
+/tags/assign/:id:
+  get:
+    $ref: ./tag/tag-associated.yaml
+  post:
+    $ref: ./tag/tag-assign.yaml
+/tags/:id:
+  put:
+    $ref: ./tag/tag-update.yaml
+/tags/arrange/:id:
+  post:
+    $ref: ./tag/tag-reassign.yaml
+
+# Streams API
+/stream:
+  post:
+    $ref: ./stream/stream-create.yaml
+/streams/:id:
+  put:
+    $ref: ./stream/stream-update.yaml
+  delete:
+    $ref: ./stream/stream-delete.yaml
+
+# Snippet API
+/snippet:
+  post:
+    $ref: ./snippet/snippet-create.yaml
+  delete:
+    $ref: ./snippet/snippet-delete.yaml
+/snippet/get-data:
+  post:
+    $ref: ./snippet/snippet-get.yaml
+/snippet/:id:
+  put:
+    $ref: ./snippet/snippet-update.yaml
+
+# Snippet-category API
+/snippet-category:
+  post:
+    $ref: ./snippet-category/snippet-category-create.yaml
+  delete:
+    $ref: ./snippet-category/snippet-category-delete.yaml
+/snippet-category/get-data:
+  post:
+    $ref: ./snippet-category/snippet-category-get.yaml
+/snippet-category/:id:
+  put:
+    $ref: ./snippet-category/snippet-category-update.yaml
+
+# Note API
+/notes:
+  post:
+    $ref: ./note/note-create.yaml
+  get:
+    $ref: ./note/note-get.yaml
+/notes/:id:
+  put:
+    $ref: ./note/note-update.yaml
+  get:
+    $ref: ./note/note-get-id.yaml
+  delete:
+    $ref: ./note/note-delete.yaml
+
+# Attachment API
+/attachments:
+  post:
+    $ref: ./attachment/attachment-create.yaml
+  get:
+    $ref: ./attachment/attachment-get.yaml
+  delete:
+    $ref: ./attachment/attachment-delete.yaml
+/attachments/:id:
+  get:
+    $ref: ./attachment/attachment-get-id.yaml
+  put:
+    $ref: ./attachment/attachment-update-id.yaml
+  delete:
+    $ref: ./attachment/attachment-delete-id.yaml

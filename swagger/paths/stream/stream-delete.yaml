@@ -1,17 +1,18 @@
 tags:
-  - User
+  - Stream
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get User By ID
-operationId: getUserById
+summary: Delete Streams
+operationId: deleteStreamUserData
 parameters:
   - in: path
     name: id
-    type: string
+    type: integer
+    required: true
 responses:
   200:
-    description: User fetched successfully
+    description: Streams Deleted successfully
   400:
     description: Bad request, invalid credentials
   500:

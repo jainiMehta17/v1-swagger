@@ -1,0 +1,37 @@
+tags:
+  - Note
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Note
+operationId: updateNoteById
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          description:
+            type: string
+          deletedAttachmentIds:
+            type: array
+            items: {}
+          is_drafted:
+            type: boolean
+          userIds:
+            type: array
+            items: {}
+          is_pinned:
+            type: boolean
+responses:
+  200:
+    description: Note Updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

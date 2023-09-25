@@ -1,17 +1,17 @@
 tags:
-  - User
+  - Tag
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get User By ID
-operationId: getUserById
+summary: Get Tag By ID
+operationId: assignTag
 parameters:
   - in: path
     name: id
     type: string
 responses:
   200:
-    description: User fetched successfully
+    description: Tag fetched successfully
   400:
     description: Bad request, invalid credentials
   500:

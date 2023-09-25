@@ -8,3 +8,15 @@
   description: Organization APIs
 - name: Lead
   description: Lead APIs
+- name: Tag
+  description: Tag APIs
+- name: Stream
+  description: Stream APIs
+- name: Snippet
+  description: Snippet APIs
+- name: Snippet-Category
+  description: Snippet-Category APIs
+- name: Note
+  description: Note APIs
+- name: Attachment
+  description: Attachment APIs

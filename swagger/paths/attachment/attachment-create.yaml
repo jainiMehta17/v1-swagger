@@ -1,0 +1,27 @@
+tags:
+  - Attachment
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Attachment
+operationId: addAttachments
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          model_name:
+            type: string
+          model_record_id:
+            type: integer
+          links:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Attachment created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

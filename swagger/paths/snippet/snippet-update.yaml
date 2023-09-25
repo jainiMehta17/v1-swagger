@@ -1,0 +1,37 @@
+tags:
+  - Snippet
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Snippet
+operationId: updateSnippet
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          title:
+            type: string
+          type:
+            type: string
+          category_id:
+            type: integer
+          snippet:
+            type: string
+          accessibility:
+            type: string
+          updated_by:
+            type: integer
+responses:
+  200:
+    description: Snippet Updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error
