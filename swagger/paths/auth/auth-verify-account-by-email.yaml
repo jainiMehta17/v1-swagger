@@ -1,0 +1,22 @@
+tags:
+  - Auth
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Account Verification Using Email
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          token:
+            type: string
+responses:
+  200:
+    description: Account Verified Successfully
+  400:
+    description: Bad request
+  500:
+    description: Internal server error

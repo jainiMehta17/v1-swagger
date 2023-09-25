@@ -1,0 +1,70 @@
+tags:
+  - Auth
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Authenticate a user using Apple Sign-In
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          authorization:
+            type: object
+            properties:
+              id_token:
+                type: string
+                description: Apple ID token
+            required:
+              - id_token
+          user:
+            type: object
+            properties:
+              first_name:
+                type: string
+                description: User's first name from Apple
+              last_name:
+                type: string
+                description: User's last name from Apple
+          timezone:
+            type: string
+            description: User's timezone
+responses:
+  '200':
+    description: Successful Apple Sign-In
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            new_register:
+              type: boolean
+              description: Indicates if the user is a new registration
+            branches:
+              type: array
+              items:
+                type: object
+                properties:
+                  branch_name:
+                    type: string
+                    description: Name of the branch
+                  branch_id:
+                    type: integer
+                    description: ID of the branch
+            two_factor_enabled:
+              type: boolean
+              description: Indicates if two-factor authentication is enabled for the user
+            two_factor_verified:
+              type: boolean
+              description: Indicates if two-factor authentication is verified for the user
+            user_two_2fa:
+              type: boolean
+              description: Indicates if two-factor authentication is enabled for the user
+  '400':
+    description: Bad request, invalid Apple Sign-In credentials
+  '403':
+    description: Forbidden, password reset token required
+  '500':
+    description: Internal server error

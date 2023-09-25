@@ -1,0 +1,57 @@
+tags:
+  - Auth
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Authenticate a user using Google Sign-In
+requestBody:
+  description: Google Sign-In credentials
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          idToken:
+            type: string
+            description: Google ID token
+          timezone:
+            type: string
+            description: User's timezone
+        required:
+          - idToken
+responses:
+  200:
+    description: Successful Google Sign-In
+    schema:
+      type: object
+      properties:
+        new_register:
+          type: boolean
+          description: Indicates if the user is a new registration
+        branches:
+          type: array
+          items:
+            type: object
+            properties:
+              branch_name:
+                type: string
+                description: Name of the branch
+              branch_id:
+                type: integer
+                description: ID of the branch
+        two_factor_enabled:
+          type: boolean
+          description: Indicates if two-factor authentication is enabled for the user
+        two_factor_verified:
+          type: boolean
+          description: Indicates if two-factor authentication is verified for the user
+        user_two_2fa:
+          type: boolean
+          description: Indicates if two-factor authentication is enabled for the user
+  400:
+    description: Bad request, invalid Google Sign-In credentials
+  403:
+    description: Forbidden, password reset token required
+  500:
+    description: Internal server error

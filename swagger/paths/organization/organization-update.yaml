@@ -1,0 +1,47 @@
+tags:
+  - Organization
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Organization
+operationId: updateOrganization
+parameters:
+  - in: path
+    name: id
+    type: string
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          address1:
+            type: string
+          name:
+            type: string
+          organization_category:
+            type: string
+          email:
+            type: string
+            format: email
+          website:
+            type: string
+          phone:
+            type: string
+          country_id:
+            type: number
+          zip:
+            type: string
+          county:
+            type: string
+          state_id:
+            type: number
+          city:
+            type: string
+responses:
+  200:
+    description: Company details updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

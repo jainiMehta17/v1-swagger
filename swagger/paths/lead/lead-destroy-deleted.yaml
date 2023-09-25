@@ -1,0 +1,29 @@
+tags:
+  - Lead
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Destroy Deleted Leads
+operationId: destroyDeletedLeads
+parameters:
+  - in: header
+    name: xorganization
+    type: string
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          ids:
+            type: array
+            items: {}
+          is_deal:
+            type: boolean
+responses:
+  200:
+    description: Lead destroyed successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

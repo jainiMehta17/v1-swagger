@@ -1,0 +1,21 @@
+type: object
+properties:
+  first_name:
+    type: string
+    required: true
+  last_name:
+    type: string
+  email:
+    type: string
+  password:
+    type: string
+  mobile:
+    type: string
+  organizationName:
+    type: string
+  organizationCategory:
+    type: string
+  timezone:
+    type: string
+  initial_color:
+    type: string

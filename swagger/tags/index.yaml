@@ -1,0 +1,10 @@
+- name: Auth
+  description: Authentication APIs
+- name: User
+  description: User APIs
+- name: Role
+  description: Role APIs
+- name: Organization
+  description: Organization APIs
+- name: Lead
+  description: Lead APIs

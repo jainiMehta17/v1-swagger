@@ -1,0 +1,23 @@
+tags:
+  - Lead
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Won Lost Stages From Lead Id
+operationId: getWonLostStagesFromLeadId
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+  - in: query
+    name: stageType
+    type: string
+    required: true
+responses:
+  200:
+    description: Lead's won-lost stages fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

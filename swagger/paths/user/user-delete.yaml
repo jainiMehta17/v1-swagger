@@ -1,0 +1,26 @@
+tags:
+  - User
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete User
+operationId: deleteAllUser
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          id:
+            type: string
+          transfer_id:
+            type: string
+          report_id:
+            type: string
+responses:
+  200:
+    description: Selected Users deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

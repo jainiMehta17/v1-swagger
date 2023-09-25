@@ -1,0 +1,19 @@
+tags:
+  - Lead
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Lead By ID
+operationId: getLeadById
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Lead fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

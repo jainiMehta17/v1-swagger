@@ -1,0 +1,18 @@
+tags:
+  - Organization
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Organization
+operationId: createOrganization
+parameters:
+  - in: path
+    name: id
+    type: string
+responses:
+  200:
+    description: Organization deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

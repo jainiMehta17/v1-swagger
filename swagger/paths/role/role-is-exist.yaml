@@ -1,0 +1,18 @@
+tags:
+  - Role
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Check Role Existence
+operationId: roleIsExist
+parameters:
+  - in: query
+    name: name
+    type: string
+responses:
+  200:
+    description: Role Exists
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

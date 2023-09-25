@@ -1,0 +1,28 @@
+tags:
+  - Role
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Roles
+operationId: deleteRoles
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          id:
+            type: string
+          transfer_id:
+            type: string
+parameters:
+  - in: header
+    name: xorganization
+    type: string
+responses:
+  200:
+    description: Roles deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

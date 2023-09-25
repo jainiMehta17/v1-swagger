@@ -1,0 +1,27 @@
+tags:
+  - User
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Descendants Users
+operationId: getDescendantsUsers
+parameters:
+  - in: query
+    name: userId
+    type: string
+  - in: query
+    name: module
+    type: string
+  - in: query
+    name: type
+    type: string
+  - in: query
+    name: select
+    type: string
+responses:
+  200:
+    description: Users fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

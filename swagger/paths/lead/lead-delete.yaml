@@ -1,0 +1,19 @@
+tags:
+  - Lead
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Lead
+operationId: deleteLead
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Lead Deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

@@ -1,0 +1,14 @@
+tags:
+  - User
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Users
+operationId: getUsers
+responses:
+  200:
+    description: Users fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

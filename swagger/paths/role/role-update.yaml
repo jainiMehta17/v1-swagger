@@ -1,0 +1,31 @@
+tags:
+  - Role
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Profile
+operationId: updateProfile
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          description:
+            type: string
+          modules:
+            type: array
+            items: {}
+parameters:
+  - in: header
+    name: xorganization
+    type: string
+responses:
+  200:
+    description: Role updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

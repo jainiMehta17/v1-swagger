@@ -1,0 +1,57 @@
+tags:
+  - Auth
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Authenticate a user and generate a session
+operationId: loginUser
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          email:
+            type: string
+            format: email
+          password:
+            type: string
+            format: password
+responses:
+  200:
+    description: Successful login
+    headers:
+      Set-Cookie:
+      schema:
+        type: string
+        example: JSESSIONID=abcde12345; Path=/; HttpOnly
+    schema:
+      type: object
+      properties:
+        verified:
+          type: boolean
+          description: Indicates if the user is verified
+        branches:
+          type: array
+          items:
+            type: object
+            properties:
+              branch_name:
+                type: string
+                description: Name of the branch
+              branch_id:
+                type: integer
+                description: ID of the branch
+        two_factor_enabled:
+          type: boolean
+          description: Indicates if two-factor authentication is enabled for the user
+        two_factor_verified:
+          type: boolean
+          description: Indicates if two-factor authentication is verified for the user
+        user_two_2fa:
+          type: boolean
+          description: Indicates if two-factor authentication is enabled for the user
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

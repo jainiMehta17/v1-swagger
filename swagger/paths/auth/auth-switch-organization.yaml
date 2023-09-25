@@ -1,0 +1,20 @@
+tags:
+  - Auth
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Switch User's Active Organization
+parameters:
+  - name: xorganization
+    in: header
+    required: true
+    schema:
+      type: string
+    description: The name or ID of the organization to switch
+responses:
+  200:
+    description: Organization switched successfully
+  400:
+    description: Bad request, missing or invalid branch information in the header
+  500:
+    description: Internal server error

@@ -1,0 +1,27 @@
+openapi: '3.0.3'
+info: {
+  title: 'SMACKDAB',
+  version: '1.0.0',
+  description: 'API docs',
+  contact: {
+    name: 'Your Name',
+    email: 'your@email.com',
+  },
+  license: {
+    name: 'Your License',
+    url: 'https://your-license-url.com',
+  },
+}
+servers: [
+  {
+    url: 'http://localhost:8000/api/v1',
+    description: 'Local Development Server',
+  }
+]
+tags:
+  $ref: ./tags/index.yaml
+paths:
+  $ref: ./paths/index.yaml
+components:
+  $ref: ./components/index.yaml
+

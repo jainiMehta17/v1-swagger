@@ -1,0 +1,14 @@
+tags:
+  - User
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Logged In User
+operationId: getLoggedInUser
+responses:
+  200:
+    description: User Logged-In successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

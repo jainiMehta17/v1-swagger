@@ -1,0 +1,35 @@
+tags:
+  - Auth
+summary: Check if an email exists in a specific organization
+operationId: emailExist
+requestBody:
+  description: Email to Check
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          email:
+            type: string
+            format: email
+          password:
+        required:
+          - email
+responses:
+  200:
+    description: Email does not exist
+    schema:
+      type: object
+      properties:
+        isExist:
+          type: boolean
+          description: Indicates if the email exists
+  400:
+    description: Email already exists
+    schema:
+      type: object
+      properties:
+        isExist:
+          type: boolean
+          description: Indicates if the email exists

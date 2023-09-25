@@ -1,0 +1,24 @@
+tags:
+  - Auth
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Resend verification email to a user
+responses:
+  '200':
+    description: Verification email resent successfully
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            success:
+              type: boolean
+              description: Indicates if the email was resent successfully
+            verified:
+              type: boolean
+              description: Indicates if the user is already verified
+  '400':
+    description: Bad request, user not found or user already verified
+  '500':
+    description: Internal server error

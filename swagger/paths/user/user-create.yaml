@@ -1,0 +1,34 @@
+tags:
+  - User
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create User
+operationId: createUser
+parameters:
+  - in: header
+    name: xorganization
+    type: string
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          role:
+            type: string
+          report_to:
+            type: string
+          email:
+            type: string
+            format: email
+          date_format:
+            type: string
+responses:
+  200:
+    description: User created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

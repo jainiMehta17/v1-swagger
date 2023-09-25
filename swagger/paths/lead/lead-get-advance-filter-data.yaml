@@ -1,0 +1,20 @@
+tags:
+  - Lead
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Lead Advance Filter Data
+operationId: getAdvanceFilterData
+parameters:
+  - in: query
+    name: q
+    type: object
+    properties:
+      is_deal: boolean
+responses:
+  200:
+    description: Lead Advance Filter Data fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

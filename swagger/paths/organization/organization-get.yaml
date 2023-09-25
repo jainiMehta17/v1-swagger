@@ -1,0 +1,18 @@
+tags:
+  - Organization
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Organization By ID
+operationId: getOrganizationById
+parameters:
+  - in: path
+    name: id
+    type: string
+responses:
+  200:
+    description: Organization created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

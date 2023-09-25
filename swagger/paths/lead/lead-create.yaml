@@ -1,0 +1,71 @@
+tags:
+  - Lead
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Lead
+operationId: createUser
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          pipeline_id:
+            type: integer
+          is_deal:
+            type: boolean
+          deal_stage_id:
+            type: integer
+          name:
+            type: integer
+          lead_owner_id:
+            type: integer
+          lead_status_id:
+            type: integer
+          probability:
+            type: string
+          lead_temp_id:
+            type: integer
+          lead_score:
+            type: string
+          closing_date:
+            type: string
+          description:
+            type: string
+          deal_value:
+            type: string
+          related_account:
+            type: object
+            properties:
+              new:
+                type: object
+                items: {}
+              old:
+                type: object
+                items: {}
+          contacts:
+            type: object
+            properties:
+              new:
+                type: object
+                items: {}
+              old:
+                type: object
+                items: {}
+          lead_source:
+            type: object
+            properties:
+              new:
+                type: object
+                items: {}
+              old:
+                type: object
+                items: {}
+responses:
+  200:
+    description: Lead created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

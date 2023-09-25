@@ -1,0 +1,27 @@
+tags:
+  - Role
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Add Role
+operationId: addRole
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          description:
+            type: string
+          modules:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Role created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

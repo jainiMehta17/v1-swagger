@@ -1,0 +1,48 @@
+tags:
+  - Organization
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Organization
+operationId: createOrganization
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          organization_category:
+            type: string
+          name:
+            type: string
+          phone:
+            type: string
+          mobile:
+            type: string
+          fax:
+            type: string
+          website:
+            type: string
+          description:
+            type: string
+          address1:
+            type: string
+          address2:
+            type: string
+          city:
+            type: string
+          state_id:
+            type: string
+          country_id:
+            type: string
+          zip:
+            type: string
+          address_details:
+            type: string
+responses:
+  200:
+    description: Organization created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

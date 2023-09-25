@@ -1,0 +1,30 @@
+tags:
+  - Role
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Profile Permissions
+operationId: updateProfilePermissions
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          modules:
+            type: array
+            items: {}
+parameters:
+  - in: path
+    name: id
+    type: string
+  - in: header
+    name: xorganization
+    type: string
+responses:
+  200:
+    description: Permissions updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

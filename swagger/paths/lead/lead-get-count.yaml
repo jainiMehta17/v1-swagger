@@ -1,0 +1,14 @@
+tags:
+  - Lead
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Leads Count
+operationId: getLeadsCount
+responses:
+  200:
+    description: Lead Counts fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

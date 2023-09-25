@@ -1,0 +1,2542 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "SMACKDAB",
+    "version": "1.0.0",
+    "description": "API docs",
+    "contact": {
+      "name": "Your Name",
+      "email": "your@email.com"
+    },
+    "license": {
+      "name": "Your License",
+      "url": "https://your-license-url.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000/api/v1",
+      "description": "Local Development Server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Authentication APIs"
+    },
+    {
+      "name": "User",
+      "description": "User APIs"
+    },
+    {
+      "name": "Role",
+      "description": "Role APIs"
+    },
+    {
+      "name": "Organization",
+      "description": "Organization APIs"
+    },
+    {
+      "name": "Lead",
+      "description": "Lead APIs"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Register User API",
+        "description": "Add a new User",
+        "operationId": "addUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegister"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegister"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRegister"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/auth/email-exist": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Check if an email exists in a specific organization",
+        "operationId": "emailExist",
+        "requestBody": {
+          "description": "Email to Check",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": null
+                },
+                "required": [
+                  "email"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Email does not exist",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "isExist": {
+                  "type": "boolean",
+                  "description": "Indicates if the email exists"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Email already exists",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "isExist": {
+                  "type": "boolean",
+                  "description": "Indicates if the email exists"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Authenticate a user and generate a session",
+        "operationId": "loginUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful login",
+            "headers": {
+              "Set-Cookie": null,
+              "schema": {
+                "type": "string",
+                "example": "JSESSIONID=abcde12345; Path=/; HttpOnly"
+              }
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "verified": {
+                  "type": "boolean",
+                  "description": "Indicates if the user is verified"
+                },
+                "branches": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "branch_name": {
+                        "type": "string",
+                        "description": "Name of the branch"
+                      },
+                      "branch_id": {
+                        "type": "integer",
+                        "description": "ID of the branch"
+                      }
+                    }
+                  }
+                },
+                "two_factor_enabled": {
+                  "type": "boolean",
+                  "description": "Indicates if two-factor authentication is enabled for the user"
+                },
+                "two_factor_verified": {
+                  "type": "boolean",
+                  "description": "Indicates if two-factor authentication is verified for the user"
+                },
+                "user_two_2fa": {
+                  "type": "boolean",
+                  "description": "Indicates if two-factor authentication is enabled for the user"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "summary": "Logout User",
+        "operationId": "logout",
+        "responses": {
+          "200": {
+            "description": "User logged out successfully"
+          },
+          "400": {
+            "description": "Bad request, session data not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/switch-organization": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Switch User's Active Organization",
+        "parameters": [
+          {
+            "name": "xorganization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The name or ID of the organization to switch"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organization switched successfully"
+          },
+          "400": {
+            "description": "Bad request, missing or invalid branch information in the header"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/google": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Authenticate a user using Google Sign-In",
+        "requestBody": {
+          "description": "Google Sign-In credentials",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "idToken": {
+                    "type": "string",
+                    "description": "Google ID token"
+                  },
+                  "timezone": {
+                    "type": "string",
+                    "description": "User's timezone"
+                  }
+                },
+                "required": [
+                  "idToken"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Google Sign-In",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "new_register": {
+                  "type": "boolean",
+                  "description": "Indicates if the user is a new registration"
+                },
+                "branches": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "branch_name": {
+                        "type": "string",
+                        "description": "Name of the branch"
+                      },
+                      "branch_id": {
+                        "type": "integer",
+                        "description": "ID of the branch"
+                      }
+                    }
+                  }
+                },
+                "two_factor_enabled": {
+                  "type": "boolean",
+                  "description": "Indicates if two-factor authentication is enabled for the user"
+                },
+                "two_factor_verified": {
+                  "type": "boolean",
+                  "description": "Indicates if two-factor authentication is verified for the user"
+                },
+                "user_two_2fa": {
+                  "type": "boolean",
+                  "description": "Indicates if two-factor authentication is enabled for the user"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, invalid Google Sign-In credentials"
+          },
+          "403": {
+            "description": "Forbidden, password reset token required"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/apple": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Authenticate a user using Apple Sign-In",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authorization": {
+                    "type": "object",
+                    "properties": {
+                      "id_token": {
+                        "type": "string",
+                        "description": "Apple ID token"
+                      }
+                    },
+                    "required": [
+                      "id_token"
+                    ]
+                  },
+                  "user": {
+                    "type": "object",
+                    "properties": {
+                      "first_name": {
+                        "type": "string",
+                        "description": "User's first name from Apple"
+                      },
+                      "last_name": {
+                        "type": "string",
+                        "description": "User's last name from Apple"
+                      }
+                    }
+                  },
+                  "timezone": {
+                    "type": "string",
+                    "description": "User's timezone"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Apple Sign-In",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "new_register": {
+                      "type": "boolean",
+                      "description": "Indicates if the user is a new registration"
+                    },
+                    "branches": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "branch_name": {
+                            "type": "string",
+                            "description": "Name of the branch"
+                          },
+                          "branch_id": {
+                            "type": "integer",
+                            "description": "ID of the branch"
+                          }
+                        }
+                      }
+                    },
+                    "two_factor_enabled": {
+                      "type": "boolean",
+                      "description": "Indicates if two-factor authentication is enabled for the user"
+                    },
+                    "two_factor_verified": {
+                      "type": "boolean",
+                      "description": "Indicates if two-factor authentication is verified for the user"
+                    },
+                    "user_two_2fa": {
+                      "type": "boolean",
+                      "description": "Indicates if two-factor authentication is enabled for the user"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, invalid Apple Sign-In credentials"
+          },
+          "403": {
+            "description": "Forbidden, password reset token required"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/2FA/verify": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Verify Two-Factor Authentication Setup",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "description": "The two-factor authentication code"
+                  },
+                  "secret": {
+                    "type": "string",
+                    "description": "The user's secret for two-factor authentication setup"
+                  },
+                  "twoFa_status": {
+                    "type": "boolean",
+                    "description": "2FA Status"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User verified",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "verified": {
+                      "type": "boolean",
+                      "description": "Indicates if the two-factor authentication setup is verified"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, invalid parameters or user secret not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/2FA/qr": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Two-Factor Authentication With QR",
+        "responses": {
+          "200": {
+            "description": "Two factor authentication QR fetch success"
+          },
+          "400": {
+            "description": "Bad request, invalid parameters or user secret not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/create-organization-with-initial-profile": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create Organization With Initial Profile",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "organizationName": {
+                    "type": "string"
+                  },
+                  "organizationCategory": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Organization Created With Initial Profile"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/verify-account-by-email": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Account Verification Using Email",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Account Verified Successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Forgot Password",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "The email address of the user who forgot their password"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password reset link sent successfully"
+          },
+          "400": {
+            "description": "Bad request, user not found or other validation errors"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/reset-password": {
+      "post": {
+        "$ref": "#/paths/~1auth~1set-password/post"
+      }
+    },
+    "/auth/change-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Reset Password",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "xorganization",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "oldPassword": {
+                    "type": "string"
+                  },
+                  "newPassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password Changed Successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid token or user not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/set-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Reset Password",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "description": "The token for password reset"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "The new password for the user"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password reset successful"
+          },
+          "400": {
+            "description": "Bad request, invalid token or user not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/auth/resend-verification": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Resend verification email to a user",
+        "responses": {
+          "200": {
+            "description": "Verification email resent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Indicates if the email was resent successfully"
+                    },
+                    "verified": {
+                      "type": "boolean",
+                      "description": "Indicates if the user is already verified"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, user not found or user already verified"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create User",
+        "operationId": "createUser",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "xorganization",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "type": "string"
+                  },
+                  "report_to": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "date_format": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update User",
+        "operationId": "updateUser",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "xorganization",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "type": "string"
+                  },
+                  "two_factor_enabled": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "secret_2fa": {
+                    "type": "string"
+                  },
+                  "date_format": {
+                    "type": "string"
+                  },
+                  "report_to": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Personal details updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete User",
+        "operationId": "deleteAllUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "transfer_id": {
+                    "type": "string"
+                  },
+                  "report_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Selected Users deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get User By ID",
+        "operationId": "getUserById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "xorganization",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/users/logged-in-user": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Logged In User",
+        "operationId": "getLoggedInUser",
+        "responses": {
+          "200": {
+            "description": "User Logged-In successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/users/get-data": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Users",
+        "operationId": "getUsers",
+        "responses": {
+          "200": {
+            "description": "Users fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/users/get-descendants-users": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Descendants Users",
+        "operationId": "getDescendantsUsers",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userId",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "module",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "select",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Users fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/users/get-hierarchy-users": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Hierarchy Users",
+        "operationId": "getHierarchyUsers",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "depth_level",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "select",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Users fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "put": {
+        "$ref": "#/paths/~1users/put"
+      },
+      "get": {
+        "$ref": "#/paths/~1users/get"
+      }
+    },
+    "/roles": {
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Add Role",
+        "operationId": "addRole",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "modules": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Role created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get All Roles",
+        "operationId": "getRoles",
+        "responses": {
+          "200": {
+            "description": "Roles fetched Successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Role"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Roles",
+        "operationId": "deleteRoles",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "transfer_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "xorganization",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Roles deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/roles/is-exist": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Check Role Existence",
+        "operationId": "roleIsExist",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Role Exists"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/roles/permissions": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get All Permissions",
+        "operationId": "getAllPermissions",
+        "responses": {
+          "200": {
+            "description": "Role Permissions fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/roles/get-data": {
+      "get": {
+        "$ref": "#/paths/~1roles/get"
+      }
+    },
+    "/roles/{id}": {
+      "put": {
+        "tags": [
+          "Role"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update Profile",
+        "operationId": "updateProfile",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "modules": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "xorganization",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Role updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Role By ID",
+        "operationId": "getRoleById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Role updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/roles/permissions/{id}": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Profile Permissions",
+        "operationId": "getProfilePermissions",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "withAll",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Role Permissions fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Role"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update Profile Permissions",
+        "operationId": "updateProfilePermissions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "modules": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "xorganization",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Permissions updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/organizations": {
+      "post": {
+        "tags": [
+          "Organization"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create Organization",
+        "operationId": "createOrganization",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "organization_category": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "mobile": {
+                    "type": "string"
+                  },
+                  "fax": {
+                    "type": "string"
+                  },
+                  "website": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "address1": {
+                    "type": "string"
+                  },
+                  "address2": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "state_id": {
+                    "type": "string"
+                  },
+                  "country_id": {
+                    "type": "string"
+                  },
+                  "zip": {
+                    "type": "string"
+                  },
+                  "address_details": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Organization created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Organization"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update Organization",
+        "operationId": "updateOrganization",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "address1": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "organization_category": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "website": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "country_id": {
+                    "type": "number"
+                  },
+                  "zip": {
+                    "type": "string"
+                  },
+                  "county": {
+                    "type": "string"
+                  },
+                  "state_id": {
+                    "type": "number"
+                  },
+                  "city": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Company details updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Organization"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Organization By ID",
+        "operationId": "getOrganizationById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organization created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/organizations/{id}": {
+      "put": {
+        "$ref": "#/paths/~1organizations/put"
+      },
+      "get": {
+        "$ref": "#/paths/~1organizations/get"
+      },
+      "delete": {
+        "tags": [
+          "Organization"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Organization",
+        "operationId": "createOrganization",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organization deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/organizations/organizations`": {
+      "get": {
+        "tags": [
+          "Organization"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Organizations",
+        "operationId": "getOrganizationById",
+        "responses": {
+          "200": {
+            "description": "Organizations fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/leads": {
+      "post": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create Lead",
+        "operationId": "createUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pipeline_id": {
+                    "type": "integer"
+                  },
+                  "is_deal": {
+                    "type": "boolean"
+                  },
+                  "deal_stage_id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "integer"
+                  },
+                  "lead_owner_id": {
+                    "type": "integer"
+                  },
+                  "lead_status_id": {
+                    "type": "integer"
+                  },
+                  "probability": {
+                    "type": "string"
+                  },
+                  "lead_temp_id": {
+                    "type": "integer"
+                  },
+                  "lead_score": {
+                    "type": "string"
+                  },
+                  "closing_date": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "deal_value": {
+                    "type": "string"
+                  },
+                  "related_account": {
+                    "type": "object",
+                    "properties": {
+                      "new": {
+                        "type": "object",
+                        "items": {}
+                      },
+                      "old": {
+                        "type": "object",
+                        "items": {}
+                      }
+                    }
+                  },
+                  "contacts": {
+                    "type": "object",
+                    "properties": {
+                      "new": {
+                        "type": "object",
+                        "items": {}
+                      },
+                      "old": {
+                        "type": "object",
+                        "items": {}
+                      }
+                    }
+                  },
+                  "lead_source": {
+                    "type": "object",
+                    "properties": {
+                      "new": {
+                        "type": "object",
+                        "items": {}
+                      },
+                      "old": {
+                        "type": "object",
+                        "items": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Lead created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Lead",
+        "operationId": "deleteManyLeads",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allId": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Leads deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get All Leads",
+        "operationId": "getAllLeads",
+        "responses": {
+          "200": {
+            "description": "Leads fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/leads/columns": {
+      "post": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get All Leads",
+        "operationId": "getAllLeads",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "type": "object",
+            "properties": {
+              "is_deal": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lead Columns fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/leads/advance-filter": {
+      "post": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Lead Advance Filter Data",
+        "operationId": "getAdvanceFilterData",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "type": "object",
+            "properties": {
+              "is_deal": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lead Advance Filter Data fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/leads/restore": {
+      "post": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Restore Deleted Leads",
+        "operationId": "restoreDeletedLeads",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ids": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "is_deal": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Lead restored successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/leads/destroy": {
+      "post": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Destroy Deleted Leads",
+        "operationId": "destroyDeletedLeads",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "xorganization",
+            "type": "string"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ids": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "is_deal": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Lead destroyed successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/leads/get-data": {
+      "post": {
+        "$ref": "#/paths/~1leads/get"
+      }
+    },
+    "/leads/get-data/{id}": {
+      "post": {
+        "$ref": "#/paths/~1leads~1source/get"
+      }
+    },
+    "/leads/source": {
+      "get": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Lead By ID",
+        "operationId": "getLeadById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lead fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/leads/count": {
+      "get": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Leads Count",
+        "operationId": "getLeadsCount",
+        "responses": {
+          "200": {
+            "description": "Lead Counts fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/leads/{id}": {
+      "get": {
+        "$ref": "#/paths/~1leads~1source/get"
+      },
+      "put": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update Lead",
+        "operationId": "updateLeadById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "lead_status_id": {
+                    "type": "integer"
+                  },
+                  "lead_temp_id": {
+                    "type": "integer"
+                  },
+                  "lead_owner_id": {
+                    "type": "integer"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "lead_score": {
+                    "type": "integer"
+                  },
+                  "deal_stage_id": {
+                    "type": "integer"
+                  },
+                  "deal_value": {
+                    "type": "integer"
+                  },
+                  "probability": {
+                    "type": "integer"
+                  },
+                  "is_deal": {
+                    "type": "boolean"
+                  },
+                  "pipeline_id": {
+                    "type": "integer"
+                  },
+                  "closing_date": {
+                    "type": "string"
+                  },
+                  "related_account": {
+                    "type": "object",
+                    "items": {}
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "comment": {
+                    "type": "string"
+                  },
+                  "keepTimelineEmails": {
+                    "type": "object",
+                    "properties": {
+                      "key": {
+                        "type": "string"
+                      },
+                      "data": {
+                        "type": "number"
+                      },
+                      "keep": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "is_converted": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Lead Updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Lead",
+        "operationId": "deleteLead",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lead Deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/leads/getWonLostStages/{id}": {
+      "get": {
+        "tags": [
+          "Lead"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Won Lost Stages From Lead Id",
+        "operationId": "getWonLostStagesFromLeadId",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "stageType",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lead's won-lost stages fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "cookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "x-session"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "xorganization",
+        "schema": {
+          "type": "string",
+          "format": "uuid",
+          "required": true
+        }
+      }
+    },
+    "schemas": {
+      "AuthRegister": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "required": true
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "mobile": {
+            "type": "string"
+          },
+          "organizationName": {
+            "type": "string"
+          },
+          "organizationCategory": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string"
+          },
+          "initial_color": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

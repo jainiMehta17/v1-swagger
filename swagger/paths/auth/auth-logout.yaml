@@ -1,0 +1,13 @@
+tags:
+  - Auth
+security:
+  - cookieAuth: []
+summary: Logout User
+operationId: logout
+responses:
+  200:
+    description: User logged out successfully
+  400:
+    description: Bad request, session data not found
+  500:
+    description: Internal server error

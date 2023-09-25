@@ -1,0 +1,41 @@
+tags:
+  - User
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update User
+operationId: updateUser
+parameters:
+  - in: header
+    name: xorganization
+    type: string
+    required: true
+  - in: path
+    name: id
+    type: string
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          role:
+            type: string
+          two_factor_enabled:
+            type: string
+          email:
+            type: string
+            format: email
+          secret_2fa:
+            type: string
+          date_format:
+            type: string
+          report_to:
+            type: string
+responses:
+  200:
+    description: Personal details updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

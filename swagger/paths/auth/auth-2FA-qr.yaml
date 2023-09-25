@@ -1,0 +1,13 @@
+tags:
+  - Auth
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Two-Factor Authentication With QR
+responses:
+  200:
+    description: Two factor authentication QR fetch success
+  400:
+    description: Bad request, invalid parameters or user secret not found
+  500:
+    description: Internal server error

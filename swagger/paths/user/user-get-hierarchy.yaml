@@ -1,0 +1,27 @@
+tags:
+  - User
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Hierarchy Users
+operationId: getHierarchyUsers
+parameters:
+  - in: query
+    name: depth_level
+    type: string
+  - in: query
+    name: select
+    type: string
+  - in: query
+    name: type
+    type: string
+  - in: query
+    name: userId
+    type: string
+responses:
+  200:
+    description: Users fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

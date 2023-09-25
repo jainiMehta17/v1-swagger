@@ -1,0 +1,67 @@
+tags:
+  - Lead
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Lead
+operationId: updateLeadById
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          lead_status_id:
+            type: integer
+          lead_temp_id:
+            type: integer
+          lead_owner_id:
+            type: integer
+          description:
+            type: string
+          lead_score:
+            type: integer
+          deal_stage_id:
+            type: integer
+          deal_value:
+            type: integer
+          probability:
+            type: integer
+          is_deal:
+            type: boolean
+          pipeline_id:
+            type: integer
+          closing_date:
+            type: string
+          related_account:
+            type: object
+            items: {}
+          reason:
+            type: string
+          comment:
+            type: string
+          keepTimelineEmails:
+            type: object
+            properties:
+              key:
+                type: string
+              data:
+                type: number
+              keep:
+                type: boolean
+          is_converted:
+            type: boolean
+responses:
+  200:
+    description: Lead Updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

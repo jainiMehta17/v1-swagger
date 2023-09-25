@@ -1,0 +1,37 @@
+tags:
+  - Auth
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Verify Two-Factor Authentication Setup
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          code:
+            type: string
+            description: The two-factor authentication code
+          secret:
+            type: string
+            description: The user's secret for two-factor authentication setup
+          twoFa_status:
+            type: boolean
+            description: 2FA Status
+responses:
+  200:
+    description: User verified
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            verified:
+              type: boolean
+              description: Indicates if the two-factor authentication setup is verified
+  400:
+    description: Bad request, invalid parameters or user secret not found
+  500:
+    description: Internal server error

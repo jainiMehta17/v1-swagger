@@ -1,0 +1,167 @@
+# Auth API
+/auth/register:
+  post:
+    $ref: ./auth/auth-register.yaml
+/auth/email-exist:
+  post:
+    $ref: ./auth/auth-email-exist.yaml
+/auth/login:
+  post:
+    $ref: ./auth/auth-login.yaml
+/auth/logout:
+  get:
+    $ref: ./auth/auth-logout.yaml
+/auth/switch-organization:
+  get:
+    $ref: ./auth/auth-switch-organization.yaml
+/auth/google:
+  post:
+    $ref: ./auth/auth-google.yaml
+/auth/apple:
+  post:
+    $ref: ./auth/auth-apple.yaml
+/auth/2FA/verify:
+  post:
+    $ref: ./auth/auth-2FA-verify.yaml
+/auth/2FA/qr:
+  get:
+    $ref: ./auth/auth-2FA-qr.yaml
+/auth/create-organization-with-initial-profile:
+  post:
+    $ref: ./auth/auth-create-organization-with-initial-profile.yaml
+/auth/verify-account-by-email:
+  post:
+    $ref: ./auth/auth-verify-account-by-email.yaml
+/auth/forgot-password:
+  post:
+    $ref: ./auth/auth-forgot-password.yaml
+/auth/reset-password:
+  post:
+    $ref: ./auth/auth-reset-password.yaml
+/auth/change-password:
+  post:
+    $ref: ./auth/auth-change-password.yaml
+/auth/set-password:
+  post:
+    $ref: ./auth/auth-reset-password.yaml
+/auth/resend-verification:
+  get:
+    $ref: ./auth/auth-resend-verification.yaml
+
+# User API
+/users:
+  post:
+    $ref: ./user/user-create.yaml
+  put:
+    $ref: ./user/user-update.yaml
+  delete:
+    $ref: ./user/user-delete.yaml
+  get:
+    $ref: ./user/user-get.yaml
+/users/logged-in-user:
+  get:
+    $ref: ./user/user-logged-in.yaml
+/users/get-data:
+  post:
+    $ref: ./user/user-get-list.yaml
+/users/get-descendants-users:
+  get:
+    $ref: ./user/user-get-descendants.yaml
+/users/get-hierarchy-users:
+  get:
+    $ref: ./user/user-get-hierarchy.yaml
+/users/{id}:
+  put:
+    $ref: ./user/user-update.yaml
+  get:
+    $ref: ./user/user-get.yaml
+
+# Role API
+/roles:
+  post:
+    $ref: ./role/role-add.yaml
+  get:
+    $ref: ./role/role-get-list.yaml
+  delete:
+    $ref: ./role/role-delete.yaml
+/roles/is-exist:
+  get:
+    $ref: ./role/role-is-exist.yaml
+/roles/permissions:
+  get:
+    $ref: ./role/role-get-all-permissions.yaml
+/roles/get-data:
+  get:
+    $ref: ./role/role-get-list.yaml
+/roles/{id}:
+  put:
+    $ref: ./role/role-update.yaml
+  get:
+    $ref: ./role/role-get.yaml
+/roles/permissions/{id}:
+  get:
+    $ref: ./role/role-get-profile-permissions.yaml
+  put:
+    $ref: ./role/role-update-profile-permissions.yaml
+
+# Role API
+/organizations:
+  post:
+    $ref: ./organization/organization-create.yaml
+  put:
+    $ref: ./organization/organization-update.yaml
+  get:
+    $ref: ./organization/organization-get.yaml
+/organizations/{id}:
+  put:
+    $ref: ./organization/organization-update.yaml
+  get:
+    $ref: ./organization/organization-get.yaml
+  delete:
+    $ref: ./organization/organization-delete.yaml
+/organizations/organizations`:
+  get:
+    $ref: ./organization/organization-get-list.yaml
+
+# Lead API
+/leads:
+  post:
+    $ref: ./lead/lead-create.yaml
+  delete:
+    $ref: ./lead/lead-delete-many.yaml
+  get:
+    $ref: ./lead/lead-get-all.yaml
+/leads/columns:
+  post:
+    $ref: ./lead/lead-get-columns.yaml
+/leads/advance-filter:
+  post:
+    $ref: ./lead/lead-get-advance-filter-data.yaml
+/leads/restore:
+  post:
+    $ref: ./lead/lead-restore-deleted.yaml
+/leads/destroy:
+  post:
+    $ref: ./lead/lead-destroy-deleted.yaml
+/leads/get-data:
+  post:
+    $ref: ./lead/lead-get-all.yaml
+/leads/get-data/{id}:
+  post:
+    $ref: ./lead/lead-get.yaml
+/leads/source:
+  get:
+    $ref: ./lead/lead-get.yaml
+/leads/count:
+  get:
+    $ref: ./lead/lead-get-count.yaml
+/leads/{id}:
+  get:
+    $ref: ./lead/lead-get.yaml
+  put:
+    $ref: ./lead/lead-update.yaml
+  delete:
+    $ref: ./lead/lead-delete.yaml
+/leads/getWonLostStages/{id}:
+  get:
+    $ref: ./lead/lead-get-won-lost-stages.yaml
