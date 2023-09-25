@@ -1,0 +1,106 @@
+tags:
+  - Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Account
+operationId: updateAccount
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          zip:
+            type: integer
+          annual_revenue:
+            type: integer
+          employees:
+            type: string
+          fax:
+            type: string
+          related_contacts:
+            type: object
+            properties:
+              new:
+                type: array
+                items: {}
+              old:
+                type: array
+                items: {}
+              updated:
+                type: array
+                items: {}
+              deleted:
+                type: array
+                items: {}
+          emails:
+            type: array
+            items: 
+              type: object
+              properties:
+                isPrimary:
+                  type: boolean
+                value:
+                  type: string
+          phones:
+            type: array
+            items: 
+              type: object
+              properties:
+                isPrimary:
+                  type: boolean
+                phoneType:
+                  type: string
+                  example: 'Home'
+                value:
+                  type: string
+          name:
+            type: string
+          account_owner_id:
+            type: integer
+          rating:
+            type: integer
+          parent_account_id:
+            type: integer
+          sub_account_id:
+            type: integer
+          website:
+            type: string
+          account_type:
+            type: string
+          ownership:
+            type: string
+          industry:
+            type: string
+          description:
+            type: string
+          city:
+            type: string
+          county:
+            type: string
+          state_id:
+            type: integer
+          country_id:
+            type: integer
+          address1:
+            type: string
+          address2:
+            type: string
+          timezone:
+            type: string
+            example: 'Asia/Calcutta'
+          account_image:
+            type: string
+responses:
+  200:
+    description: Account updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

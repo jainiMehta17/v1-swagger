@@ -1,0 +1,33 @@
+tags:
+  - Activity
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Activity Advance Filter Data
+operationId: getAdvanceFilterData
+parameters:
+  - in: query
+    name: page
+    type: integer
+  - in: query
+    name: limit
+    type: integer
+  - in: query
+    name: select
+    type: string
+    example: 'id,guests,topic,start_date,end_date,duration,is_active'
+  - in: query
+    name: sort
+    type: string
+    example: '-id'
+  - in: query
+    name: tableName
+    type: string
+    example: 'Activity'
+responses:
+  200:
+    description: Activities fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

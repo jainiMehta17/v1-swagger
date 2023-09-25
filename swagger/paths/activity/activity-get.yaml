@@ -1,0 +1,19 @@
+tags:
+  - Activity
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Activity
+operationId: getActivityById
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Activity fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

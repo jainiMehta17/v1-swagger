@@ -1,0 +1,113 @@
+tags:
+  - Contact
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Count
+operationId: updateContact
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          zip:
+            type: string
+          twitter:
+            type: string
+          skype:
+            type: string
+          related_accounts:
+            type: object
+            properties:
+              new:
+                type: array
+                items: {}
+                example: {'name':'fgxhxd', 'job_role': 'role', 'is_primary':"true", 'timezone':'Asia/Calcutta'}
+              old:
+                type: array
+                items: {}
+              updated: 
+                type: array
+                items: {}
+              deleted:
+                type: array
+                items: {}
+          related_contacts:
+            type: object
+            properties:
+              new:
+                type: array
+                items: {}
+                example: {'name':'fgxhxd', 'job_role': 'role','timezone':'Asia/Calcutta'}
+              old:
+                type: array
+                items: {}
+              updated: 
+                type: array
+                items: {}
+              deleted:
+                type: array
+                items: {}
+          phones:
+            type: object
+            properties:
+              is_primary:
+                type: boolean
+              phoneType:
+                type: string
+                example: 'office'
+              value: 
+                type: string
+          timezone:
+            type: string
+            example: 'Asia/Calcutta'
+          contact_owner_id:
+            type: integer
+          emails:
+            type: array
+            items:
+              type: object
+              properties: 
+                value:
+                  type: string
+                is_primary: 
+                  type: boolean
+          name: 
+            type: string
+          department: 
+            type: string
+          reporting_to: 
+            type: integer
+          birth_date: 
+            type: string
+          address1: 
+            type: string
+          address2: 
+            type: string
+          country_id: 
+            type: integer
+          city: 
+            type: integer
+          state_id: 
+            type: integer
+          description: 
+            type: string
+          job_role: 
+            type: string
+          contact_image: 
+            type: string
+          county: 
+            type: string
+responses: 
+  200:
+    description: Trash Contacts restored successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

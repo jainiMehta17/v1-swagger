@@ -1,0 +1,32 @@
+tags:
+  - Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Advance Filter Data
+operationId: getAdvanceFilterData
+parameters:
+  - in: query
+    name: page
+    type: integer
+  - in: query
+    name: limit
+    type: integer
+  - in: query
+    name: select
+    type: string
+    example: 'id,name,emails,phones,account_image,initial_color'
+  - in: query
+    name: subQuery
+    type: boolean
+  - in: query
+    name: sort
+    type: string
+    example: '-id'
+responses:
+  200:
+    description: Account created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

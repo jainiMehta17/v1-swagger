@@ -1,0 +1,27 @@
+tags:
+  - Activity
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Confirm Guest Availability
+operationId: confirmGuestAvailability
+parameters:
+  - in: query
+    name: activity_id
+    type: integer
+  - in: query
+    name: guest_mail
+    type: string
+  - in: query
+    name: participant_id
+    type: integer
+  - in: query
+    name: action
+    type: integer
+responses:
+  200:
+    description: Confirmed Guest Availability
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

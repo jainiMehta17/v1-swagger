@@ -1,0 +1,24 @@
+tags:
+  - Activity
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Destroy Deleted Activities
+operationId: destroyDeletedActivities
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          activityIds:
+            type: array
+            items:
+              type: integer
+responses:
+  200:
+    description: Activity type deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

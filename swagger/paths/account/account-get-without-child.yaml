@@ -1,0 +1,19 @@
+tags:
+  - Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Accounts Without Its Child
+operationId: getAccountsWithoutItsChild
+parameters:
+  - in: query
+    name: account_id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Accounts fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

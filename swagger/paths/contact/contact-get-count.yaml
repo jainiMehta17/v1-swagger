@@ -1,0 +1,14 @@
+tags:
+  - Contact
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Contact Count
+operationId: getContactCount
+responses: 
+  200:
+    description: Contact count fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

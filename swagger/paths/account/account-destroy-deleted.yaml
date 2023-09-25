@@ -1,0 +1,23 @@
+tags:
+  - Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Destroy Deleted Accounts
+operationId: destroyDeletedAccounts
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          accountIds:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Selected Accounts deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

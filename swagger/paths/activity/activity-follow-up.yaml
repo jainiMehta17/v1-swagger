@@ -1,0 +1,90 @@
+tags:
+  - Activity
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Follow-Up Activity
+operationId: followUpActivity
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          topic:
+            type: string
+            example: 'Email'
+          start_date:
+            type: string
+          duration:
+            type: integer
+          agenda:
+            type: string
+          activity_lead_id:
+            type: integer
+          activity_account:
+            type: object
+            properties:
+              old:
+                type: integer
+              new:
+                type: integer
+          activity_contact:
+            type: object
+            properties:
+              old:
+                type: integer
+              new:
+                type: integer
+          guests:
+            type: array
+            items: {}
+          availability:
+            type: string
+            example: 'Busy'
+          assigned_to_id:
+            type: integer
+          activity_type_id:
+            type: 
+          notifications:
+            type: array
+            items:
+              type: object
+              properties:
+                duration: 
+                  type: integer
+                durationType:
+                  type: integer
+                notificationType:
+                  type: string
+                  example: 'notification'
+          all_day: 
+            type: boolean
+          location_details:
+            type: object
+            items: {}
+          activity_collaborators:
+            type: object
+            items: {}
+          host_id:
+            type: integer
+          activity_participants:
+            type: object
+            properties:
+              new:
+                type: array
+                items: {}
+          result:
+            type: string
+responses:
+  200:
+    description: Activities fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

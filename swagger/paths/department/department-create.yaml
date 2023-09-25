@@ -1,0 +1,30 @@
+tags:
+  - Department
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Department
+operationId: createDepartment
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          description:
+            type: string
+          admin_id:
+            type: integer
+          users:
+            anyOf:
+              - type: string
+              - type: array
+responses:
+  200:
+    description: Department created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

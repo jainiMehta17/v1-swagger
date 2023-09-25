@@ -1,0 +1,19 @@
+tags:
+  - Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Account
+operationId: getAccount
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Account fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

@@ -1,0 +1,21 @@
+tags:
+  - Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Parent Child Account
+operationId: getParentChildAccount
+parameters:
+  - in: query
+    name: parent_account_id
+    type: integer
+  - in: query
+    name: account_id
+    type: integer
+responses:
+  200:
+    description: Accounts fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

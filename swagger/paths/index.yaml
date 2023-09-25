@@ -1,4 +1,4 @@
-# Auth API
+# Auth APIs
 /auth/register:
   post:
     $ref: ./auth/auth-register.yaml
@@ -48,7 +48,7 @@
   get:
     $ref: ./auth/auth-resend-verification.yaml
 
-# User API
+# User APIs
 /users:
   post:
     $ref: ./user/user-create.yaml
@@ -76,7 +76,7 @@
   get:
     $ref: ./user/user-get.yaml
 
-# Role API
+# Role APIs
 /roles:
   post:
     $ref: ./role/role-add.yaml
@@ -104,7 +104,7 @@
   put:
     $ref: ./role/role-update-profile-permissions.yaml
 
-# Role API
+# Role APIs
 /organizations:
   post:
     $ref: ./organization/organization-create.yaml
@@ -119,11 +119,11 @@
     $ref: ./organization/organization-get.yaml
   delete:
     $ref: ./organization/organization-delete.yaml
-/organizations/organizations`:
+/organizations/organizations:
   get:
     $ref: ./organization/organization-get-list.yaml
 
-# Lead API
+# Lead APIs
 /leads:
   post:
     $ref: ./lead/lead-create.yaml
@@ -165,3 +165,154 @@
 /leads/getWonLostStages/{id}:
   get:
     $ref: ./lead/lead-get-won-lost-stages.yaml
+
+# Account APIs
+/accounts:
+  post:
+    $ref: ./account/account-create.yaml
+  get:
+    $ref: ./account/account-get-many.yaml
+  delete:
+    $ref: ./account/account-delete-many.yaml
+/accounts/columns:
+  get:
+    $ref: ./account/account-get-columns.yaml
+/accounts/restore:
+  post:
+    $ref: ./account/account-restore-deleted.yaml
+/accounts/destroy:
+  post:
+    $ref: ./account/account-destroy-deleted.yaml
+/accounts/get-data:
+  post:
+    $ref: ./account/account-get-many.yaml
+/accounts/advance-filter:
+  post:
+    $ref: ./account/account-get-advance-filter-data.yaml
+/accounts/get-data/{id}:
+  post:
+    $ref: ./account/account-get.yaml
+/accounts/count:
+  get:
+    $ref: ./account/account-get-count.yaml
+/accounts/get-parent-accounts:
+  get:
+    $ref: ./account/account-get-parent.yaml
+/accounts/check-parent-account:
+  get:
+    $ref: ./account/account-check-for-parent.yaml
+/accounts/get-parent-child-account:
+  get:
+    $ref: ./account/account-get-parent-child.yaml
+/accounts/getAccountsWithoutItsChild:
+  get:
+    $ref: ./account/account-get-without-child.yaml
+/accounts/{id}:
+  get:
+    $ref: ./account/account-get.yaml
+  put:
+    $ref: ./account/account-update.yaml
+  patch:
+    $ref: ./account/account-update.yaml
+  delete:
+    $ref: ./account/account-update.yaml
+
+# Contact APIs
+/contacts:
+  post:
+    $ref: ./contact/contact-create.yaml
+  get:
+    $ref: ./contact/contact-get-many.yaml
+  delete:
+    $ref: ./contact/contact-delete-many.yaml
+/contacts/count:
+  get:
+    $ref: ./contact/contact-get-count.yaml
+/contacts/columns:
+  get:
+    $ref: ./contact/contact-get-columns.yaml
+/contacts/advance-filter:
+  post:
+    $ref: ./contact/contact-get-advance-filter.yaml
+/contacts/restore:
+  post:
+    $ref: ./contact/contact-restore-deleted.yaml
+/contacts/destroy:
+  delete:
+    $ref: ./contact/contact-destroy-deleted.yaml
+/contacts/get-data:
+  delete:
+    $ref: ./contact/contact-get-many.yaml
+/contacts/get-data/{id}:
+  post:
+    $ref: ./contact/contact-get.yaml
+/contacts/{id}:
+  get:
+    $ref: ./contact/contact-get.yaml
+  put:
+    $ref: ./contact/contact-update.yaml
+  delete:
+    $ref: ./contact/contact-delete.yaml
+
+# Department APIs
+/departments:
+  post:
+    $ref: ./department/department-create.yaml
+  get:
+    $ref: ./department/department-get-many.yaml
+  delete:
+    $ref: ./department/department-delete.yaml
+/departments/get-data:
+  post:
+    $ref: ./department/department-get-many.yaml
+/departments/{id}:
+  get:
+    $ref: ./department/department-get.yaml
+  put:
+    $ref: ./department/department-update.yaml
+
+# Activity APIs
+/activities:
+  post:
+    $ref: ./activity/activity-add.yaml
+  get:
+    $ref: ./activity/activity-get-all.yaml
+  delete:
+    $ref: ./activity/activity-delete.yaml
+/activities/restore:
+  post:
+    $ref: ./activity/activity-restore-deleted.yaml
+/activities/destroy:
+  post:
+    $ref: ./activity/activity-destroy-deleted.yaml
+/activities/get-data:
+  post:
+    $ref: ./activity/activity-get-all.yaml
+/activities/get-data/{id}:
+  post:
+    $ref: ./activity/activity-get.yaml
+/activities/count:
+  get:
+    $ref: ./activity/activity-get-count.yaml
+/activities/columns:
+  get:
+    $ref: ./activity/activity-get-columns.yaml
+/activities/advance-filter:
+  get:
+    $ref: ./activity/activity-get-advance-filter-data.yaml
+/activities/confirm-availability:
+  get:
+    $ref: ./activity/activity-confirm-guest-availability.yaml
+/activities/{id}:
+  get:
+    $ref: ./activity/activity-get.yaml
+  put:
+    $ref: ./activity/activity-update.yaml
+  patch:
+    $ref: ./activity/activity-update.yaml
+/activities/change-active-status/{id}:
+  patch:
+    $ref: ./activity/activity-change-status.yaml
+/activities/follow-up/{id}:
+  post:
+    $ref: ./activity/activity-follow-up.yaml

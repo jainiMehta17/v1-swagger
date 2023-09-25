@@ -1,0 +1,23 @@
+tags:
+  - Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Restore Deleted Accounts
+operationId: restoreDeletedAccounts
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          accountIds:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Account created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

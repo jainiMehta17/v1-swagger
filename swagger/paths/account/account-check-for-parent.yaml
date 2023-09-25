@@ -1,0 +1,21 @@
+tags:
+  - Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Check For Parent Account
+operationId: checkForParentAccount
+parameters:
+  - in: query
+    name: parent_id
+    type: integer
+  - in: query
+    name: account_id
+    type: integer
+responses:
+  200:
+    description: Parent selected successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

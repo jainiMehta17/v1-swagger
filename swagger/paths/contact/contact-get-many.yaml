@@ -1,0 +1,26 @@
+tags:
+  - Contact
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Contacts
+operationId: getContacts
+parameters:
+  - in: query
+    name: qjson
+    schema:
+      type: object
+      items: {}
+  - in: query
+    name: tableName
+    type: string
+  - in: query
+    name: include
+    type: string
+responses:
+  200:
+    description: Contacts fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

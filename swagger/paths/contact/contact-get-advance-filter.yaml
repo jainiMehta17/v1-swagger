@@ -1,0 +1,33 @@
+tags:
+  - Contact
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Contact Columns
+operationId: getColumns
+parameters:
+  - in: query
+    name: page
+    type: integer
+  - in: query
+    name: limit
+    type: integer
+  - in: query
+    name: select
+    type: string
+    example: 'id,name,emails,phones,contact_image,initial_color'
+  - in: query
+    name: sort
+    type: string
+    example: '-id'
+  - in: query
+    name: tableName
+    type: string
+    example: 'Contact'
+responses: 
+  200:
+    description: Contacts fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

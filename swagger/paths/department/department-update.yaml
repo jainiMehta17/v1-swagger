@@ -1,0 +1,35 @@
+tags:
+  - Department
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Department
+operationId: updateDepartment
+parameters:
+  - in: path 
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          description:
+            type: string
+          admin_id:
+            type: integer
+          users:
+            anyOf:
+              - type: string
+              - type: array
+responses:
+  200:
+    description: Department updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

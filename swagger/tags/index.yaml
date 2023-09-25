@@ -8,3 +8,11 @@
   description: Organization APIs
 - name: Lead
   description: Lead APIs
+- name: Account
+  description: Account APIs
+- name: Contact
+  description: Contact APIs
+- name: Department
+  description: Department APIs
+- name: Activity
+  description: Activity APIs

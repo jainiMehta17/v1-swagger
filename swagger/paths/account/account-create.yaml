@@ -1,0 +1,75 @@
+tags:
+  - Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Account
+operationId: createAccount
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          emails:
+            type: array
+            items: {}
+          name:
+            type: string
+          annual_revenue:
+            type: integer
+          employees:
+            type: string
+          fax:
+            type: string
+          related_contacts:
+            type: object
+            properties:
+              new:
+                type: array
+                items: {}
+              old:
+                type: array
+                items: {}
+          phones:
+            type: array
+            items: {}
+          account_owner_id:
+            type: integer
+          timezone:
+            type: string
+          state_id:
+            type: integer
+          country_id:
+            type: integer
+          parent_account_id:
+            type: integer
+          rating:
+            type: integer
+          website:
+            type: string
+          account_type:
+            type: string
+          ownership:
+            type: string
+          industry:
+            type: string
+          address1:
+            type: string
+          city:
+            type: string
+          county:
+            type: string
+          description:
+            type: string
+          account_image:
+            type: string
+          initial_color:
+            type: string
+responses:
+  200:
+    description: Account created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

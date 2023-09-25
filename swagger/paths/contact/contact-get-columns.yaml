@@ -1,0 +1,14 @@
+tags:
+  - Contact
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Contact Columns
+operationId: getColumns
+responses: 
+  200:
+    description: Contact Columns Fetched Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

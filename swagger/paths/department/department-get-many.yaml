@@ -1,12 +1,13 @@
 tags:
-  - Lead
+  - Department
 security:
   - cookieAuth: []
-summary: Get All Leads
-operationId: getAllLeads
+  - ApiKeyAuth: []
+summary: Get Departments
+operationId: getDepartments
 responses:
   200:
-    description: Leads fetched successfully
+    description: Departments fetched successfully
   400:
     description: Bad request, invalid credentials
   500:

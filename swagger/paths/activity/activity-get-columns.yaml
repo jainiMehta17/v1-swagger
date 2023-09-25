@@ -1,12 +1,13 @@
 tags:
-  - Lead
+  - Activity
 security:
   - cookieAuth: []
-summary: Get All Leads
-operationId: getAllLeads
+  - ApiKeyAuth: []
+summary: Get Activity Columns
+operationId: getColumns
 responses:
   200:
-    description: Leads fetched successfully
+    description: Activity Columns Fetched Successfully
   400:
     description: Bad request, invalid credentials
   500:

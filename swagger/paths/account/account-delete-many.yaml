@@ -1,0 +1,32 @@
+tags:
+  - Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Many Accounts
+operationId: deleteManyAccounts
+parameters:
+  - in: query
+    name: qjson
+    schema:
+      type: object
+      items: {}
+  - in: query
+    name: tableName
+    type: string
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          allId:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Accounts deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

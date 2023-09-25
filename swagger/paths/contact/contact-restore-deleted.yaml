@@ -1,0 +1,24 @@
+tags:
+  - Contact
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Contact Count
+operationId: getContactCount
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          contactIds:
+            type: array
+            items: 
+              type: integer
+responses: 
+  200:
+    description: Trash Contacts restored successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

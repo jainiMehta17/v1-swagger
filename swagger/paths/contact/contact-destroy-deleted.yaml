@@ -1,0 +1,24 @@
+tags:
+  - Contact
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Destroy Deleted Contacts
+operationId: destroyDeletedContacts
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          contactIds:
+            type: array
+            items: 
+              type: integer
+responses:
+  200:
+    description: Contacts deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

@@ -1,0 +1,136 @@
+tags:
+  - Activity
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Add Activity
+operationId: addActivity
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          notifications:
+            type: array
+            items:
+              type: object
+              properties:
+                duration:
+                  type: integer
+                durationType:
+                  type: integer
+                notificationType:
+                  type: string
+                  example: 'notification'
+          availability:
+            type: string
+            example: 'Busy'
+          activity_type_id:
+            type: integer
+          assigned_to_id:
+            type: integer
+          topic:
+            type: string
+          duration:
+            type: integer
+          start_date:
+            type: string
+          is_visibility:
+            type: boolean
+          agenda:
+            type: string
+          guests:
+            type: array
+            items: {}
+          activity_collaborators:
+            type: object
+            properties:
+              new:
+                type: array
+                items:
+                  type: integer
+              old:
+                type: array
+                items:
+                  type: integer
+          zoom_meeting_details:
+            type: object
+            items: {}
+          location_details:
+            type: object
+            items: {}
+          all_day:
+            type: boolean
+          host_id:
+            type: integer
+          should_send_mail:
+            type: boolean
+          activity_participants:
+            type: object
+            properties:
+              new:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    participant_emails:
+                      type: array
+                      items: 
+                        type: string
+                    participant_id:
+                      type: integer
+                    participant_name:
+                      type: string
+                    participant_type:
+                      type: string
+                      example: 'Contact'
+                    activity_email_setting:
+                      type: array
+                      items: 
+                        type: object
+                        properties:
+                          email_status:
+                            type: string
+                            example: 'disabled'
+                          should_send_mail:
+                            type: boolean
+              old:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    participant_emails:
+                      type: array
+                      items: 
+                        type: string
+                    participant_id:
+                      type: integer
+                    participant_name:
+                      type: string
+                    participant_type:
+                      type: string
+                      example: 'Contact'
+                    activity_email_setting:
+                      type: array
+                      items: 
+                        type: object
+                        properties:
+                          email_status:
+                            type: string
+                            example: 'disabled'
+                          should_send_mail:
+                            type: boolean
+          activity_contact:
+            type: object
+            items: {}
+          activity_account:
+            type: object
+            items: {}
+responses:
+  200:
+    description: Activity added successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

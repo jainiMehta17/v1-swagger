@@ -1,0 +1,19 @@
+tags:
+  - Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Account
+operationId: deleteAccount
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Account deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

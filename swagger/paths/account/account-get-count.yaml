@@ -1,12 +1,13 @@
 tags:
-  - Lead
+  - Account
 security:
   - cookieAuth: []
-summary: Get All Leads
-operationId: getAllLeads
+  - ApiKeyAuth: []
+summary: Get Account Count
+operationId: getAccountCount
 responses:
   200:
-    description: Leads fetched successfully
+    description: Account count fetched successfully
   400:
     description: Bad request, invalid credentials
   500:
