@@ -320,17 +320,17 @@
 # Product Version API
 /product-version:
   post:
-    $ref: ./general-setting/product-version-create.yaml
+    $ref: ./product-version/product-version-create.yaml
 
 # Smtp-Imap API
 /advance-option/smtp-imap/connect:
   post:
-    $ref: ./general-setting/smtp-imap-connet.yaml
+    $ref: ./smtp-imap/smtp-imap-connet.yaml
 /advance-option/smtp-imap/me:
   get:
-    $ref: ./general-setting/smtp-imap-get.yaml
+    $ref: ./smtp-imap/smtp-imap-get.yaml
   delete:
-    $ref: ./activity-type/smtp-imap-delete.yaml
+    $ref: ./smtp-imap/smtp-imap-delete.yaml
 
 # PushNotification API
 /subscribe:

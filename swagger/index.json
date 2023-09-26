@@ -63,6 +63,70 @@
     {
       "name": "Attachment",
       "description": "Attachment APIs"
+    },
+    {
+      "name": "Pipeline",
+      "description": "Pipeline APIs"
+    },
+    {
+      "name": "Zoom",
+      "description": "Zoom APIs"
+    },
+    {
+      "name": "Activity-Type",
+      "description": "Activity-Type APIs"
+    },
+    {
+      "name": "General-Setting",
+      "description": "General-Setting APIs"
+    },
+    {
+      "name": "Product-Version",
+      "description": "Product-Version APIs"
+    },
+    {
+      "name": "Smtp-Imap",
+      "description": "Smtp-Imap APIs"
+    },
+    {
+      "name": "PushNotification",
+      "description": "PushNotification APIs"
+    },
+    {
+      "name": "Search",
+      "description": "Search APIs"
+    },
+    {
+      "name": "StayInTouchActivity",
+      "description": "StayInTouchActivity APIs"
+    },
+    {
+      "name": "Comment",
+      "description": "Comment APIs"
+    },
+    {
+      "name": "Follow-Entity",
+      "description": "Follow-Entity APIs"
+    },
+    {
+      "name": "Reaction",
+      "description": "Reaction APIs"
+    },
+    {
+      "name": "Icon-Type",
+      "description": "Icon-Type APIs"
+    },
+    {
+      "name": "Super-Admin",
+      "description": "Super-Admin APIs"
+    },
+    {
+      "name": "Recall",
+      "description": "Recall APIs"
+    },
+    {
+      "name": "Org-Alert",
+      "description": "Org-Alert APIs"
     }
   ],
   "paths": {
@@ -3772,6 +3836,2397 @@
             "description": "Internal server error"
           }
         }
+      }
+    },
+    "/pipelines": {
+      "post": {
+        "tags": [
+          "Pipeline"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Add Pipeline",
+        "operationId": "createPipeline",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "stages": {
+                    "type": "object",
+                    "properties": {
+                      "new": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "old": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    }
+                  },
+                  "is_default": {
+                    "type": "boolean"
+                  },
+                  "rot_days": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pipeline created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Pipeline"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Pipeline",
+        "operationId": "getPipelines",
+        "responses": {
+          "200": {
+            "description": "Pipeline fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Pipeline"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Pipeline",
+        "operationId": "deleteManyPipelines",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allIds": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pipeline Deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/pipelines/:id": {
+      "get": {
+        "tags": [
+          "Pipeline"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Pipeline",
+        "operationId": "getPipeline",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pipeline fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Pipeline"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update Pipeline",
+        "operationId": "updateTag",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "stages": {
+                    "type": "object",
+                    "properties": {
+                      "new": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "old": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    }
+                  },
+                  "is_default": {
+                    "type": "boolean"
+                  },
+                  "rot_days": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pipeline Updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "patch": {
+        "$ref": "#/paths/~1pipelines~1%3Aid/put"
+      },
+      "delete": {
+        "tags": [
+          "Pipeline"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Pipeline",
+        "operationId": "deleteManyPipelines",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allIds": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pipeline Deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/pipelines/deleteStage/:id": {
+      "delete": {
+        "tags": [
+          "Pipeline"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Stage",
+        "operationId": "deleteManyPipelines",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "currentStageId": {
+                    "type": "integer"
+                  },
+                  "newStageId": {
+                    "type": "integer"
+                  },
+                  "newPipelineId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Stage Deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/zoom": {
+      "post": {
+        "tags": [
+          "Zoom"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Add Zoom",
+        "operationId": "createZoomMeeting",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "organization_id": {
+                    "type": "integer"
+                  },
+                  "host_id": {
+                    "type": "integer"
+                  },
+                  "organizationUUID": {
+                    "type": "string"
+                  },
+                  "providerData": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Zoom created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/zoom/:id": {
+      "patch": {
+        "tags": [
+          "Zoom"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update Zoom",
+        "operationId": "updateZoomMeetingUsingActivityID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer"
+          }
+        ],
+        "required": true,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "organization_id": {
+                    "type": "integer"
+                  },
+                  "host_id": {
+                    "type": "integer"
+                  },
+                  "organizationUUID": {
+                    "type": "string"
+                  },
+                  "providerData": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "meeting_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Zoom Updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/zoom/delete/:id": {
+      "delete": {
+        "tags": [
+          "Zoom"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Zoom",
+        "operationId": "deleteZoomMeeting",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "host_id": {
+                    "type": "integer"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Zoom Deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/zoom/:userId/is-exist": {
+      "get": {
+        "tags": [
+          "Zoom"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Zoom",
+        "operationId": "isUserTokenExist",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "zoom fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/zoom/:user_id/phone-status": {
+      "get": {
+        "tags": [
+          "Zoom"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Zoom",
+        "operationId": "getZoomPhoneStatus",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "call_id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Call status fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/activity-type": {
+      "post": {
+        "tags": [
+          "Activity-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Add Activity-Type",
+        "operationId": "addActivityType",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "parent_type": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Activity Type created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Activity-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Activity-Type",
+        "operationId": "getAllActivityTypes",
+        "responses": {
+          "200": {
+            "description": "Activity-Type fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Activity-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Activity-Type",
+        "operationId": "deleteActivityTypes",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allIds": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Activity-Type Deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/activity-type/get-data": {
+      "get": {
+        "tags": [
+          "Activity-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Activity-Type",
+        "operationId": "getAllActivityTypes",
+        "responses": {
+          "200": {
+            "description": "Activity-Type fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/activity-type/:id": {
+      "put": {
+        "tags": [
+          "Activity-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update Activity-Type",
+        "operationId": "addActivityType",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "toast",
+            "type": "string"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "parent_type": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Activity type updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Activity-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Activity-Type",
+        "operationId": "getActivityTypeById",
+        "responses": {
+          "200": {
+            "description": "Activity type fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Activity-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Activity-Type",
+        "operationId": "deleteActivityTypes",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allIds": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Activity-Type Deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/general-settings": {
+      "post": {
+        "tags": [
+          "General-Setting"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create General-Setting",
+        "operationId": "createGeneralSettings",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "datalist": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "toastMsg": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "General-Setting created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "General-Setting"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get General-Setting",
+        "operationId": "getGeneralSettings",
+        "responses": {
+          "200": {
+            "description": "General settings fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/product-version": {
+      "post": {
+        "tags": [
+          "Product-Version"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create Product-Version",
+        "operationId": "addProductVersion",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "version_number": {
+                    "type": "string"
+                  },
+                  "release_date": {
+                    "type": "string"
+                  },
+                  "changes": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Product-Version created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/advance-option/smtp-imap/connect": {
+      "post": {
+        "tags": [
+          "Smtp-Imap"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create Smtp-Imap",
+        "operationId": "testImapSmtpConnection",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "smtp": {
+                    "type": "object",
+                    "items": {}
+                  },
+                  "imap": {
+                    "type": "object",
+                    "items": {}
+                  },
+                  "api_purpose": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Smtp-Imap created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/advance-option/smtp-imap/me": {
+      "get": {
+        "tags": [
+          "Smtp-Imap"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get All Smtp-Imap",
+        "operationId": "getCredentialsById",
+        "responses": {
+          "200": {
+            "description": "Smtp-Imap fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Smtp-Imap"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Smtp-Imap",
+        "operationId": "deleteMyCredentials",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "type": "integer",
+                    "items": {}
+                  },
+                  "usernames": {
+                    "type": "string",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Smtp-Imap Deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/subscribe": {
+      "get": {
+        "tags": [
+          "PushNotification"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get All PushNotification",
+        "operationId": "getUserNotificationSubScriptions",
+        "responses": {
+          "200": {
+            "description": "PushNotification fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PushNotification"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create PushNotification",
+        "operationId": "addUserSubscription",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "subscription": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PushNotification created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PushNotification"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete PushNotification",
+        "operationId": "deleteManyUserNotificationSubscriptions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allId": {
+                    "type": "integer",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PushNotification Updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/subscribe/:id": {
+      "get": {
+        "tags": [
+          "PushNotification"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get User PushNotification",
+        "operationId": "getUserNotificationSubScription",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Uses notification subscription fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "patch": {
+        "$ref": "#/paths/~1subscribe~1%3Aid/put"
+      },
+      "put": {
+        "tags": [
+          "PushNotification"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update User Notification",
+        "operationId": "updateUserSubscription",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "subscription": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Uses notification subscription updated successfullyy"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "$ref": "#/paths/~1subscribe/delete"
+      }
+    },
+    "/search/lead-deal-acc-cont": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Search",
+        "operationId": "getLeadDealAccContSearchQuery",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "searchText",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dashboard data fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/search/compose-email-dropdown": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Email Search",
+        "operationId": "getComposeEmailToQuery",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "searchText",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dashboard data fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/schedule-activity": {
+      "post": {
+        "tags": [
+          "StayInTouchActivity"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create StayInTouchActivity",
+        "operationId": "addStayInTouchActivity",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "activity_type_id": {
+                    "type": "integer"
+                  },
+                  "creation_date": {
+                    "type": "string"
+                  },
+                  "start_date": {
+                    "type": "date"
+                  },
+                  "modal_record_id": {
+                    "type": "integer"
+                  },
+                  "model_name": {
+                    "type": "string"
+                  },
+                  "frequency": {
+                    "type": "string"
+                  },
+                  "month_date_type": {
+                    "type": "string"
+                  },
+                  "interval": {
+                    "type": "integer"
+                  },
+                  "week_occurrence": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Activity scheduled created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "StayInTouchActivity"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get All Schedule activity",
+        "operationId": "getAllScheduleActivities",
+        "responses": {
+          "200": {
+            "description": "Schedule activity fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "StayInTouchActivity"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete StayInTouchActivity",
+        "operationId": "deleteScheduleActivities",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "type": "integer",
+                    "items": {}
+                  },
+                  "modal_record_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Shedule Activity deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/schedule-activity/:id": {
+      "get": {
+        "tags": [
+          "StayInTouchActivity"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get All Schedule activity",
+        "operationId": "getScheduledActivityByModalRecordId",
+        "responses": {
+          "200": {
+            "description": "Schedule activity fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "StayInTouchActivity"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update StayInTouchActivity",
+        "operationId": "updateScheduledActivityById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "activity_type_id": {
+                    "type": "integer"
+                  },
+                  "creation_date": {
+                    "type": "string"
+                  },
+                  "start_date": {
+                    "type": "date"
+                  },
+                  "modal_record_id": {
+                    "type": "integer"
+                  },
+                  "model_name": {
+                    "type": "string"
+                  },
+                  "frequency": {
+                    "type": "string"
+                  },
+                  "month_date_type": {
+                    "type": "string"
+                  },
+                  "interval": {
+                    "type": "integer"
+                  },
+                  "week_occurrence": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Scheduled activity updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/comments": {
+      "post": {
+        "tags": [
+          "Comment"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create Comment",
+        "operationId": "addComment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "comment": {
+                    "type": "string"
+                  },
+                  "timeline_id": {
+                    "type": "integer"
+                  },
+                  "model_name": {
+                    "type": "string"
+                  },
+                  "model_record_id": {
+                    "type": "integer"
+                  },
+                  "userIds": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Comment created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/comments/:id": {
+      "delete": {
+        "tags": [
+          "Comment"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Comment",
+        "operationId": "deleteComment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comment deleted successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Comment"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update Comment",
+        "operationId": "updateUserSubscription",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "comment": {
+                    "type": "string"
+                  },
+                  "timeline_id": {
+                    "type": "integer"
+                  },
+                  "userIds": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Comment updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/follow-entity/:module/:entityId/follow": {
+      "post": {
+        "tags": [
+          "Follow-Entity"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create Follow-Entity",
+        "operationId": "followEntity",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "entityId",
+            "type": "integer"
+          },
+          {
+            "in": "path",
+            "name": "module",
+            "type": "string"
+          }
+        ],
+        "required": true,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "follower_ids": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity Followed successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/follow-entity/:module/:entityId/un-follow": {
+      "post": {
+        "tags": [
+          "Follow-Entity"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create unFollow-Entity",
+        "operationId": "unFollowEntity",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "entityId",
+            "type": "integer"
+          },
+          {
+            "in": "path",
+            "name": "module",
+            "type": "string"
+          }
+        ],
+        "required": true,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "follower_ids": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Entity UnFollowed successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/follow-entity/:module/get-data": {
+      "post": {
+        "tags": [
+          "Follow-Entity"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Follow-Entity",
+        "operationId": "getFollowerEntities",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "module",
+            "type": "string"
+          }
+        ],
+        "required": true,
+        "responses": {
+          "200": {
+            "description": "Followers fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/follow-entity/get-data": {
+      "post": {
+        "tags": [
+          "Follow-Entity"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Entity",
+        "operationId": "getFollowingEntities",
+        "responses": {
+          "200": {
+            "description": "Entity fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/follow-entity/get-count": {
+      "post": {
+        "tags": [
+          "Follow-Entity"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Following Count",
+        "operationId": "getFollowingCount",
+        "responses": {
+          "200": {
+            "description": "Entity Following Count Fetched Successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/reaction": {
+      "post": {
+        "tags": [
+          "Reaction"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create Reaction",
+        "operationId": "handleReaction",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "reaction": {
+                    "type": "string"
+                  },
+                  "reaction_model_name": {
+                    "type": "string"
+                  },
+                  "model_name": {
+                    "type": "string"
+                  },
+                  "reaction_model_record_id": {
+                    "type": "integer"
+                  },
+                  "model_record_id": {
+                    "type": "integer"
+                  },
+                  "timeline_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Reaction created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/icon-type": {
+      "get": {
+        "tags": [
+          "Icon-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get All Icon-Type",
+        "operationId": "getIcons",
+        "responses": {
+          "200": {
+            "description": "Icon fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Icon-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create Icon-Type",
+        "operationId": "createIcon",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "iconType": {
+                    "type": "string"
+                  },
+                  "iconJson": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Icon created successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/icon-type/:id": {
+      "get": {
+        "tags": [
+          "Icon-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Icon-Type",
+        "operationId": "getIcon",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Icon fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Icon-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Update Icon-Type",
+        "operationId": "updateIcon",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "iconJson": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Icon updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/icon-type/get-data": {
+      "get": {
+        "$ref": "#/paths/~1icon-type/get"
+      }
+    },
+    "/super-admin": {
+      "post": {
+        "tags": [
+          "Super-Admin"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Super Admin Login",
+        "operationId": "superAdminLogin",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Super Admin Login Successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/recall/generateJoinTokenUrl": {
+      "get": {
+        "tags": [
+          "Recall"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Generate Token Url",
+        "operationId": "generateJoinTokenUrl",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "user_id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "organization_id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "meeting_id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generate Token successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/org-alerts": {
+      "get": {
+        "tags": [
+          "Org-Alert"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Orginal Alerts Setting",
+        "operationId": "getOrgAlertsSetting",
+        "responses": {
+          "200": {
+            "description": "Organization Alerts Fetched Successfully."
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "$ref": "#/paths/~1org-alerts/put"
+      },
+      "put": {
+        "tags": [
+          "Org-Alert"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Org-Alert Updated",
+        "operationId": "upsertAlerts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "location_alert": {
+                    "type": "boolean"
+                  },
+                  "invite_alert": {
+                    "type": "boolean"
+                  },
+                  "failed_login_alert": {
+                    "type": "boolean"
+                  },
+                  "reset_pass_alert": {
+                    "type": "boolean"
+                  },
+                  "del_pipeline_stage": {
+                    "type": "boolean"
+                  },
+                  "del_account_alert": {
+                    "type": "boolean"
+                  },
+                  "del_contact_alert": {
+                    "type": "boolean"
+                  },
+                  "del_deals_alert": {
+                    "type": "boolean"
+                  },
+                  "del_account_count": {
+                    "type": "integer"
+                  },
+                  "del_contact_count": {
+                    "type": "integer"
+                  },
+                  "del_deals_count": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Organization Alerts Updated Successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "patch": {
+        "$ref": "#/paths/~1org-alerts/put"
+      }
+    },
+    "/org-alerts/get-data": {
+      "get": {
+        "$ref": "#/paths/~1org-alerts/get"
       }
     }
   },
