@@ -1,0 +1,19 @@
+tags:
+  - Follow-Entity
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Follow-Entity
+operationId: getFollowerEntities
+parameters:
+  - in: path
+    name: module
+    type: string
+required: true
+responses:
+  200:
+    description: Followers fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

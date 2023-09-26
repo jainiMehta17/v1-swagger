@@ -1,0 +1,36 @@
+tags:
+  - Zoom
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Zoom
+operationId: updateZoomMeetingUsingActivityID
+parameters:
+  - in: path
+    name: id
+    type: integer
+required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          organization_id:
+            type: integer
+          host_id:
+            type: integer
+          organizationUUID:
+            type: string
+          providerData:
+            type: array
+            items: {}
+          meeting_id:
+            type: string
+responses:
+  200:
+    description: Zoom Updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

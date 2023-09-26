@@ -1,0 +1,32 @@
+tags:
+  - Comment
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Comment
+operationId: updateUserSubscription
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          comment:
+            type: string
+          timeline_id:
+            type: integer
+          userIds:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Comment updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

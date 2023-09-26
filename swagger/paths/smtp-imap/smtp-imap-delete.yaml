@@ -1,0 +1,26 @@
+tags:
+  - Smtp-Imap
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Smtp-Imap
+operationId: deleteMyCredentials
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          all:
+            type: integer
+            items: {}
+          usernames:
+            type: string
+            items: {}
+responses:
+  200:
+    description: Smtp-Imap Deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

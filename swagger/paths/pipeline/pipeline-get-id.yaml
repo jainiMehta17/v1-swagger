@@ -1,0 +1,19 @@
+tags:
+  - Pipeline
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Pipeline
+operationId: getPipeline
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Pipeline fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

@@ -1,0 +1,29 @@
+tags:
+  - Zoom
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Add Zoom
+operationId: createZoomMeeting
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          organization_id:
+            type: integer
+          host_id:
+            type: integer
+          organizationUUID:
+            type: string
+          providerData:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Zoom created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

@@ -1,0 +1,19 @@
+tags:
+  - Comment
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Comment
+operationId: deleteComment
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Comment deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

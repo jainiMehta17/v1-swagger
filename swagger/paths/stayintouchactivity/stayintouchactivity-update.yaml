@@ -1,0 +1,43 @@
+tags:
+  - StayInTouchActivity
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update StayInTouchActivity
+operationId: updateScheduledActivityById
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          activity_type_id:
+            type: integer
+          creation_date:
+            type: string
+          start_date:
+            type: date
+          modal_record_id:
+            type: integer
+          model_name:
+            type: string
+          frequency:
+            type: string
+          month_date_type:
+            type: string
+          interval:
+            type: integer
+          week_occurrence:
+            type: integer
+responses:
+  200:
+    description: Scheduled activity updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

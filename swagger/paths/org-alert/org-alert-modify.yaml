@@ -1,0 +1,42 @@
+tags:
+  - Org-Alert
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Org-Alert Updated
+operationId: upsertAlerts
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          location_alert:
+            type: boolean
+          invite_alert:
+            type: boolean
+          failed_login_alert:
+            type: boolean
+          reset_pass_alert:
+            type: boolean
+          del_pipeline_stage:
+            type: boolean
+          del_account_alert:
+            type: boolean
+          del_contact_alert:
+            type: boolean
+          del_deals_alert:
+            type: boolean
+          del_account_count:
+            type: integer
+          del_contact_count:
+            type: integer
+          del_deals_count:
+            type: integer
+responses:
+  200:
+    description: Organization Alerts Updated Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

@@ -1,0 +1,19 @@
+tags:
+  - PushNotification
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get User PushNotification
+operationId: getUserNotificationSubScription
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Uses notification subscription fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

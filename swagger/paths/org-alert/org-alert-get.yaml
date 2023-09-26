@@ -1,0 +1,14 @@
+tags:
+  - Org-Alert
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Orginal Alerts Setting
+operationId: getOrgAlertsSetting
+responses:
+  200:
+    description: Organization Alerts Fetched Successfully.
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

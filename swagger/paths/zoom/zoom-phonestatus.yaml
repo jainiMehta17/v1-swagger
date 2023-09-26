@@ -1,0 +1,22 @@
+tags:
+  - Zoom
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Zoom
+operationId: getZoomPhoneStatus
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+  - in: query
+    name: call_id
+    type: integer
+responses:
+  200:
+    description: Call status fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

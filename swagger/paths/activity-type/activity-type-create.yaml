@@ -1,0 +1,26 @@
+tags:
+  - Activity-Type
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Add Activity-Type
+operationId: addActivityType
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          icon:
+            type: string
+          parent_type:
+            type: integer
+responses:
+  200:
+    description: Activity Type created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

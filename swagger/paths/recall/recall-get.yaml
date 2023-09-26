@@ -1,0 +1,27 @@
+tags:
+  - Recall
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Generate Token Url
+operationId: generateJoinTokenUrl
+parameters:
+  - in: query
+    name: user_id
+    type: integer
+    required: true
+  - in: query
+    name: organization_id
+    type: integer
+    required: true
+  - in: query
+    name: meeting_id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Generate Token successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

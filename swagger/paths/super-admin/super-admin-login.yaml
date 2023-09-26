@@ -1,0 +1,24 @@
+tags:
+  - Super-Admin
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Super Admin Login
+operationId: superAdminLogin
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          email:
+            type: string
+          password:
+            type: string
+responses:
+  200:
+    description: Super Admin Login Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

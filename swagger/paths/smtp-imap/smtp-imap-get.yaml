@@ -1,0 +1,14 @@
+tags:
+  - Smtp-Imap
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get All Smtp-Imap
+operationId: getCredentialsById
+responses:
+  200:
+    description: Smtp-Imap fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

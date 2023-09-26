@@ -20,3 +20,35 @@
   description: Note APIs
 - name: Attachment
   description: Attachment APIs
+- name: Pipeline
+  description: Pipeline APIs
+- name: Zoom
+  description: Zoom APIs
+- name: Activity-Type
+  description: Activity-Type APIs
+- name: General-Setting
+  description: General-Setting APIs
+- name: Product-Version
+  description: Product-Version APIs
+- name: Smtp-Imap
+  description: Smtp-Imap APIs
+- name: PushNotification
+  description: PushNotification APIs
+- name: Search
+  description: Search APIs
+- name: StayInTouchActivity
+  description: StayInTouchActivity APIs
+- name: Comment
+  description: Comment APIs
+- name: Follow-Entity
+  description: Follow-Entity APIs
+- name: Reaction
+  description: Reaction APIs
+- name: Icon-Type
+  description: Icon-Type APIs
+- name: Super-Admin
+  description: Super-Admin APIs
+- name: Recall
+  description: Recall APIs
+- name: Org-Alert
+  description: Org-Alert APIs

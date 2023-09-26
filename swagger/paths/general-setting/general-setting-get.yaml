@@ -1,0 +1,14 @@
+tags:
+  - General-Setting
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get General-Setting
+operationId: getGeneralSettings
+responses:
+  200:
+    description: General settings fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

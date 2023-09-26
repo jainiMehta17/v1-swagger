@@ -252,3 +252,193 @@
     $ref: ./attachment/attachment-update-id.yaml
   delete:
     $ref: ./attachment/attachment-delete-id.yaml
+
+# Pipeline API
+/pipelines:
+  post:
+    $ref: ./pipeline/pipeline-create.yaml
+  get:
+    $ref: ./pipeline/pipeline-get.yaml
+  delete:
+    $ref: ./pipeline/pipeline-delete.yaml
+/pipelines/:id:
+  get:
+    $ref: ./pipeline/pipeline-get-id.yaml
+  put:
+    $ref: ./pipeline/pipeline-update-id.yaml
+  patch:
+    $ref: ./pipeline/pipeline-update-id.yaml
+  delete:
+    $ref: ./pipeline/pipeline-delete-id.yaml
+/pipelines/deleteStage/:id:
+  delete:
+    $ref: ./pipeline/stage-delete-id.yaml
+
+# Zoom API
+/zoom:
+  post:
+    $ref: ./zoom/zoom-create.yaml
+/zoom/:id:
+  patch:
+    $ref: ./zoom/zoom-update-id.yaml
+/zoom/delete/:id:
+  delete:
+    $ref: ./zoom/zoom-delete-id.yaml
+/zoom/:userId/is-exist:
+  get:
+    $ref: ./zoom/zoom-usertokenexist.yaml
+/zoom/:user_id/phone-status:
+  get:
+    $ref: ./zoom/zoom-phonestatus.yaml
+
+# Activity-Type API
+/activity-type:
+  post:
+    $ref: ./activity-type/activity-type-create.yaml
+  get:
+    $ref: ./activity-type/activity-type-get.yaml
+  delete:
+    $ref: ./activity-type/activity-type-delete.yaml
+/activity-type/get-data:
+  get:
+    $ref: ./activity-type/activity-type-all-get.yaml
+/activity-type/:id:
+  put:
+    $ref: ./activity-type/activity-type-update-id.yaml
+  get:
+    $ref: ./activity-type/activity-type-get-id.yaml
+  delete:
+    $ref: ./activity-type/activity-type-delete-id.yaml
+
+# General-Setting API
+/general-settings:
+  post:
+    $ref: ./general-setting/general-setting-create.yaml
+  get:
+    $ref: ./general-setting/general-setting-get.yaml
+
+# Product Version API
+/product-version:
+  post:
+    $ref: ./general-setting/product-version-create.yaml
+
+# Smtp-Imap API
+/advance-option/smtp-imap/connect:
+  post:
+    $ref: ./general-setting/smtp-imap-connet.yaml
+/advance-option/smtp-imap/me:
+  get:
+    $ref: ./general-setting/smtp-imap-get.yaml
+  delete:
+    $ref: ./activity-type/smtp-imap-delete.yaml
+
+# PushNotification API
+/subscribe:
+  get:
+    $ref: ./pushnotification/pushnotification-get.yaml
+  post:
+    $ref: ./pushnotification/pushnotification-create.yaml
+  delete:
+    $ref: ./pushnotification/pushnotification-delete.yaml
+/subscribe/:id:
+  get:
+    $ref: ./pushnotification/pushnotification-get-id.yaml
+  patch:
+    $ref: ./pushnotification/pushnotification-update-id.yaml
+  put:
+    $ref: ./pushnotification/pushnotification-update-id.yaml
+  delete:
+    $ref: ./pushnotification/pushnotification-delete.yaml
+
+# Search API
+/search/lead-deal-acc-cont:
+  get:
+    $ref: ./search/search-get.yaml
+/search/compose-email-dropdown:
+  get:
+    $ref: ./search/search-email-get.yaml
+
+# StayInTouchActivity API
+/schedule-activity:
+  post:
+    $ref: ./stayintouchactivity/stayintouchactivity-create.yaml
+  get:
+    $ref: ./stayintouchactivity/stayintouchactivity-get.yaml
+  delete:
+    $ref: ./stayintouchactivity/stayintouchactivity-delete.yaml
+/schedule-activity/:id:
+  get:
+    $ref: ./stayintouchactivity/stayintouchactivity-get-id.yaml
+  put:
+    $ref: ./stayintouchactivity/stayintouchactivity-update.yaml
+
+# Comment API
+/comments:
+  post:
+    $ref: ./comment/comment-create.yaml
+/comments/:id:
+  delete:
+    $ref: ./comment/comment-delete.yaml
+  patch:
+    $ref: ./comment/comment-update.yaml
+
+# Follow-Entity API
+/follow-entity/:module/:entityId/follow:
+  post:
+    $ref: ./follow-entity/follow-entity-create.yaml
+/follow-entity/:module/:entityId/un-follow:
+  post:
+    $ref: ./follow-entity/unfollow-entity-create.yaml
+/follow-entity/:module/get-data:
+  post:
+    $ref: ./follow-entity/getfollower-entity.yaml
+/follow-entity/get-data:
+  post:
+    $ref: ./follow-entity/getFollowing-entity.yaml
+/follow-entity/get-count:
+  post:
+    $ref: ./follow-entity/getFollowing-count.yaml
+
+# Reaction API
+/reaction:
+  post:
+    $ref: ./reaction/handle-reaction.yaml
+
+# Icon-Type API
+/icon-type:
+  get:
+    $ref: ./icon-type/icon-type-get.yaml
+  post:
+    $ref: ./icon-type/icon-type-create.yaml
+/icon-type/:id:
+  get:
+    $ref: ./icon-type/icon-type-get-id.yaml
+  put:
+    $ref: ./icon-type/icon-type-update-id.yaml
+/icon-type/get-data:
+  get:
+    $ref: ./icon-type/icon-type-get.yaml
+
+# Super-Admin API
+/super-admin:
+  post:
+    $ref: ./super-admin/super-admin-login.yaml
+
+# Recall API
+/recall/generateJoinTokenUrl:
+  get:
+    $ref: ./recall/recall-get.yaml
+
+# Org-Alert API
+/org-alerts:
+  get:
+    $ref: ./org-alert/org-alert-get.yaml
+  post:
+    $ref: ./org-alert/org-alert-modify.yaml
+  put:
+    $ref: ./org-alert/org-alert-modify.yaml
+  patch:
+    $ref: ./org-alert/org-alert-modify.yaml
+/org-alerts/get-data:
+  get:
+    $ref: ./org-alert/org-alert-get.yaml
