@@ -1,0 +1,14 @@
+tags:
+  - Hierarchy Block Detail
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get All Hierarchy Block Details
+operationId: getAllHierarchyBlockDetails
+responses:
+  200:
+    description: Hierarchy Block Details fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

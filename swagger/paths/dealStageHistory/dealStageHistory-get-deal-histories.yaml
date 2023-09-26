@@ -1,13 +1,13 @@
 tags:
-  - Lead
+  - Deal Stage History
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get All Leads
-operationId: getAllLeads
+summary: Get Deal Histories
+operationId: getDealHistories
 responses:
   200:
-    description: Leads fetched successfully
+    description: Deal histories fetched successfully
   400:
     description: Bad request, invalid credentials
   500:

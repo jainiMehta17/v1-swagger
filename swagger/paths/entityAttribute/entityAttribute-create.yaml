@@ -1,0 +1,24 @@
+tags:
+  - Entity Attribute
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Entity Attribute
+operationId: createEntityAttribute
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          type:
+            type: string
+responses:
+  200:
+    description: Entity Attributes created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

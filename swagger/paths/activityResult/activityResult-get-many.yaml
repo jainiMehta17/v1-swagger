@@ -1,0 +1,14 @@
+tags:
+  - Activity Result
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Activity Results
+operationId: getActivityResults
+responses:
+  200:
+    description: Activity results fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

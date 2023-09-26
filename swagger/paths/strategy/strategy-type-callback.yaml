@@ -1,0 +1,21 @@
+tags:
+  - Strategy
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Callback Strategy
+operationId: onAuthenticationCallback
+parameters:
+  - in: query
+    name: state
+    type: string
+  - in: path
+    name: strategyType
+    type: string
+responses:
+  200:
+    description: Strategy Callback Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

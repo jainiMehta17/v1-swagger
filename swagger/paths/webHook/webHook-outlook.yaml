@@ -1,0 +1,51 @@
+tags:
+  - Web Hook
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Outlook Mail Webhook Callback
+operationId: outlookMailWebhookCallback
+parameters:
+  - in: query
+    name: validationToken
+    type: string
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          value:
+            type: array
+            items:
+              type: object
+              properties:
+                subscriptionId:
+                  type: integer
+                subscriptionExpirationDateTime:
+                  type: string
+                changeType:
+                  type: string
+                  enum: [updated,created,deleted]
+                resource:
+                  type: string
+                resourceData:
+                  type: object
+                  properties:
+                    '@odata.id':
+                      type: string
+                    '@odata.etag':
+                      type: string
+                    id:
+                      type: integer
+                clientState:
+                  type: string
+                tenantId:
+                  type: integer
+responses:
+  200:
+    description: Outlook-Mail WebHook Callback Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

@@ -1,0 +1,48 @@
+tags:
+  - Activity Result
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Activity Result
+operationId: updateActivityResult
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true 
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          result:
+            type: string
+          removed_activity_middle_table_ids:
+            type: array
+            items:
+              type: integer
+          new_activity_types:
+            type: array
+            items:
+              type: object
+              properties:
+                activity_type_id:
+                  type: integer
+                organization_id:
+                  type: integer
+                activity_result_id:
+                  type: integer
+                created_by:
+                  type: integer
+          isMemo:
+            type: boolean
+          is_universal:
+            type: boolean
+responses:
+  200:
+    description: Activity result updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

@@ -1,0 +1,31 @@
+tags:
+  - Deal Stage History
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Stage By Deal ID
+operationId: updateStageByDealID
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          start_date:
+            type: string
+          old_start_date:
+            type: string
+          currentStageType:
+            type: string
+responses:
+  200:
+    description: Deal stage changed successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

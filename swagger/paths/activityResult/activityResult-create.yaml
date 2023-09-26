@@ -1,0 +1,29 @@
+tags:
+  - Activity Result
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Activity Result
+operationId: createActivityResult
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          result:
+            type: string
+          activity_types:
+            type: array
+            items: {}
+          isMemo:
+            type: boolean
+          is_universal:
+            type: boolean
+responses:
+  200:
+    description: Activity result created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

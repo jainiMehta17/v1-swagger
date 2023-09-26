@@ -1,0 +1,33 @@
+tags:
+  - Hierarchy Block Detail
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Hierarchy Block Details
+operationId: updateHierarchyBlockDetails
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          title:
+            type: string
+          description:
+            type: string
+          type:
+            type: string
+          managed_by:
+            type: string
+responses:
+  200:
+    description: Hierarchy Block updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

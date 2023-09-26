@@ -1,0 +1,41 @@
+tags:
+  - Mail Template
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Add Mail Template
+operationId: addMailTemplate
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          template_name:
+            type: string
+          description:
+            type: string
+          subject:
+            type: string
+          attachments:
+            type: array
+            items: 
+              type: object
+              properties:
+                path:
+                  type: string
+                filename:
+                  type: string
+                contentType:
+                  type: string
+                size:
+                  type: string
+          visibility:
+            type: string
+responses:
+  200:
+    description: Template created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

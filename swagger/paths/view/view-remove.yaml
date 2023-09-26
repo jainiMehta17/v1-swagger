@@ -1,0 +1,24 @@
+tags:
+  - View
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Remove Views
+operationId: removeViews
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          allId:
+            type: array
+            items:
+              type: integer
+responses:
+  200:
+    description: Selected Views Removed Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

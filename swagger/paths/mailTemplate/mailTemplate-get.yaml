@@ -1,0 +1,19 @@
+tags:
+  - Mail Template
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Mail Template
+operationId: getMailTemplateById
+parameters:
+  - in: path
+    name: Id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Template fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

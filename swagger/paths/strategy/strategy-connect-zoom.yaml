@@ -1,0 +1,19 @@
+tags:
+  - Strategy
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Connect Zoom
+operationId: connectZoom
+parameters:
+  - in: query
+    name: token
+    type: string
+    required: true
+responses:
+  200:
+    description: Zoom Connected successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

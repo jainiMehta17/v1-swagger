@@ -1,0 +1,26 @@
+tags:
+  - Hierarchy
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Or Update Hierarchy
+operationId: createOrUpdateHierarchy
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          blocks:
+            type: array
+            items: {}
+          edges:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Hierarchy created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

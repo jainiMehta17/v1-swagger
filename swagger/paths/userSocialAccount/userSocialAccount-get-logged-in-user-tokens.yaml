@@ -1,0 +1,14 @@
+tags:
+  - User Social Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Logged In User Tokens
+operationId: getLoggedInUserTokens
+responses:
+  200:
+    description: Logged-In User tokens fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

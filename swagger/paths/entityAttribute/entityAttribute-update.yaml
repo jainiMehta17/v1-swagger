@@ -1,0 +1,31 @@
+tags:
+  - Entity Attribute
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Entity Attribute
+operationId: updateEntityAttribute
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          color:
+            type: string
+          type:
+            type: string
+responses:
+  200:
+    description: Entity Attribute updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

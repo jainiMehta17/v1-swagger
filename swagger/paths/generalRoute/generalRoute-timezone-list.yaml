@@ -1,0 +1,14 @@
+tags:
+  - General Route
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Timezone List
+operationId: timezoneList
+responses:
+  200:
+    description: Timezone list fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

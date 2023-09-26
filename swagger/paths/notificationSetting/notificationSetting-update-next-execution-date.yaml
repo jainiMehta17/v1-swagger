@@ -1,0 +1,24 @@
+tags:
+  - Notification Setting
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Next Execution Date
+operationId: updateNextExecutionDate
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          receive_notification_time:
+            type: integer
+          name:
+            type: string
+responses:
+  200:
+    description: Notification Setting updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

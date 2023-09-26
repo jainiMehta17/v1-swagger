@@ -1,0 +1,21 @@
+tags:
+  - General Route
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Timezone By Latitude and Longitude
+operationId: timezoneByLatLng
+parameters:
+  - in: query
+    name: latitude
+    type: string
+  - in: query
+    name: longitude
+    type: string
+responses:
+  200:
+    description: Timezone fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

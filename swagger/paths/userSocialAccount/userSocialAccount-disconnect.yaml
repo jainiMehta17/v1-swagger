@@ -1,0 +1,29 @@
+tags:
+  - User Social Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Disconnect Social Account
+operationId: disConnect
+parameters:
+  - in: path
+    name: provider
+    type: string
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          email:
+            type: string
+          token_provider:
+            type: string
+responses:
+  200:
+    description: User account disconnected successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

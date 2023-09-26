@@ -1,0 +1,23 @@
+tags:
+  - User Social Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Logged In User Tokens
+operationId: getLoggedInUserTokens
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+  - in: query
+    name: email
+    type: string
+    required: true
+responses:
+  200:
+    description: Data deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

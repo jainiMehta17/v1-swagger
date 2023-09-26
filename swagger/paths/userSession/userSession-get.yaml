@@ -1,13 +1,13 @@
 tags:
-  - Lead
+  - User Session
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get All Leads
-operationId: getAllLeads
+summary: Get User Sessions
+operationId: getUserSessions
 responses:
   200:
-    description: Leads fetched successfully
+    description: User Sessions Fetched Successfully
   400:
     description: Bad request, invalid credentials
   500:

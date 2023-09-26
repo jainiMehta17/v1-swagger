@@ -1,13 +1,13 @@
 tags:
-  - Lead
+  - Mail Template
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get All Leads
-operationId: getAllLeads
+summary: Get All Mail Templates
+operationId: getAllMailTemplates
 responses:
   200:
-    description: Leads fetched successfully
+    description: Templates fetched successfully
   400:
     description: Bad request, invalid credentials
   500:

@@ -1,0 +1,14 @@
+tags:
+  - Timeline
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Timeline For Dashboard
+operationId: getTimelineForDashboard
+responses:
+  200:
+    description: Timelines fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

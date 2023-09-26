@@ -1,0 +1,25 @@
+tags:
+  - General Route
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Emit-Io
+operationId: emitIo
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          eventName:
+            type: string
+          eventData:
+            type: object
+            items: {}
+responses:
+  200:
+    description: IO event emitted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

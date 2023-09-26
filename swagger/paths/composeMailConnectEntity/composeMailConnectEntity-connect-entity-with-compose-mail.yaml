@@ -1,0 +1,24 @@
+tags:
+  - Compose Mail Connect Entity
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Connect Entity With Compose Mail
+operationId: connectEntityWithComposeMail
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          model_name:
+            type: string
+          model_record_id:
+            type: integer
+responses:
+  200:
+    description: Entity connected successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

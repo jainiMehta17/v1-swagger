@@ -1,0 +1,24 @@
+tags:
+  - Strategy
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Connect Strategy
+operationId: onAuthenticationRequest
+parameters:
+  - in: query
+    name: token
+    type: string
+  - in: query
+    name: scope
+    type: string
+  - in: path
+    name: strategyType
+    type: string
+responses:
+  200:
+    description: Strategy Connected Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

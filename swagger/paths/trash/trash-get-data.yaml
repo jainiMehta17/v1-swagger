@@ -1,0 +1,14 @@
+tags:
+  - Trash
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Trash Data
+operationId: getData
+responses:
+  200:
+    description: All Trash Data fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

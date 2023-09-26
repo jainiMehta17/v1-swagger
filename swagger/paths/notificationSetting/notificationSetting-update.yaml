@@ -1,0 +1,29 @@
+tags:
+  - Notification Setting
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Notification Setting
+operationId: updateNotificationSetting
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          status:
+            type: string
+          notification_type_id:
+            type: integer
+responses:
+  200:
+    description: Notification Setting updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

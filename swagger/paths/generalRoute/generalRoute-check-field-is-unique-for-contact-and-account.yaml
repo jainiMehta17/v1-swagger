@@ -1,0 +1,30 @@
+tags:
+  - General Route
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Check Field Is Unique For Contact And Account
+operationId: checkFieldIsUniqueForContactAndAccount
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          email:
+            type: string
+          accountId:
+            type: integer
+          contactId:
+            type: integer
+          name:
+            type: string
+          relatedContact:
+            type: string
+responses:
+  200:
+    description: Action Successful
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

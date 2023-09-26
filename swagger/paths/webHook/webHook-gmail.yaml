@@ -1,0 +1,25 @@
+tags:
+  - Web Hook
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Listen Gmail Changes
+operationId: listenGmailChanges
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          message:
+            type: object
+            properties:
+              data:
+                type: string
+responses:
+  200:
+    description: WebHook Listened Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

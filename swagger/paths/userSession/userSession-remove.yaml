@@ -1,0 +1,19 @@
+tags:
+  - User Session
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Remove UserSession
+operationId: removeUserSession
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+responses:
+  200:
+    description: User Sessions removed Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

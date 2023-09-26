@@ -1,0 +1,30 @@
+tags:
+  - Web Hook
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Zoom-Meetings Webhook
+operationId: zoomMeetingsWebhook
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          eventData:
+            type: object
+            properties:
+              event:
+                type: string
+              payload:
+                type: object
+                properties:
+                  plainToken:
+                    type: string
+responses:
+  200:
+    description: Zoom-Meetings Webhook Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

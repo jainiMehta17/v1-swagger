@@ -1,0 +1,77 @@
+tags:
+  - Web Hook
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Zoom-Phone Webhook Callback
+operationId: zoomPhoneWebhookCallback
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          event:
+            type: string
+          payload:
+            type: object
+            properties:
+              account_id: 
+                type: string
+              object:
+                type: object
+                properties:
+                  call_id: 
+                    type: string
+                  caller: 
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      extension_id:
+                        type: string
+                      extension_type:
+                        type: string
+                      user_id:
+                        type: string
+                      timezone:
+                        type: string
+                      extension_number:
+                        type: integer
+                      phone_number:
+                        type: string
+                      device_id:
+                        type: string
+                      device_type:
+                        type: string
+                      device_name:
+                        type: string
+                      connection_type:
+                        type: string
+              callee:
+                type: object
+                properties:
+                  extension_number:
+                    type: integer
+                  phone_number:
+                    type: string
+                  connection_type:
+                    type: string
+                  name:
+                    type: string
+              connected_start_time:
+                type: string
+              ringing_start_time:
+                type: string
+              call_end_time:
+                type: string
+              handup_result:
+                type: string
+              date_time:
+                type: string
+  200:
+    description: Zoom-Phone Webhook Callback Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

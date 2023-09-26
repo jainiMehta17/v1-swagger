@@ -1,0 +1,14 @@
+tags:
+  - Entity Attribute
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Entity Attributes
+operationId: getEntityAttributes
+responses:
+  200:
+    description: Entity Attributes fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

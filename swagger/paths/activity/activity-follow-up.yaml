@@ -65,22 +65,38 @@ requestBody:
                   example: 'notification'
           all_day: 
             type: boolean
+          location: 
+            type: array
+            items: {}
           location_details:
             type: object
-            items: {}
+            properties:
+              position:
+                type: object
+                properties:
+                  lat:
+                    type: string
+                  lng:
+                    type: string
+              title:
+                type: string
           activity_collaborators:
             type: object
             items: {}
+            example: '{"new":[1]}'
           host_id:
             type: integer
           activity_participants:
             type: object
+            example: 'new:[2]'
             properties:
               new:
                 type: array
                 items: {}
           result:
             type: string
+          is_visibility:
+            type: boolean
 responses:
   200:
     description: Activities fetched successfully

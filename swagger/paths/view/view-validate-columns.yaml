@@ -1,0 +1,62 @@
+tags:
+  - View
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Validate View Columns
+operationId: validateViewColumns
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          model_name:
+            type: string
+          columns:
+            type: array
+            items:
+              type: object
+              properties:
+                order:
+                  type: integer
+                displayName:
+                  type: string
+                fieldName:
+                  type: string
+                type:
+                  type: string
+                fieldType:
+                  type: string
+                  example: 'column'
+                show:
+                  type: boolean
+                custom:
+                  type: boolean
+                default:
+                  type: boolean
+                width:
+                  type: integer
+                min_width:
+                  type: integer
+                is_pin:
+                  type: boolean
+                relational_model:
+                  type: string
+                  example: 'leads'
+                includeObj:
+                  type: object
+                  items: {}
+                searchKeys:
+                  type: array
+                  items: 
+                    type: string
+                foreignKey:
+                  type: string
+responses:
+  200:
+    description: View Columns Validated Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

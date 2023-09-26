@@ -316,3 +316,287 @@
 /activities/follow-up/{id}:
   post:
     $ref: ./activity/activity-follow-up.yaml
+
+# Deal-Stage-History APIs
+/deal-stage-history:
+  get:
+    $ref: ./dealStageHistory/dealStageHistory-get-deal-histories.yaml
+  post:
+    $ref: ./dealStageHistory/dealStageHistory-add-deal-stage-history.yaml
+/deal-stage-history/{id}:
+  get:
+    $ref: ./dealStageHistory/dealStageHistory-get-active-stage-by-deal-id.yaml
+  post:
+    $ref: ./dealStageHistory/dealStageHistory-update-stage-by-deal-id.yaml
+/deal-stage-history/dealAge/{id}:
+  get:
+    $ref: ./dealStageHistory/dealStageHistory-get-deal-age-by-id.yaml
+
+# Activity-Result APIs
+/activity-result:
+  post:
+    $ref: ./activityResult/activityResult-create.yaml
+  get:
+    $ref: ./activityResult/activityResult-get-many.yaml
+  delete:
+    $ref: ./activityResult/activityResult-delete-many.yaml
+/activity-result/get-data:
+  post:
+    $ref: ./activityResult/activityResult-get-many.yaml
+/activity-result/{id}:
+  post:
+    $ref: ./activityResult/activityResult-get-many.yaml
+  get:
+    $ref: ./activityResult/activityResult-get.yaml
+  put:
+    $ref: ./activityResult/activityResult-update.yaml
+  patch:
+    $ref: ./activityResult/activityResult-update.yaml
+  delete:
+    $ref: ./activityResult/activityResult-update.yaml
+
+# General-Route APIs
+/general/timezone-list:
+  get:
+    $ref: ./generalRoute/generalRoute-timezone-list.yaml
+/general/get-time-zone:
+  get:
+    $ref: ./generalRoute/generalRoute-get-timezone-by-lat-lng.yaml
+/general/emit-io:
+  post:
+    $ref: ./generalRoute/generalRoute-emit-io.yaml
+/check-field-is-unique:
+  post:
+    $ref: ./generalRoute/generalRoute-check-field-is-unique-for-contact-and-account.yaml
+
+# Entity-Attribute APIs
+/entity-attributes:
+  get:
+    $ref: ./entityAttribute/entityAttribute-get-many.yaml
+  post:
+    $ref: ./entityAttribute/entityAttribute-create.yaml
+  delete:
+    $ref: ./entityAttribute/entityAttribute-create.yaml
+/entity-attributes/get-data:
+  post:
+    $ref: ./entityAttribute/entityAttribute-get-many.yaml
+/entity-attributes/{id}:
+  post:
+    $ref: ./entityAttribute/entityAttribute-get.yaml
+  patch:
+    $ref: ./entityAttribute/entityAttribute-update.yaml
+  put:
+    $ref: ./entityAttribute/entityAttribute-update.yaml
+  delete:
+    $ref: ./entityAttribute/entityAttribute-delete-many.yaml
+
+# User-Social-Account APIs
+/user-social-account:
+  get:
+    $ref: ./userSocialAccount/userSocialAccount-get-logged-in-user-tokens.yaml
+/user-social-account/{id}:
+  delete:
+    $ref: ./userSocialAccount/userSocialAccount-delete-user-token.yaml
+/user-social-account/{provider}/is-connected:
+  get:
+    $ref: ./userSocialAccount/userSocialAccount-is-connected.yaml
+/user-social-account/{provider}/disconnect:
+  post:
+    $ref: ./userSocialAccount/userSocialAccount-disconnect.yaml
+
+# Mail-Template APIs
+/mail-template:
+  post:
+    $ref: ./mailTemplate/mailTemplate-add.yaml
+  delete:
+    $ref: ./mailTemplate/mailTemplate-delete-many.yaml
+  get:
+    $ref: ./mailTemplate/mailTemplate-get-all.yaml
+/mail-template/visibility:
+  put:
+    $ref: ./mailTemplate/mailTemplate-update-visibility.yaml
+/mail-template/{id}:
+  put:
+    $ref: ./mailTemplate/mailTemplate-update.yaml
+  get:
+    $ref: ./mailTemplate/mailTemplate-get.yaml
+  delete:
+    $ref: ./mailTemplate/mailTemplate-delete.yaml
+
+# Compose-Mail-Connect-Entity APIs
+/compose-mail-connect-entity:
+  post:
+    $ref: ./composeMailConnectEntity/composeMailConnectEntity-connect-entity-with-compose-mail.yaml
+  delete:
+    $ref: ./composeMailConnectEntity/composeMailConnectEntity-remove-entity-with-compose-mail.yaml
+/compose-mail-connect-entity/{id}:
+  get:
+    $ref: ./composeMailConnectEntity/composeMailConnectEntity-get-compose-mail-entity-detail.yaml
+
+# Timeline APIs
+/timeline:
+  get:
+    $ref: ./timeline/timeline-get.yaml
+/timeline/dashboard-timeline:
+  get:
+    $ref: ./timeline/timeline-get-for-dashboard.yaml
+/timeline/stream-timeline:
+  get:
+    $ref: ./timeline/timeline-get-for-stream.yaml
+/timeline/pin/{id}:
+  patch:
+    $ref: ./timeline/timeline-pin-or-unpin.yaml
+
+# Notification-Setting APIs
+/notification-setting:
+  get:
+    $ref: ./notificationSetting/notificationSetting-get.yaml
+/notification-setting/set-time:
+  patch:
+    $ref: ./notificationSetting/notificationSetting-update-next-execution-date.yaml
+/notification-setting/{id}:
+  patch:
+    $ref: ./notificationSetting/notificationSetting-update.yaml
+
+# Notification APIs
+/notifications/get-data:
+  get:
+    $ref: ./notificationSetting/notificationSetting-get.yaml
+/notifications/read:
+  get:
+    $ref: ./notificationSetting/notificationSetting-get.yaml
+
+# User-Session APIs
+/user-sessions/get-data:
+  get:
+    $ref: ./userSession/userSession-get.yaml
+/user-sessions/{id}:
+  get:
+    $ref: ./userSession/userSession-remove.yaml
+
+# View APIs
+/views:
+  post:
+    $ref: ./view/view-create.yaml
+  delete:
+    $ref: ./view/view-remove.yaml
+  get:
+    $ref: ./view/view-get-all.yaml
+/views/get-data:
+  post:
+    $ref: ./view/view-get-all.yaml
+/views/get-data/{id}:
+  post:
+    $ref: ./view/view-get.yaml
+/views/update-view-order:
+  post:
+    $ref: ./view/view-update-order.yaml
+/views/{id}:
+  post:
+    $ref: ./view/view-get.yaml
+  delete:
+    $ref: ./view/view-remove.yaml
+  patch:
+    $ref: ./view/view-update.yaml
+  put:
+    $ref: ./view/view-update.yaml
+
+# Trash APIs
+/trash:
+  post:
+    $ref: ./trash/trash-get-data.yaml
+
+# Address APIs
+/address/countries:
+  get:
+    $ref: ./address/address-get-countries.yaml
+/address/states:
+  get:
+    $ref: ./address/address-get-states.yaml
+
+# Organization-Setting APIs
+/organization-settings:
+  get:
+    $ref: ./organizationSetting/organizationSetting-get.yaml
+  put:
+    $ref: ./organizationSetting/organizationSetting-upsert.yaml
+
+# Hierarchy APIs
+/hierarchy:
+  get:
+    $ref: ./hierarchy/hierarchy-get.yaml
+  post:
+    $ref: ./hierarchy/hierarchy-create-or-update.yaml
+
+# Hierarchy-Block-Details APIs
+/hierarchy-block-details:
+  get:
+    $ref: ./hierarchyBlockDetail/hierarchyBlockDetail-get-all.yaml
+  post:
+    $ref: ./hierarchyBlockDetail/hierarchyBlockDetail-create.yaml
+  delete:
+    $ref: ./hierarchyBlockDetail/hierarchyBlockDetail-delete-many.yaml
+/hierarchy-block-details/{id}:
+  get:
+    $ref: ./hierarchyBlockDetail/hierarchyBlockDetail-get.yaml
+  put:
+    $ref: ./hierarchyBlockDetail/hierarchyBlockDetail-update.yaml
+  delete:
+    $ref: ./hierarchyBlockDetail/hierarchyBlockDetail-delete.yaml
+/hierarchy-block-details/user-position/{id}:
+  put:
+    $ref: ./hierarchyBlockDetail/hierarchyBlockDetail-update-for-user-position.yaml
+
+# Hierarchy-Department APIs
+/hierarchy-departments:
+  post:
+    $ref: ./hierarchyDepartment/hierarchyDepartment-create.yaml
+  get:
+    $ref: ./hierarchyDepartment/hierarchyDepartment-get-many.yaml
+  delete:
+    $ref: ./hierarchyDepartment/hierarchyDepartment-delete-many.yaml
+/hierarchy-departments/{id}:
+  get:
+    $ref: ./hierarchyDepartment/hierarchyDepartment-get.yaml
+  put:
+    $ref: ./hierarchyDepartment/hierarchyDepartment-update.yaml
+
+# Web-Hook APIs
+/gmail-webhook:
+  post:
+    $ref: ./webHook/webHook-gmail.yaml
+/outlook/webhook:
+  post:
+    $ref: ./webHook/webHook-outlook.yaml
+/google-calendar/webhook:
+  post:
+    $ref: ./webHook/webHook-google-calendar.yaml
+/outlook-calendar/webhook:
+  post:
+    $ref: ./webHook/webHook-outlook-calendar.yaml
+/zoom/deAuthorization/webhook:
+  post:
+    $ref: ./webHook/webHook-zoom-deauthorization.yaml
+/zoom/meetings/webhook:
+  post:
+    $ref: ./webHook/webHook-zoom-meeting.yaml
+/recallAi/meetings/webhook:
+  post:
+    $ref: ./webHook/webHook-recall-ai-meeting.yaml
+/zoom-phone/webhook:
+  post:
+    $ref: ./webHook/webHook-zoom-phone.yaml
+  
+# Strategy APIs
+/api/auth/zoom/connect:
+  get:
+    $ref: ./strategy/strategy-connect-zoom.yaml
+/api/auth/zoom/callback:
+  get:
+    $ref: ./strategy/strategy-auth-with-zoom.yaml
+/api/auth/{strategyType}/connect:
+  get:
+    $ref: ./strategy/strategy-type-connect.yaml
+/api/auth/{strategyType}/callback:
+  get:
+    $ref: ./strategy/strategy-type-callback.yaml

@@ -1,0 +1,24 @@
+tags:
+  - Web Hook
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Listen Google Calendar Changes
+operationId: listenGoogleCalendarChanges
+parameters:
+  - in: header
+    name: x-goog-channel-id
+    type: string
+  - in: header
+    name: x-goog-resource-id
+    type: string
+  - in: header
+    name: x-goog-resource-state
+    type: string
+responses:
+  200:
+    description: Google-Calendar Changes Listened Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

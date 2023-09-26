@@ -1,0 +1,26 @@
+tags:
+  - Notification
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Read Notifications
+operationId: readNotifications
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          notification_ids:
+            anyOf:
+              - type: string
+              - type: array
+          status:
+            type: string
+responses:
+  200:
+    description: Notifications fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

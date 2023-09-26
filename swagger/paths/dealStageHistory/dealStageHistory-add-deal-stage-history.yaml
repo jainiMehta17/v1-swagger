@@ -1,0 +1,24 @@
+tags:
+  - Deal Stage History
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Add Deal Stage History
+operationId: addDealStageHistory
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          deal_id:
+            type: integer
+          stage_id:
+            type: integer
+responses:
+  200:
+    description: Deal histories fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

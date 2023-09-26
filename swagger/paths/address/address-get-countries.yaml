@@ -1,0 +1,14 @@
+tags:
+  - Address
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Countries
+operationId: getCountries
+responses:
+  200:
+    description: Countries fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

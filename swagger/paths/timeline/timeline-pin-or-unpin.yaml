@@ -1,0 +1,27 @@
+tags:
+  - Timeline
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Pin Or Unpin Timeline
+operationId: pinOrUnpinTimelineById
+parameters: 
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          is_pinned:
+            type: boolean
+responses:
+  200:
+    description: Timelines fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

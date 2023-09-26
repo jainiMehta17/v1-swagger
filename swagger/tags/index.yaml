@@ -16,3 +16,42 @@
   description: Department APIs
 - name: Activity
   description: Activity APIs
+- name: Deal Stage History
+  description: v APIs
+- name: Activity Result
+  description: Activity Result APIs
+- name: General Route
+  description: General Route APIs
+- name: Entity Attribute
+  description: Entity Attribute APIs
+- name: User Social AccountCompose Mail Connect Entity APIs
+- name: Mail Template
+  description: Mail Template APIs
+- name: Compose Mail Connect Entity
+  description: Mail Template APIs
+- name: Timeline
+  description: Timeline APIs
+- name: Notification Setting
+  description: Notification Setting APIs
+- name: Notification
+  description: Notification APIs
+- name: User Session
+  description: User Session APIs
+- name: View
+  description: View APIs
+- name: Trash
+  description: Trash APIs
+- name: Address
+  description: Address APIs
+- name: Organization Setting
+  description: Organization Setting APIs
+- name: Hierarchy
+  description: Hierarchy APIs
+- name: Hierarchy Block Detail
+  description: Hierarchy Block Detail APIs
+- name: Hierarchy Department
+  description: Hierarchy Department APIs
+- name: Web Hook
+  description: Web Hook APIs
+- name: Strategy
+  description: Strategy APIs

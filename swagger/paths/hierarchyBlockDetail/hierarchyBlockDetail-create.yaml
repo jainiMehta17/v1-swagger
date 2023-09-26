@@ -1,0 +1,26 @@
+tags:
+  - Hierarchy Block Detail
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Hierarchy Block Details
+operationId: createHierarchyBlockDetails
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          title:
+            type: string
+          description:
+            type: string
+          type:
+            type: string
+responses:
+  200:
+    description: Hierarchy Block created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

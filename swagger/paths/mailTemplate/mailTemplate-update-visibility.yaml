@@ -1,0 +1,26 @@
+tags:
+  - Mail Template
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Visibility
+operationId: updateVisibility
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          ids:
+            type: array
+            items:
+              type: integer
+          visibility:
+            type: string
+responses:
+  200:
+    description: Template updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

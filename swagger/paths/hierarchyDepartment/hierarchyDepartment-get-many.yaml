@@ -1,0 +1,14 @@
+tags:
+  - Hierarchy Department
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Hierarchy Departments
+operationId: getDepartments
+responses:
+  200:
+    description: Departments fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

@@ -1,0 +1,26 @@
+tags:
+  - Entity Attribute
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Many Entity Attributes
+operationId: deleteManyEntityAttributes
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          allId:
+            type: array
+            items: 
+              type: integer
+          type:
+            type: string
+responses:
+  200:
+    description: Entity Attributes deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

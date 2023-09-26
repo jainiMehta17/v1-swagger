@@ -1,13 +1,13 @@
 tags:
-  - Lead
+  - View
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get All Leads
-operationId: getAllLeads
+summary: Get All Views
+operationId: getAllViews
 responses:
   200:
-    description: Leads fetched successfully
+    description: Views fetched Successfully
   400:
     description: Bad request, invalid credentials
   500:

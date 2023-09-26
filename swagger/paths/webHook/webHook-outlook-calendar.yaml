@@ -1,0 +1,42 @@
+tags:
+  - Web Hook
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Outlook Calendar Webhook Callback
+operationId: outlookCalendarWebhookCallback
+parameters:
+  - in: query
+    name: validationToken
+    type: string
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          message:
+            type: object
+            properties:
+              value:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    subscriptionId:
+                      type: integer
+                    resourceData:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                    changeType:
+                      type: string
+                      enum: [updated, deleted]
+responses:
+  200:
+    description: Outlook-Calendar WebHook Callback Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

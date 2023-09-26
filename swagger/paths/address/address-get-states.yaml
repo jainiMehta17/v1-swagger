@@ -1,0 +1,14 @@
+tags:
+  - Address
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get States
+operationId: getStates
+responses:
+  200:
+    description: States fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

@@ -1,0 +1,19 @@
+tags:
+  - Hierarchy Block Detail
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Hierarchy Block 
+operationId: deleteHierarchyBlockDetailsById
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Hierarchy Block deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

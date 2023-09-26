@@ -1,13 +1,13 @@
 tags:
-  - Lead
+  - Organization Setting
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get All Leads
-operationId: getAllLeads
+summary: Get Organization Setting
+operationId: getOrgSetting
 responses:
   200:
-    description: Leads fetched successfully
+    description: Organization Setting fetched successfully
   400:
     description: Bad request, invalid credentials
   500:

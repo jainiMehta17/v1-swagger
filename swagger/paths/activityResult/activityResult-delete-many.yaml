@@ -1,0 +1,24 @@
+tags:
+  - Activity Result
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Many Activity Results
+operationId: deleteManyActivityResults
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          allId:
+            type: array
+            items: 
+              type: integer
+responses:
+  200:
+    description: Selected Activity results deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

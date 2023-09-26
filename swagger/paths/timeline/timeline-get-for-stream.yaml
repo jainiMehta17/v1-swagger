@@ -1,0 +1,24 @@
+tags:
+  - Timeline
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Timeline For Stream
+operationId: getTimelineForStream
+parameters: 
+  - in: query
+    name: userIds
+    schema:
+      type: array
+      items:
+        type: integer
+  - in: query
+    name: search
+    type: string
+responses:
+  200:
+    description: Timelines fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

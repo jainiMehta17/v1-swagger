@@ -1,0 +1,22 @@
+tags:
+  - Hierarchy Department
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Hierarchy Department
+operationId: createDepartment
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+responses:
+  200:
+    description: Department created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

@@ -1,0 +1,93 @@
+tags:
+  - View
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update View
+operationId: updateView
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          model_name:
+            type: string
+            example: 'Lead'
+          columns:
+            type: array
+            items:
+              type: object
+              properties:
+                fieldName:
+                  type: string
+                displayName:
+                  type: string
+                type:
+                  type: string
+                  example: 'STRING'
+                fieldType:
+                  type: string
+                show:
+                  type: boolean
+                custom:
+                  type: boolean
+                default:
+                  type: boolean
+                width:
+                  type: integer
+                min_width:
+                  type: integer
+                is_pin:
+                  type: boolean
+                relational_model:
+                  type: string
+                  example: 'leads'
+                order:
+                  type: integer
+          filter:
+            type: object
+            properties:
+              filterType:
+                type: string
+                example: 'or'
+              filter:
+                type: array
+                items:
+                  filterType:
+                    type: string
+                    example: 'or'
+                  filter:
+                    type: array
+                    items: {}
+          sort:
+            type: array
+            items:
+              type: object
+              properties:
+                column:
+                  type: object
+                  items: {}
+                type: 
+                  type: string
+          is_pin:
+            type: boolean
+          visibility:
+            type: string
+            example: 'public'
+          is_locked:
+            type: boolean
+responses:
+  200:
+    description: View updated Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

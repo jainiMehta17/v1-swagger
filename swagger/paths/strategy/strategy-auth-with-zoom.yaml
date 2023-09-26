@@ -1,0 +1,21 @@
+tags:
+  - Strategy
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Auth With Zoom
+operationId: authWithZoom
+parameters:
+  - in: query
+    name: code
+    type: string
+  - in: query
+    name: state
+    type: string
+responses:
+  200:
+    description: Authentication With Zoom Successful
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

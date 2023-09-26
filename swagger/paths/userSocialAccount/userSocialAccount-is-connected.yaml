@@ -1,0 +1,27 @@
+tags:
+  - User Social Account
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Social Account Is Connected
+operationId: isConnected
+parameters:
+  - in: path
+    name: provider
+    type: string
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          token_provider:
+            type: string
+responses:
+  200:
+    description: Connected provider details fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

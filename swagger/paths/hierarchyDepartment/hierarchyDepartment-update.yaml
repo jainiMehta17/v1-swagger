@@ -1,0 +1,27 @@
+tags:
+  - Hierarchy Department
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Hierarchy Department
+operationId: updateDepartment
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+responses:
+  200:
+    description: Department updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

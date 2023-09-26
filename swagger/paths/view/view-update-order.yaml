@@ -1,0 +1,26 @@
+tags:
+  - View
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update View Order
+operationId: updateViewOrder
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          p_view_id:
+            type: integer
+          p_order_id:
+            type: integer
+          p_model_name:
+            type: string
+responses:
+  200:
+    description: View Updated Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

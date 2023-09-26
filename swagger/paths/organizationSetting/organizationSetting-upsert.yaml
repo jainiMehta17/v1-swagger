@@ -1,0 +1,88 @@
+tags:
+  - Organization Setting
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Upsert Organization Setting
+operationId: upsertOrgSetting
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          twoFA_status:
+            type: boolean
+          org_ips:
+            type: object
+            properties:
+              new:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    ip:
+                      type: string
+                    start_time:
+                      type: string
+                    end_time:
+                      type: string
+              updated:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    ip:
+                      type: string
+                    start_time:
+                      type: string
+                    end_time:
+                      type: string
+                    id:
+                      type: integer
+              deleted:
+                type: array
+                items:
+                  type: integer
+          organization_id:
+            type: integer
+          pass_expire:
+            type: integer
+          pass_reuse:
+            type: integer
+          pass_length:
+            type: integer
+          p_upper_lower:
+            type: boolean
+          p_num_required:
+            type: boolean
+          p_special_required:
+            type: boolean
+          created_at:
+            type: string
+          updated_at:
+            type: string
+          deleted_at:
+            type: string
+          created_by:
+            type: integer
+          updated_by:
+            type: integer
+          creator:
+            type: object
+            items: {}
+          modifier:
+            type: object
+            items: {}
+          organization:
+            type: object
+            items: {}
+          enforce:
+            type: object
+responses:
+  200:
+    description: Organization Setting updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

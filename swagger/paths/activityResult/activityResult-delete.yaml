@@ -1,0 +1,19 @@
+tags:
+  - Activity Result
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Activity Results
+operationId: deleteActivityResult
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true 
+responses:
+  200:
+    description: Activity result deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

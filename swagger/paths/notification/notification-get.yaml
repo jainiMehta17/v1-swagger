@@ -1,13 +1,13 @@
 tags:
-  - Lead
+  - Notification
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get All Leads
-operationId: getAllLeads
+summary: Get Notifications
+operationId: getNotifications
 responses:
   200:
-    description: Leads fetched successfully
+    description: Notifications fetched successfully
   400:
     description: Bad request, invalid credentials
   500:

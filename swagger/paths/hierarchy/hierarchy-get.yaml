@@ -1,13 +1,13 @@
 tags:
-  - Lead
+  - Hierarchy
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get All Leads
-operationId: getAllLeads
+summary: Get Hierarchy
+operationId: getHierarchy
 responses:
   200:
-    description: Leads fetched successfully
+    description: Hierarchy fetched successfully
   400:
     description: Bad request, invalid credentials
   500:

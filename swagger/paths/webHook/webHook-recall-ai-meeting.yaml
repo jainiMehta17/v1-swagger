@@ -1,0 +1,23 @@
+tags:
+  - Web Hook
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Listen Recall-Ai Webhook Bot
+operationId: listenRecallAiWebhookBot
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          botEventData:
+            type: object
+            items: {}
+responses:
+  200:
+    description: Recall-Ai Webhook Bot Listened Successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors

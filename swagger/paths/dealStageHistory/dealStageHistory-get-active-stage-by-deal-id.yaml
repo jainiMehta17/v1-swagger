@@ -1,0 +1,19 @@
+tags:
+  - Deal Stage History
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Active Stage By Deal Id
+operationId: getActiveStageByDealId
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+responses:
+  200:
+    description: Deal history fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server errors
