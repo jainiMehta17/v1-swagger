@@ -1,0 +1,25 @@
+tags:
+  - StayInTouchActivity
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete StayInTouchActivity
+operationId: deleteScheduleActivities
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          all:
+            type: integer
+            items: {}
+          modal_record_id:
+            type: integer
+responses:
+  200:
+    description: Shedule Activity deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

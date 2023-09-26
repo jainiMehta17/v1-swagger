@@ -1,0 +1,29 @@
+tags:
+  - Snippet-Category
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Snippet-Category
+operationId: updateSnippetCategory
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          message:
+            type: string
+responses:
+  200:
+    description: Snippet-Category Updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

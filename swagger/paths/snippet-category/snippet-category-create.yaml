@@ -1,0 +1,28 @@
+tags:
+  - Snippet-Category
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Snippet-Category
+operationId: createSnippetCategory
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          created_by:
+            type: integer
+          updated_by:
+            type: integer
+          organization_id:
+            type: integer
+responses:
+  200:
+    description: Snippet-Category created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

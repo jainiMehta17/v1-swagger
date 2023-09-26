@@ -41,6 +41,7 @@
       "description": "Lead APIs"
     },
     {
+<<<<<<< HEAD
       "name": "Account",
       "description": "Account APIs"
     },
@@ -134,6 +135,94 @@
     {
       "name": "Strategy",
       "description": "Strategy APIs"
+=======
+      "name": "Tag",
+      "description": "Tag APIs"
+    },
+    {
+      "name": "Stream",
+      "description": "Stream APIs"
+    },
+    {
+      "name": "Snippet",
+      "description": "Snippet APIs"
+    },
+    {
+      "name": "Snippet-Category",
+      "description": "Snippet-Category APIs"
+    },
+    {
+      "name": "Note",
+      "description": "Note APIs"
+    },
+    {
+      "name": "Attachment",
+      "description": "Attachment APIs"
+    },
+    {
+      "name": "Pipeline",
+      "description": "Pipeline APIs"
+    },
+    {
+      "name": "Zoom",
+      "description": "Zoom APIs"
+    },
+    {
+      "name": "Activity-Type",
+      "description": "Activity-Type APIs"
+    },
+    {
+      "name": "General-Setting",
+      "description": "General-Setting APIs"
+    },
+    {
+      "name": "Product-Version",
+      "description": "Product-Version APIs"
+    },
+    {
+      "name": "Smtp-Imap",
+      "description": "Smtp-Imap APIs"
+    },
+    {
+      "name": "PushNotification",
+      "description": "PushNotification APIs"
+    },
+    {
+      "name": "Search",
+      "description": "Search APIs"
+    },
+    {
+      "name": "StayInTouchActivity",
+      "description": "StayInTouchActivity APIs"
+    },
+    {
+      "name": "Comment",
+      "description": "Comment APIs"
+    },
+    {
+      "name": "Follow-Entity",
+      "description": "Follow-Entity APIs"
+    },
+    {
+      "name": "Reaction",
+      "description": "Reaction APIs"
+    },
+    {
+      "name": "Icon-Type",
+      "description": "Icon-Type APIs"
+    },
+    {
+      "name": "Super-Admin",
+      "description": "Super-Admin APIs"
+    },
+    {
+      "name": "Recall",
+      "description": "Recall APIs"
+    },
+    {
+      "name": "Org-Alert",
+      "description": "Org-Alert APIs"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
     }
   ],
   "paths": {
@@ -1139,12 +1228,6 @@
             "in": "path",
             "name": "id",
             "type": "string"
-          },
-          {
-            "in": "header",
-            "name": "xorganization",
-            "type": "string",
-            "required": true
           }
         ],
         "responses": {
@@ -2583,10 +2666,17 @@
         }
       }
     },
+<<<<<<< HEAD
     "/accounts": {
       "post": {
         "tags": [
           "Account"
+=======
+    "/tags": {
+      "post": {
+        "tags": [
+          "Tag"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -2596,8 +2686,13 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Create Account",
         "operationId": "createAccount",
+=======
+        "summary": "Create Tag",
+        "operationId": "craeteTag",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
@@ -5309,6 +5404,20 @@
                   },
                   "is_visibility": {
                     "type": "boolean"
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "created_by": {
+                    "type": "integer"
+                  },
+                  "updated_by": {
+                    "type": "integer"
+                  },
+                  "organization_id": {
+                    "type": "integer"
                   }
                 }
               }
@@ -5317,7 +5426,11 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Activities fetched successfully"
+=======
+            "description": "Tag created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -5326,12 +5439,19 @@
             "description": "Internal server error"
           }
         }
+<<<<<<< HEAD
       }
     },
     "/deal-stage-history": {
       "get": {
         "tags": [
           "Deal Stage History"
+=======
+      },
+      "delete": {
+        "tags": [
+          "Tag"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5341,11 +5461,27 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Deal Histories",
         "operationId": "getDealHistories",
         "responses": {
           "200": {
             "description": "Deal histories fetched successfully"
+=======
+        "summary": "Delete Tag",
+        "operationId": "deleteTags",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tag Deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -5354,10 +5490,19 @@
             "description": "Internal server error"
           }
         }
+<<<<<<< HEAD
       },
       "post": {
         "tags": [
           "Deal Stage History"
+=======
+      }
+    },
+    "/tags/get-data": {
+      "get": {
+        "tags": [
+          "Tag"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5367,6 +5512,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Add Deal Stage History",
         "operationId": "addDealStageHistory",
         "requestBody": {
@@ -5389,6 +5535,13 @@
         "responses": {
           "200": {
             "description": "Deal histories fetched successfully"
+=======
+        "summary": "Get Tags",
+        "operationId": "getTags",
+        "responses": {
+          "200": {
+            "description": "Tag fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -5399,10 +5552,17 @@
         }
       }
     },
+<<<<<<< HEAD
     "/deal-stage-history/{id}": {
       "get": {
         "tags": [
           "Deal Stage History"
+=======
+    "/tags/assign/:id": {
+      "get": {
+        "tags": [
+          "Tag"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5412,31 +5572,52 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Active Stage By Deal Id",
         "operationId": "getActiveStageByDealId",
+=======
+        "summary": "Get Tag By ID",
+        "operationId": "assignTag",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "parameters": [
           {
             "in": "path",
             "name": "id",
+<<<<<<< HEAD
             "type": "integer",
             "required": true
+=======
+            "type": "string"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         ],
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Deal history fetched successfully"
+=======
+            "description": "Tag fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       },
       "post": {
         "tags": [
+<<<<<<< HEAD
           "Deal Stage History"
+=======
+          "Tag"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5446,14 +5627,23 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Update Stage By Deal ID",
         "operationId": "updateStageByDealID",
+=======
+        "summary": "Assign Tag",
+        "operationId": "assignTag",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "parameters": [
           {
             "in": "path",
             "name": "id",
+<<<<<<< HEAD
             "type": "integer",
             "required": true
+=======
+            "type": "string"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         ],
         "requestBody": {
@@ -5462,6 +5652,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "start_date": {
                     "type": "string"
                   },
@@ -5469,6 +5660,25 @@
                     "type": "string"
                   },
                   "currentStageType": {
+=======
+                  "tags": {
+                    "type": "object",
+                    "properties": {
+                      "new": {
+                        "type": "object",
+                        "items": {}
+                      },
+                      "old": {
+                        "type": "object",
+                        "items": {}
+                      }
+                    }
+                  },
+                  "modelName": {
+                    "type": "string"
+                  },
+                  "message": {
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                     "type": "string"
                   }
                 }
@@ -5478,7 +5688,11 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Deal stage changed successfully"
+=======
+            "description": "Assign Tag successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -5489,10 +5703,17 @@
         }
       }
     },
+<<<<<<< HEAD
     "/deal-stage-history/dealAge/{id}": {
       "get": {
         "tags": [
           "Deal Stage History"
+=======
+    "/tags/:id": {
+      "put": {
+        "tags": [
+          "Tag"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5502,8 +5723,13 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Deal Age By Deal Id",
         "operationId": "getDealAgeByDealId",
+=======
+        "summary": "Update Tag",
+        "operationId": "updateTag",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "parameters": [
           {
             "in": "path",
@@ -5512,23 +5738,60 @@
             "required": true
           }
         ],
+<<<<<<< HEAD
         "responses": {
           "200": {
             "description": "Deal age fetched successfully"
+=======
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "color": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tag Updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/activity-result": {
       "post": {
         "tags": [
           "Activity Result"
+=======
+    "/tags/arrange/:id": {
+      "post": {
+        "tags": [
+          "Tag"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5538,14 +5801,27 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Create Activity Result",
         "operationId": "createActivityResult",
+=======
+        "summary": "Reassign Tag",
+        "operationId": "reAssignTag",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "result": {
                     "type": "string"
                   },
@@ -5558,6 +5834,17 @@
                   },
                   "is_universal": {
                     "type": "boolean"
+=======
+                  "tags": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "modelName": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -5566,12 +5853,17 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Activity result created successfully"
+=======
+            "description": "Reassign Tag successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -5579,6 +5871,17 @@
       "get": {
         "tags": [
           "Activity Result"
+=======
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/stream": {
+      "post": {
+        "tags": [
+          "Stream"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5588,45 +5891,32 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Activity Results",
         "operationId": "getActivityResults",
         "responses": {
           "200": {
             "description": "Activity results fetched successfully"
-          },
-          "400": {
-            "description": "Bad request, invalid credentials"
-          },
-          "500": {
-            "description": "Internal server errors"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Activity Result"
-        ],
-        "security": [
-          {
-            "cookieAuth": []
-          },
-          {
-            "ApiKeyAuth": []
-          }
-        ],
-        "summary": "Delete Many Activity Results",
-        "operationId": "deleteManyActivityResults",
+=======
+        "summary": "Create Streams",
+        "operationId": "createStreamUserData",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "allId": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer"
-                    }
+                  "name": {
+                    "type": "string"
+                  },
+                  "created_by": {
+                    "type": "integer"
+                  },
+                  "updated_by": {
+                    "type": "integer"
+                  },
+                  "organization_id": {
+                    "type": "integer"
                   }
                 }
               }
@@ -5635,12 +5925,106 @@
         },
         "responses": {
           "200": {
-            "description": "Selected Activity results deleted successfully"
+            "description": "Streams created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
+            "description": "Internal server errors"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Activity Result"
+=======
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/streams/:id": {
+      "put": {
+        "tags": [
+          "Stream"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+<<<<<<< HEAD
+        "summary": "Delete Many Activity Results",
+        "operationId": "deleteManyActivityResults",
+=======
+        "summary": "Update Streams",
+        "operationId": "editStreamUserData",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+<<<<<<< HEAD
+                  "allId": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+=======
+                  "name": {
+                    "type": "string"
+                  },
+                  "stream_id": {
+                    "type": "integer"
+                  },
+                  "user_id": {
+                    "type": "integer"
+                  },
+                  "created_by": {
+                    "type": "integer"
+                  },
+                  "updated_by": {
+                    "type": "integer"
+                  },
+                  "organization_id": {
+                    "type": "integer"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+<<<<<<< HEAD
+            "description": "Selected Activity results deleted successfully"
+=======
+            "description": "Streams Updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -5658,6 +6042,15 @@
       "get": {
         "tags": [
           "Activity Result"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Stream"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5667,8 +6060,13 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Activity Result",
         "operationId": "getActivityResult",
+=======
+        "summary": "Delete Streams",
+        "operationId": "deleteStreamUserData",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "parameters": [
           {
             "in": "path",
@@ -5679,12 +6077,17 @@
         ],
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Activity result fetched successfully"
+=======
+            "description": "Streams Deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -5692,6 +6095,17 @@
       "put": {
         "tags": [
           "Activity Result"
+=======
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/snippet": {
+      "post": {
+        "tags": [
+          "Snippet"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5701,6 +6115,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Update Activity Result",
         "operationId": "updateActivityResult",
         "parameters": [
@@ -5711,12 +6126,17 @@
             "required": true
           }
         ],
+=======
+        "summary": "Create Snippet",
+        "operationId": "createSnippet",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "result": {
                     "type": "string"
                   },
@@ -5751,6 +6171,31 @@
                   },
                   "is_universal": {
                     "type": "boolean"
+=======
+                  "type": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "category_id": {
+                    "type": "integer"
+                  },
+                  "snippet": {
+                    "type": "string"
+                  },
+                  "accessibility": {
+                    "type": "string"
+                  },
+                  "created_by": {
+                    "type": "integer"
+                  },
+                  "updated_by": {
+                    "type": "integer"
+                  },
+                  "organization_id": {
+                    "type": "integer"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -5759,12 +6204,17 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Activity result updated successfully"
+=======
+            "description": "Snippet created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -5780,6 +6230,15 @@
       "get": {
         "tags": [
           "General Route"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Snippet"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5789,25 +6248,59 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Timezone List",
         "operationId": "timezoneList",
         "responses": {
           "200": {
             "description": "Timezone list fetched successfully"
+=======
+        "summary": "Delete Snippet",
+        "operationId": "deleteSnippets",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allIds": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Snippet-Category Updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/general/get-time-zone": {
       "get": {
         "tags": [
           "General Route"
+=======
+    "/snippet/get-data": {
+      "post": {
+        "tags": [
+          "Snippet"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5817,6 +6310,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Timezone By Latitude and Longitude",
         "operationId": "timezoneByLatLng",
         "parameters": [
@@ -5834,20 +6328,38 @@
         "responses": {
           "200": {
             "description": "Timezone fetched successfully"
+=======
+        "summary": "Get All Snippet",
+        "operationId": "getSnippets",
+        "responses": {
+          "200": {
+            "description": "Snippet fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/general/emit-io": {
       "post": {
         "tags": [
           "General Route"
+=======
+    "/snippet/:id": {
+      "put": {
+        "tags": [
+          "Snippet"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5857,20 +6369,53 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Emit-Io",
         "operationId": "emitIo",
+=======
+        "summary": "Update Snippet",
+        "operationId": "updateSnippet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "eventName": {
                     "type": "string"
                   },
                   "eventData": {
                     "type": "object",
                     "items": {}
+=======
+                  "title": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "category_id": {
+                    "type": "integer"
+                  },
+                  "snippet": {
+                    "type": "string"
+                  },
+                  "accessibility": {
+                    "type": "string"
+                  },
+                  "updated_by": {
+                    "type": "integer"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -5879,21 +6424,36 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "IO event emitted successfully"
+=======
+            "description": "Snippet Updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/check-field-is-unique": {
       "post": {
         "tags": [
           "General Route"
+=======
+    "/snippet-category": {
+      "post": {
+        "tags": [
+          "Snippet-Category"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5903,14 +6463,20 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Check Field Is Unique For Contact And Account",
         "operationId": "checkFieldIsUniqueForContactAndAccount",
+=======
+        "summary": "Create Snippet-Category",
+        "operationId": "createSnippetCategory",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "email": {
                     "type": "string"
                   },
@@ -5925,6 +6491,19 @@
                   },
                   "relatedContact": {
                     "type": "string"
+=======
+                  "name": {
+                    "type": "string"
+                  },
+                  "created_by": {
+                    "type": "integer"
+                  },
+                  "updated_by": {
+                    "type": "integer"
+                  },
+                  "organization_id": {
+                    "type": "integer"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -5933,6 +6512,7 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Action Successful"
           },
           "400": {
@@ -5962,11 +6542,15 @@
         "responses": {
           "200": {
             "description": "Entity Attributes fetched successfully"
+=======
+            "description": "Snippet-Category created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -5974,6 +6558,15 @@
       "post": {
         "tags": [
           "Entity Attribute"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Snippet-Category"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -5983,19 +6576,30 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Create Entity Attribute",
         "operationId": "createEntityAttribute",
+=======
+        "summary": "Delete Snippet-Category",
+        "operationId": "deleteSnippetCategories",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "name": {
                     "type": "string"
                   },
                   "type": {
                     "type": "string"
+=======
+                  "allId": {
+                    "type": "array",
+                    "items": {}
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -6004,12 +6608,17 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Entity Attributes created successfully"
+=======
+            "description": "Snippet-Category Updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -6027,6 +6636,17 @@
       "post": {
         "tags": [
           "Entity Attribute"
+=======
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/snippet-category/get-data": {
+      "post": {
+        "tags": [
+          "Snippet-Category"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6036,6 +6656,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Entity Attribute",
         "operationId": "getEntityAttribute",
         "parameters": [
@@ -6063,11 +6684,19 @@
         "responses": {
           "200": {
             "description": "Entity Attribute fetched successfully"
+=======
+        "summary": "Get All Snippet-Category",
+        "operationId": "getSnippetCategories",
+        "responses": {
+          "200": {
+            "description": "Snippet-Category fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -6078,6 +6707,17 @@
       "put": {
         "tags": [
           "Entity Attribute"
+=======
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/snippet-category/:id": {
+      "put": {
+        "tags": [
+          "Snippet-Category"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6087,8 +6727,13 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Update Entity Attribute",
         "operationId": "updateEntityAttribute",
+=======
+        "summary": "Update Snippet-Category",
+        "operationId": "updateSnippetCategory",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "parameters": [
           {
             "in": "path",
@@ -6106,10 +6751,14 @@
                   "name": {
                     "type": "string"
                   },
+<<<<<<< HEAD
                   "color": {
                     "type": "string"
                   },
                   "type": {
+=======
+                  "message": {
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                     "type": "string"
                   }
                 }
@@ -6119,12 +6768,17 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Entity Attribute updated successfully"
+=======
+            "description": "Snippet-Category Updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -6132,6 +6786,17 @@
       "delete": {
         "tags": [
           "Entity Attribute"
+=======
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/notes": {
+      "post": {
+        "tags": [
+          "Note"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6141,14 +6806,20 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Delete Many Entity Attributes",
         "operationId": "deleteManyEntityAttributes",
+=======
+        "summary": "Create Note",
+        "operationId": "addNote",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "allId": {
                     "type": "array",
                     "items": {
@@ -6157,6 +6828,31 @@
                   },
                   "type": {
                     "type": "string"
+=======
+                  "model_name": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "model_record_id": {
+                    "type": "integer"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "created_by": {
+                    "type": "integer"
+                  },
+                  "updated_by": {
+                    "type": "integer"
+                  },
+                  "organization_id": {
+                    "type": "integer"
+                  },
+                  "is_drafted": {
+                    "type": "boolean"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -6165,12 +6861,17 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Entity Attributes deleted successfully"
+=======
+            "description": "Note created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -6180,6 +6881,15 @@
       "get": {
         "tags": [
           "User Social Account"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Note"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6189,25 +6899,44 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Logged In User Tokens",
         "operationId": "getLoggedInUserTokens",
         "responses": {
           "200": {
             "description": "Logged-In User tokens fetched successfully"
+=======
+        "summary": "Get All Note",
+        "operationId": "getAllNotes",
+        "responses": {
+          "200": {
+            "description": "Note fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/user-social-account/{id}": {
       "delete": {
         "tags": [
           "User Social Account"
+=======
+    "/notes/:id": {
+      "put": {
+        "tags": [
+          "Note"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6217,14 +6946,20 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Logged In User Tokens",
         "operationId": "getLoggedInUserTokens",
+=======
+        "summary": "Update Note",
+        "operationId": "updateNoteById",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "parameters": [
           {
             "in": "path",
             "name": "id",
             "type": "integer",
             "required": true
+<<<<<<< HEAD
           },
           {
             "in": "query",
@@ -6267,6 +7002,8 @@
             "name": "provider",
             "type": "string",
             "required": true
+=======
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         ],
         "requestBody": {
@@ -6275,8 +7012,27 @@
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "token_provider": {
                     "type": "string"
+=======
+                  "description": {
+                    "type": "string"
+                  },
+                  "deletedAttachmentIds": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "is_drafted": {
+                    "type": "boolean"
+                  },
+                  "userIds": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "is_pinned": {
+                    "type": "boolean"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -6285,12 +7041,17 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Connected provider details fetched successfully"
+=======
+            "description": "Note Updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -6300,12 +7061,22 @@
       "post": {
         "tags": [
           "User Social Account"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Note"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
             "cookieAuth": []
           },
           {
+<<<<<<< HEAD
             "ApiKeyAuth": []
           }
         ],
@@ -6339,11 +7110,30 @@
         "responses": {
           "200": {
             "description": "User account disconnected successfully"
+=======
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get All Note",
+        "operationId": "getNoteById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Note fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -6353,6 +7143,15 @@
       "post": {
         "tags": [
           "Mail Template"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Note"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6362,6 +7161,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Add Mail Template",
         "operationId": "addMailTemplate",
         "requestBody": {
@@ -6410,6 +7210,21 @@
         "responses": {
           "200": {
             "description": "Template created successfully"
+=======
+        "summary": "Get All Note",
+        "operationId": "deleteNoteById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Note deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -6418,10 +7233,19 @@
             "description": "Internal server error"
           }
         }
+<<<<<<< HEAD
       },
       "delete": {
         "tags": [
           "Mail Template"
+=======
+      }
+    },
+    "/attachments": {
+      "post": {
+        "tags": [
+          "Attachment"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6431,19 +7255,36 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Delete Mail Templates",
         "operationId": "deleteMailTemplates",
+=======
+        "summary": "Create Attachment",
+        "operationId": "addAttachments",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "allId": {
                     "type": "array",
                     "items": {
                       "type": "integer"
                     }
+=======
+                  "model_name": {
+                    "type": "string"
+                  },
+                  "model_record_id": {
+                    "type": "integer"
+                  },
+                  "links": {
+                    "type": "array",
+                    "items": {}
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -6452,7 +7293,11 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Selected templates deleted successfully"
+=======
+            "description": "Attachment created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -6464,7 +7309,11 @@
       },
       "get": {
         "tags": [
+<<<<<<< HEAD
           "Mail Template"
+=======
+          "Attachments"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6474,11 +7323,19 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get All Mail Templates",
         "operationId": "getAllMailTemplates",
         "responses": {
           "200": {
             "description": "Templates fetched successfully"
+=======
+        "summary": "Get All Attachments",
+        "operationId": "getAllAttachments",
+        "responses": {
+          "200": {
+            "description": "Attachments fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -6487,12 +7344,19 @@
             "description": "Internal server error"
           }
         }
+<<<<<<< HEAD
       }
     },
     "/mail-template/visibility": {
       "put": {
         "tags": [
           "Mail Template"
+=======
+      },
+      "delete": {
+        "tags": [
+          "Attachment"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6502,6 +7366,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Update Visibility",
         "operationId": "updateVisibility",
         "requestBody": {
@@ -6527,6 +7392,21 @@
         "responses": {
           "200": {
             "description": "Template updated successfully"
+=======
+        "summary": "Get All Attachment",
+        "operationId": "deleteAttachments",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Attachment deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -6537,10 +7417,17 @@
         }
       }
     },
+<<<<<<< HEAD
     "/mail-template/{id}": {
       "put": {
         "tags": [
           "Mail Template"
+=======
+    "/attachments/:id": {
+      "get": {
+        "tags": [
+          "Attachments"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6550,6 +7437,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Update Mail Template",
         "operationId": "updateMailTemplateById",
         "parameters": [
@@ -6606,6 +7494,13 @@
         "responses": {
           "200": {
             "description": "Template updated successfully"
+=======
+        "summary": "Get One Attachments",
+        "operationId": "getAttachmentById",
+        "responses": {
+          "200": {
+            "description": "Attachments fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -6615,9 +7510,15 @@
           }
         }
       },
+<<<<<<< HEAD
       "get": {
         "tags": [
           "Mail Template"
+=======
+      "put": {
+        "tags": [
+          "Attachment"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6627,19 +7528,32 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Mail Template",
         "operationId": "getMailTemplateById",
         "parameters": [
           {
             "in": "path",
             "name": "Id",
+=======
+        "summary": "Update one Attachment",
+        "operationId": "updateAttachmentById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
             "type": "integer",
             "required": true
           }
         ],
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Template fetched successfully"
+=======
+            "description": "Attachment Updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -6651,7 +7565,11 @@
       },
       "delete": {
         "tags": [
+<<<<<<< HEAD
           "Mail Template"
+=======
+          "Attachment"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6661,19 +7579,32 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Delete Mail Template",
         "operationId": "deleteMailTemplateById",
         "parameters": [
           {
             "in": "path",
             "name": "Id",
+=======
+        "summary": "Get One Attachment",
+        "operationId": "deleteAttachmentById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
             "type": "integer",
             "required": true
           }
         ],
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Selected template deleted successfully"
+=======
+            "description": "Attachment deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -6684,10 +7615,17 @@
         }
       }
     },
+<<<<<<< HEAD
     "/compose-mail-connect-entity": {
       "post": {
         "tags": [
           "Compose Mail Connect Entity"
+=======
+    "/pipelines": {
+      "post": {
+        "tags": [
+          "Pipeline"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6697,18 +7635,46 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Connect Entity With Compose Mail",
         "operationId": "connectEntityWithComposeMail",
+=======
+        "summary": "Add Pipeline",
+        "operationId": "createPipeline",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "model_name": {
                     "type": "string"
                   },
                   "model_record_id": {
+=======
+                  "name": {
+                    "type": "string"
+                  },
+                  "stages": {
+                    "type": "object",
+                    "properties": {
+                      "new": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "old": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    }
+                  },
+                  "is_default": {
+                    "type": "boolean"
+                  },
+                  "rot_days": {
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                     "type": "integer"
                   }
                 }
@@ -6718,12 +7684,17 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Entity connected successfully"
+=======
+            "description": "Pipeline created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -6731,6 +7702,15 @@
       "delete": {
         "tags": [
           "Compose Mail Connect Entity"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Pipeline"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6740,16 +7720,25 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Remove Entity From Compose Mail",
         "operationId": "removeEntityFromComposeMaiById",
         "responses": {
           "200": {
             "description": "Entity removed successfully"
+=======
+        "summary": "Get Pipeline",
+        "operationId": "getPipelines",
+        "responses": {
+          "200": {
+            "description": "Pipeline fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -6759,6 +7748,15 @@
       "get": {
         "tags": [
           "Compose Mail Connect Entity"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Pipeline"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6768,25 +7766,59 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Compose Mail Entity Detail",
         "operationId": "getComposeMailEntityDetailByUserId",
         "responses": {
           "200": {
             "description": "Template fetched successfully"
+=======
+        "summary": "Delete Pipeline",
+        "operationId": "deleteManyPipelines",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allIds": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pipeline Deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/timeline": {
       "get": {
         "tags": [
           "Timeline"
+=======
+    "/pipelines/:id": {
+      "get": {
+        "tags": [
+          "Pipeline"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6796,6 +7828,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Timeline",
         "operationId": "getTimeline",
         "parameters": [
@@ -6878,20 +7911,32 @@
         "responses": {
           "200": {
             "description": "Timelines fetched successfully"
+=======
+        "summary": "Get Pipeline",
+        "operationId": "getPipeline",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pipeline fetched successfully"
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
-            "description": "Internal server errors"
+            "description": "Internal server error"
           }
         }
-      }
-    },
-    "/timeline/dashboard-timeline": {
-      "get": {
+      },
+      "put": {
         "tags": [
-          "Timeline"
+          "Pipeline"
         ],
         "security": [
           {
@@ -6901,25 +7946,197 @@
             "ApiKeyAuth": []
           }
         ],
+        "summary": "Update Pipeline",
+        "operationId": "updateTag",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "stages": {
+                    "type": "object",
+                    "properties": {
+                      "new": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "old": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    }
+                  },
+                  "is_default": {
+                    "type": "boolean"
+                  },
+                  "rot_days": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pipeline Updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "patch": {
+        "$ref": "#/paths/~1pipelines~1%3Aid/put"
+      },
+      "delete": {
+        "tags": [
+          "Pipeline"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Delete Pipeline",
+        "operationId": "deleteManyPipelines",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allIds": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pipeline Deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+<<<<<<< HEAD
+            "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+          }
+        }
+      }
+    },
+<<<<<<< HEAD
+    "/timeline/dashboard-timeline": {
+      "get": {
+        "tags": [
+          "Timeline"
+=======
+    "/pipelines/deleteStage/:id": {
+      "delete": {
+        "tags": [
+          "Pipeline"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+<<<<<<< HEAD
         "summary": "Get Timeline For Dashboard",
         "operationId": "getTimelineForDashboard",
         "responses": {
           "200": {
             "description": "Timelines fetched successfully"
+=======
+        "summary": "Delete Stage",
+        "operationId": "deleteManyPipelines",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "currentStageId": {
+                    "type": "integer"
+                  },
+                  "newStageId": {
+                    "type": "integer"
+                  },
+                  "newPipelineId": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Stage Deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/timeline/stream-timeline": {
       "get": {
         "tags": [
           "Timeline"
+=======
+    "/zoom": {
+      "post": {
+        "tags": [
+          "Zoom"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6929,6 +8146,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Timeline For Stream",
         "operationId": "getTimelineForStream",
         "parameters": [
@@ -6951,20 +8169,62 @@
         "responses": {
           "200": {
             "description": "Timelines fetched successfully"
+=======
+        "summary": "Add Zoom",
+        "operationId": "createZoomMeeting",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "organization_id": {
+                    "type": "integer"
+                  },
+                  "host_id": {
+                    "type": "integer"
+                  },
+                  "organizationUUID": {
+                    "type": "string"
+                  },
+                  "providerData": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Zoom created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/timeline/pin/{id}": {
       "patch": {
         "tags": [
           "Timeline"
+=======
+    "/zoom/:id": {
+      "patch": {
+        "tags": [
+          "Zoom"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -6974,24 +8234,54 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Pin Or Unpin Timeline",
         "operationId": "pinOrUnpinTimelineById",
+=======
+        "summary": "Update Zoom",
+        "operationId": "updateZoomMeetingUsingActivityID",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "parameters": [
           {
             "in": "path",
             "name": "id",
+<<<<<<< HEAD
             "type": "integer",
             "required": true
           }
         ],
+=======
+            "type": "integer"
+          }
+        ],
+        "required": true,
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "is_pinned": {
                     "type": "boolean"
+=======
+                  "organization_id": {
+                    "type": "integer"
+                  },
+                  "host_id": {
+                    "type": "integer"
+                  },
+                  "organizationUUID": {
+                    "type": "string"
+                  },
+                  "providerData": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "meeting_id": {
+                    "type": "string"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -7000,17 +8290,26 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Timelines fetched successfully"
+=======
+            "description": "Zoom Updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/notification-setting": {
       "get": {
         "$ref": "#/paths/~1notifications~1read/get"
@@ -7020,6 +8319,12 @@
       "patch": {
         "tags": [
           "Notification Setting"
+=======
+    "/zoom/delete/:id": {
+      "delete": {
+        "tags": [
+          "Zoom"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7029,18 +8334,38 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Update Next Execution Date",
         "operationId": "updateNextExecutionDate",
+=======
+        "summary": "Delete Zoom",
+        "operationId": "deleteZoomMeeting",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "required": true
+          }
+        ],
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "receive_notification_time": {
                     "type": "integer"
                   },
                   "name": {
+=======
+                  "host_id": {
+                    "type": "integer"
+                  },
+                  "email": {
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                     "type": "string"
                   }
                 }
@@ -7050,7 +8375,11 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Notification Setting updated successfully"
+=======
+            "description": "Zoom Deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7061,10 +8390,16 @@
         }
       }
     },
+<<<<<<< HEAD
     "/notification-setting/{id}": {
       "patch": {
         "tags": [
           "Notification Setting"
+=======
+    "/zoom/:userId/is-exist": {
+      "get": {
+        "tags": [
+          "Zoom"
         ],
         "security": [
           {
@@ -7074,8 +8409,8 @@
             "ApiKeyAuth": []
           }
         ],
-        "summary": "Update Notification Setting",
-        "operationId": "updateNotificationSetting",
+        "summary": "Get Zoom",
+        "operationId": "isUserTokenExist",
         "parameters": [
           {
             "in": "path",
@@ -7084,16 +8419,106 @@
             "required": true
           }
         ],
+        "responses": {
+          "200": {
+            "description": "zoom fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/zoom/:user_id/phone-status": {
+      "get": {
+        "tags": [
+          "Zoom"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+<<<<<<< HEAD
+        "summary": "Update Notification Setting",
+        "operationId": "updateNotificationSetting",
+=======
+        "summary": "Get Zoom",
+        "operationId": "getZoomPhoneStatus",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+<<<<<<< HEAD
+          }
+        ],
+=======
+          },
+          {
+            "in": "query",
+            "name": "call_id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Call status fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/activity-type": {
+      "post": {
+        "tags": [
+          "Activity-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Add Activity-Type",
+        "operationId": "addActivityType",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "status": {
                     "type": "string"
                   },
                   "notification_type_id": {
+=======
+                  "name": {
+                    "type": "string"
+                  },
+                  "icon": {
+                    "type": "string"
+                  },
+                  "parent_type": {
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                     "type": "integer"
                   }
                 }
@@ -7103,7 +8528,11 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Notification Setting updated successfully"
+=======
+            "description": "Activity Type created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7112,6 +8541,7 @@
             "description": "Internal server error"
           }
         }
+<<<<<<< HEAD
       }
     },
     "/notifications/get-data": {
@@ -7123,6 +8553,12 @@
       "get": {
         "tags": [
           "Notification Setting"
+=======
+      },
+      "get": {
+        "tags": [
+          "Activity-Type"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7132,11 +8568,19 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Notification Setting",
         "operationId": "getNotificationSetting",
         "responses": {
           "200": {
             "description": "Notification Setting fetched successfully"
+=======
+        "summary": "Get Activity-Type",
+        "operationId": "getAllActivityTypes",
+        "responses": {
+          "200": {
+            "description": "Activity-Type fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7145,12 +8589,19 @@
             "description": "Internal server error"
           }
         }
+<<<<<<< HEAD
       }
     },
     "/user-sessions/get-data": {
       "get": {
         "tags": [
           "User Session"
+=======
+      },
+      "delete": {
+        "tags": [
+          "Activity-Type"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7160,11 +8611,34 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get User Sessions",
         "operationId": "getUserSessions",
         "responses": {
           "200": {
             "description": "User Sessions Fetched Successfully"
+=======
+        "summary": "Delete Activity-Type",
+        "operationId": "deleteActivityTypes",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "allIds": {
+                    "type": "array",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Activity-Type Deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7175,10 +8649,17 @@
         }
       }
     },
+<<<<<<< HEAD
     "/user-sessions/{id}": {
       "get": {
         "tags": [
           "User Session"
+=======
+    "/activity-type/get-data": {
+      "get": {
+        "tags": [
+          "Activity-Type"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7188,6 +8669,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Remove UserSession",
         "operationId": "removeUserSession",
         "parameters": [
@@ -7201,6 +8683,13 @@
         "responses": {
           "200": {
             "description": "User Sessions removed Successfully"
+=======
+        "summary": "Get Activity-Type",
+        "operationId": "getAllActivityTypes",
+        "responses": {
+          "200": {
+            "description": "Activity-Type fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7211,10 +8700,17 @@
         }
       }
     },
+<<<<<<< HEAD
     "/views": {
       "post": {
         "tags": [
           "View"
+=======
+    "/activity-type/:id": {
+      "put": {
+        "tags": [
+          "Activity-Type"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7224,8 +8720,20 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Create View",
         "operationId": "createView",
+=======
+        "summary": "Update Activity-Type",
+        "operationId": "addActivityType",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "toast",
+            "type": "string"
+          }
+        ],
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
@@ -7235,6 +8743,7 @@
                   "name": {
                     "type": "string"
                   },
+<<<<<<< HEAD
                   "model_name": {
                     "type": "string",
                     "example": "Lead"
@@ -7331,15 +8840,55 @@
                   },
                   "is_locked": {
                     "type": "boolean"
+=======
+                  "icon": {
+                    "type": "string"
+                  },
+                  "parent_type": {
+                    "type": "integer"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
             }
           }
+<<<<<<< HEAD
         },
         "responses": {
           "200": {
             "description": "View Created Successfully"
+=======
+        },
+        "responses": {
+          "200": {
+            "description": "Activity type updated successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Activity-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Activity-Type",
+        "operationId": "getActivityTypeById",
+        "responses": {
+          "200": {
+            "description": "Activity type fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7351,7 +8900,11 @@
       },
       "delete": {
         "tags": [
+<<<<<<< HEAD
           "View"
+=======
+          "Activity-Type"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7361,19 +8914,30 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Remove Views",
         "operationId": "removeViews",
+=======
+        "summary": "Delete Activity-Type",
+        "operationId": "deleteActivityTypes",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "allId": {
                     "type": "array",
                     "items": {
                       "type": "integer"
                     }
+=======
+                  "allIds": {
+                    "type": "array",
+                    "items": {}
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -7382,6 +8946,7 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Selected Views Removed Successfully"
           },
           "400": {
@@ -7409,6 +8974,9 @@
         "responses": {
           "200": {
             "description": "Views fetched Successfully"
+=======
+            "description": "Activity-Type Deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7419,6 +8987,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "/views/get-data": {
       "post": {
         "$ref": "#/paths/~1views/get"
@@ -7433,6 +9002,12 @@
       "post": {
         "tags": [
           "View"
+=======
+    "/general-settings": {
+      "post": {
+        "tags": [
+          "General-Setting"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7442,14 +9017,20 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Update View Order",
         "operationId": "updateViewOrder",
+=======
+        "summary": "Create General-Setting",
+        "operationId": "createGeneralSettings",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "p_view_id": {
                     "type": "integer"
                   },
@@ -7457,6 +9038,13 @@
                     "type": "integer"
                   },
                   "p_model_name": {
+=======
+                  "datalist": {
+                    "type": "array",
+                    "items": {}
+                  },
+                  "toastMsg": {
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                     "type": "string"
                   }
                 }
@@ -7466,7 +9054,11 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "View Updated Successfully"
+=======
+            "description": "General-Setting created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7475,12 +9067,19 @@
             "description": "Internal server error"
           }
         }
+<<<<<<< HEAD
       }
     },
     "/views/{id}": {
       "post": {
         "tags": [
           "View"
+=======
+      },
+      "get": {
+        "tags": [
+          "General-Setting"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7490,6 +9089,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get View",
         "operationId": "getView",
         "parameters": [
@@ -7503,6 +9103,13 @@
         "responses": {
           "200": {
             "description": "View Fetched Successfully"
+=======
+        "summary": "Get General-Setting",
+        "operationId": "getGeneralSettings",
+        "responses": {
+          "200": {
+            "description": "General settings fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7511,6 +9118,7 @@
             "description": "Internal server error"
           }
         }
+<<<<<<< HEAD
       },
       "delete": {
         "$ref": "#/paths/~1views/delete"
@@ -7521,6 +9129,14 @@
       "put": {
         "tags": [
           "View"
+=======
+      }
+    },
+    "/product-version": {
+      "post": {
+        "tags": [
+          "Product-Version"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7530,6 +9146,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Update View",
         "operationId": "updateView",
         "parameters": [
@@ -7540,12 +9157,17 @@
             "required": true
           }
         ],
+=======
+        "summary": "Create Product-Version",
+        "operationId": "addProductVersion",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "name": {
                     "type": "string"
                   },
@@ -7645,6 +9267,19 @@
                   },
                   "is_locked": {
                     "type": "boolean"
+=======
+                  "type": {
+                    "type": "string"
+                  },
+                  "version_number": {
+                    "type": "string"
+                  },
+                  "release_date": {
+                    "type": "string"
+                  },
+                  "changes": {
+                    "type": "string"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -7653,7 +9288,11 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "View updated Successfully"
+=======
+            "description": "Product-Version created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7664,10 +9303,17 @@
         }
       }
     },
+<<<<<<< HEAD
     "/trash": {
       "post": {
         "tags": [
           "Trash"
+=======
+    "/advance-option/smtp-imap/connect": {
+      "post": {
+        "tags": [
+          "Smtp-Imap"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7677,25 +9323,72 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Trash Data",
         "operationId": "getData",
         "responses": {
           "200": {
             "description": "All Trash Data fetched successfully"
+=======
+        "summary": "Create Smtp-Imap",
+        "operationId": "testImapSmtpConnection",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "smtp": {
+                    "type": "object",
+                    "items": {}
+                  },
+                  "imap": {
+                    "type": "object",
+                    "items": {}
+                  },
+                  "api_purpose": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Smtp-Imap created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/address/countries": {
       "get": {
         "tags": [
           "Address"
+=======
+    "/advance-option/smtp-imap/me": {
+      "get": {
+        "tags": [
+          "Smtp-Imap"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7705,16 +9398,25 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Countries",
         "operationId": "getCountries",
         "responses": {
           "200": {
             "description": "Countries fetched successfully"
+=======
+        "summary": "Get All Smtp-Imap",
+        "operationId": "getCredentialsById",
+        "responses": {
+          "200": {
+            "description": "Smtp-Imap fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -7724,6 +9426,15 @@
       "get": {
         "tags": [
           "Address"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Smtp-Imap"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7733,25 +9444,63 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get States",
         "operationId": "getStates",
         "responses": {
           "200": {
             "description": "States fetched successfully"
+=======
+        "summary": "Delete Smtp-Imap",
+        "operationId": "deleteMyCredentials",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "all": {
+                    "type": "integer",
+                    "items": {}
+                  },
+                  "usernames": {
+                    "type": "string",
+                    "items": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Smtp-Imap Deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/organization-settings": {
       "get": {
         "tags": [
           "Organization Setting"
+=======
+    "/subscribe": {
+      "get": {
+        "tags": [
+          "PushNotification"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7761,11 +9510,19 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Organization Setting",
         "operationId": "getOrgSetting",
         "responses": {
           "200": {
             "description": "Organization Setting fetched successfully"
+=======
+        "summary": "Get All PushNotification",
+        "operationId": "getUserNotificationSubScriptions",
+        "responses": {
+          "200": {
+            "description": "PushNotification fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7775,9 +9532,15 @@
           }
         }
       },
+<<<<<<< HEAD
       "put": {
         "tags": [
           "Organization Setting"
+=======
+      "post": {
+        "tags": [
+          "PushNotification"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7787,14 +9550,20 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Upsert Organization Setting",
         "operationId": "upsertOrgSetting",
+=======
+        "summary": "Create PushNotification",
+        "operationId": "addUserSubscription",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "twoFA_status": {
                     "type": "boolean"
                   },
@@ -7896,6 +9665,10 @@
                   },
                   "enforce": {
                     "type": "object"
+=======
+                  "subscription": {
+                    "type": "string"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -7904,6 +9677,7 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Organization Setting updated successfully"
           },
           "400": {
@@ -7933,6 +9707,9 @@
         "responses": {
           "200": {
             "description": "Hierarchy fetched successfully"
+=======
+            "description": "PushNotification created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7942,9 +9719,15 @@
           }
         }
       },
+<<<<<<< HEAD
       "post": {
         "tags": [
           "Hierarchy"
+=======
+      "delete": {
+        "tags": [
+          "PushNotification"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -7954,20 +9737,30 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Create Or Update Hierarchy",
         "operationId": "createOrUpdateHierarchy",
+=======
+        "summary": "Delete PushNotification",
+        "operationId": "deleteManyUserNotificationSubscriptions",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "blocks": {
                     "type": "array",
                     "items": {}
                   },
                   "edges": {
                     "type": "array",
+=======
+                  "allId": {
+                    "type": "integer",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                     "items": {}
                   }
                 }
@@ -7977,7 +9770,11 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Hierarchy created successfully"
+=======
+            "description": "PushNotification Updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -7988,10 +9785,17 @@
         }
       }
     },
+<<<<<<< HEAD
     "/hierarchy-block-details": {
       "get": {
         "tags": [
           "Hierarchy Block Detail"
+=======
+    "/subscribe/:id": {
+      "get": {
+        "tags": [
+          "PushNotification"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8001,16 +9805,33 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get All Hierarchy Block Details",
         "operationId": "getAllHierarchyBlockDetails",
         "responses": {
           "200": {
             "description": "Hierarchy Block Details fetched successfully"
+=======
+        "summary": "Get User PushNotification",
+        "operationId": "getUserNotificationSubScription",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Uses notification subscription fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -8018,6 +9839,18 @@
       "post": {
         "tags": [
           "Hierarchy Block Detail"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "patch": {
+        "$ref": "#/paths/~1subscribe~1%3Aid/put"
+      },
+      "put": {
+        "tags": [
+          "PushNotification"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8027,12 +9860,26 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Create Hierarchy Block Details",
         "operationId": "createHierarchyBlockDetails",
+=======
+        "summary": "Update User Notification",
+        "operationId": "updateUserSubscription",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
+<<<<<<< HEAD
                 "type": "object",
                 "properties": {
                   "title": {
@@ -8042,6 +9889,11 @@
                     "type": "string"
                   },
                   "type": {
+=======
+                "type": "object",
+                "properties": {
+                  "subscription": {
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                     "type": "string"
                   }
                 }
@@ -8051,19 +9903,37 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Hierarchy Block created successfully"
+=======
+            "description": "Uses notification subscription updated successfullyy"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       },
       "delete": {
+<<<<<<< HEAD
         "tags": [
           "Hierarchy Block Detail"
+=======
+        "$ref": "#/paths/~1subscribe/delete"
+      }
+    },
+    "/search/lead-deal-acc-cont": {
+      "get": {
+        "tags": [
+          "Search"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8073,6 +9943,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Delete Hierarchy Block Details",
         "operationId": "deleteHierarchyBlockDetails",
         "requestBody": {
@@ -8095,20 +9966,57 @@
         "responses": {
           "200": {
             "description": "Hierarchy Blocks deleted successfully"
+=======
+        "summary": "Get Search",
+        "operationId": "getLeadDealAccContSearchQuery",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "searchText",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dashboard data fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/hierarchy-block-details/{id}": {
       "get": {
         "tags": [
           "Hierarchy Block Detail"
+=======
+    "/search/compose-email-dropdown": {
+      "get": {
+        "tags": [
+          "Search"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8118,6 +10026,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Hierarchy Block Details",
         "operationId": "getHierarchyBlockDetails",
         "parameters": [
@@ -8126,16 +10035,42 @@
             "name": "id",
             "type": "integer",
             "required": true
+=======
+        "summary": "Get Email Search",
+        "operationId": "getComposeEmailToQuery",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "searchText",
+            "type": "string"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         ],
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Hierarchy Block Detail fetched successfully"
+=======
+            "description": "Dashboard data fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -8143,6 +10078,17 @@
       "put": {
         "tags": [
           "Hierarchy Block Detail"
+=======
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/schedule-activity": {
+      "post": {
+        "tags": [
+          "StayInTouchActivity"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8152,6 +10098,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Update Hierarchy Block Details",
         "operationId": "updateHierarchyBlockDetails",
         "parameters": [
@@ -8162,12 +10109,17 @@
             "required": true
           }
         ],
+=======
+        "summary": "Create StayInTouchActivity",
+        "operationId": "addStayInTouchActivity",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "title": {
                     "type": "string"
                   },
@@ -8179,6 +10131,34 @@
                   },
                   "managed_by": {
                     "type": "string"
+=======
+                  "activity_type_id": {
+                    "type": "integer"
+                  },
+                  "creation_date": {
+                    "type": "string"
+                  },
+                  "start_date": {
+                    "type": "date"
+                  },
+                  "modal_record_id": {
+                    "type": "integer"
+                  },
+                  "model_name": {
+                    "type": "string"
+                  },
+                  "frequency": {
+                    "type": "string"
+                  },
+                  "month_date_type": {
+                    "type": "string"
+                  },
+                  "interval": {
+                    "type": "integer"
+                  },
+                  "week_occurrence": {
+                    "type": "integer"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -8187,12 +10167,17 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Hierarchy Block updated successfully"
+=======
+            "description": "Activity scheduled created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -8200,6 +10185,15 @@
       "delete": {
         "tags": [
           "Hierarchy Block Detail"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "StayInTouchActivity"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8209,6 +10203,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Delete Hierarchy Block",
         "operationId": "deleteHierarchyBlockDetailsById",
         "parameters": [
@@ -8222,11 +10217,19 @@
         "responses": {
           "200": {
             "description": "Hierarchy Block deleted successfully"
+=======
+        "summary": "Get All Schedule activity",
+        "operationId": "getAllScheduleActivities",
+        "responses": {
+          "200": {
+            "description": "Schedule activity fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -8236,6 +10239,15 @@
       "put": {
         "tags": [
           "Hierarchy Block Detail"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "StayInTouchActivity"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8245,6 +10257,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Update Hierarchy Block Details For User Position",
         "operationId": "updateHierarchyBlockDetailsForUserPosition",
         "parameters": [
@@ -8255,12 +10268,17 @@
             "required": true
           }
         ],
+=======
+        "summary": "Delete StayInTouchActivity",
+        "operationId": "deleteScheduleActivities",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "title": {
                     "type": "string"
                   },
@@ -8268,6 +10286,13 @@
                     "type": "string"
                   },
                   "position_user_id": {
+=======
+                  "all": {
+                    "type": "integer",
+                    "items": {}
+                  },
+                  "modal_record_id": {
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                     "type": "integer"
                   }
                 }
@@ -8277,21 +10302,36 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Position Hierarchy Block updated successfully"
+=======
+            "description": "Shedule Activity deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/hierarchy-departments": {
       "post": {
         "tags": [
           "Hierarchy Department"
+=======
+    "/schedule-activity/:id": {
+      "get": {
+        "tags": [
+          "StayInTouchActivity"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8301,6 +10341,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Create Hierarchy Department",
         "operationId": "createDepartment",
         "requestBody": {
@@ -8320,11 +10361,19 @@
         "responses": {
           "200": {
             "description": "Department created successfully"
+=======
+        "summary": "Get All Schedule activity",
+        "operationId": "getScheduledActivityByModalRecordId",
+        "responses": {
+          "200": {
+            "description": "Schedule activity fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -8332,6 +10381,15 @@
       "get": {
         "tags": [
           "Hierarchy Department"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "StayInTouchActivity"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8341,16 +10399,71 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Hierarchy Departments",
         "operationId": "getDepartments",
         "responses": {
           "200": {
             "description": "Departments fetched successfully"
+=======
+        "summary": "Update StayInTouchActivity",
+        "operationId": "updateScheduledActivityById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "activity_type_id": {
+                    "type": "integer"
+                  },
+                  "creation_date": {
+                    "type": "string"
+                  },
+                  "start_date": {
+                    "type": "date"
+                  },
+                  "modal_record_id": {
+                    "type": "integer"
+                  },
+                  "model_name": {
+                    "type": "string"
+                  },
+                  "frequency": {
+                    "type": "string"
+                  },
+                  "month_date_type": {
+                    "type": "string"
+                  },
+                  "interval": {
+                    "type": "integer"
+                  },
+                  "week_occurrence": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Scheduled activity updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -8358,6 +10471,17 @@
       "delete": {
         "tags": [
           "Hierarchy Department"
+=======
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/comments": {
+      "post": {
+        "tags": [
+          "Comment"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8367,19 +10491,42 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Delete Hierarchy Department",
         "operationId": "deleteDepartment",
+=======
+        "summary": "Create Comment",
+        "operationId": "addComment",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "allId": {
                     "type": "array",
                     "items": {
                       "type": "integer"
                     }
+=======
+                  "comment": {
+                    "type": "string"
+                  },
+                  "timeline_id": {
+                    "type": "integer"
+                  },
+                  "model_name": {
+                    "type": "string"
+                  },
+                  "model_record_id": {
+                    "type": "integer"
+                  },
+                  "userIds": {
+                    "type": "array",
+                    "items": {}
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -8388,21 +10535,36 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Selected Departments deleted successfully"
+=======
+            "description": "Comment created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/hierarchy-departments/{id}": {
       "get": {
         "tags": [
           "Hierarchy Department"
+=======
+    "/comments/:id": {
+      "delete": {
+        "tags": [
+          "Comment"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8412,8 +10574,13 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Get Hierarchy Department",
         "operationId": "getDepartment",
+=======
+        "summary": "Delete Comment",
+        "operationId": "deleteComment",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "parameters": [
           {
             "in": "path",
@@ -8424,12 +10591,17 @@
         ],
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Department fetched successfully"
+=======
+            "description": "Comment deleted successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -8437,6 +10609,15 @@
       "put": {
         "tags": [
           "Hierarchy Department"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Comment"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8446,8 +10627,13 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Update Hierarchy Department",
         "operationId": "updateDepartment",
+=======
+        "summary": "Update Comment",
+        "operationId": "updateUserSubscription",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "parameters": [
           {
             "in": "path",
@@ -8462,8 +10648,20 @@
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "name": {
                     "type": "string"
+=======
+                  "comment": {
+                    "type": "string"
+                  },
+                  "timeline_id": {
+                    "type": "integer"
+                  },
+                  "userIds": {
+                    "type": "array",
+                    "items": {}
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -8472,21 +10670,36 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Department updated successfully"
+=======
+            "description": "Comment updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/gmail-webhook": {
       "post": {
         "tags": [
           "Web Hook"
+=======
+    "/follow-entity/:module/:entityId/follow": {
+      "post": {
+        "tags": [
+          "Follow-Entity"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8496,14 +10709,33 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Listen Gmail Changes",
         "operationId": "listenGmailChanges",
+=======
+        "summary": "Create Follow-Entity",
+        "operationId": "followEntity",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "entityId",
+            "type": "integer"
+          },
+          {
+            "in": "path",
+            "name": "module",
+            "type": "string"
+          }
+        ],
+        "required": true,
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "message": {
                     "type": "object",
                     "properties": {
@@ -8511,6 +10743,11 @@
                         "type": "string"
                       }
                     }
+=======
+                  "follower_ids": {
+                    "type": "array",
+                    "items": {}
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -8519,21 +10756,36 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "WebHook Listened Successfully"
+=======
+            "description": "Entity Followed successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/outlook/webhook": {
       "post": {
         "tags": [
           "Web Hook"
+=======
+    "/follow-entity/:module/:entityId/un-follow": {
+      "post": {
+        "tags": [
+          "Follow-Entity"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8543,6 +10795,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Outlook Mail Webhook Callback",
         "operationId": "outlookMailWebhookCallback",
         "parameters": [
@@ -8552,12 +10805,30 @@
             "type": "string"
           }
         ],
+=======
+        "summary": "Create unFollow-Entity",
+        "operationId": "unFollowEntity",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "entityId",
+            "type": "integer"
+          },
+          {
+            "in": "path",
+            "name": "module",
+            "type": "string"
+          }
+        ],
+        "required": true,
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "value": {
                     "type": "array",
                     "items": {
@@ -8602,29 +10873,40 @@
                         }
                       }
                     }
+=======
+                  "follower_ids": {
+                    "type": "array",
+                    "items": {}
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
             }
           }
+<<<<<<< HEAD
         },
         "responses": {
           "200": {
             "description": "Outlook-Mail WebHook Callback Successfully"
+=======
+        },
+        "responses": {
+          "200": {
+            "description": "Entity UnFollowed successfully"
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
-            "description": "Internal server errors"
+            "description": "Internal server error"
           }
         }
       }
     },
-    "/google-calendar/webhook": {
+    "/follow-entity/:module/get-data": {
       "post": {
         "tags": [
-          "Web Hook"
+          "Follow-Entity"
         ],
         "security": [
           {
@@ -8634,6 +10916,55 @@
             "ApiKeyAuth": []
           }
         ],
+        "summary": "Get Follow-Entity",
+        "operationId": "getFollowerEntities",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "module",
+            "type": "string"
+          }
+        ],
+        "required": true,
+        "responses": {
+          "200": {
+            "description": "Followers fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+<<<<<<< HEAD
+            "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+          }
+        }
+      }
+    },
+<<<<<<< HEAD
+    "/google-calendar/webhook": {
+      "post": {
+        "tags": [
+          "Web Hook"
+=======
+    "/follow-entity/get-data": {
+      "post": {
+        "tags": [
+          "Follow-Entity"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+<<<<<<< HEAD
         "summary": "Listen Google Calendar Changes",
         "operationId": "listenGoogleCalendarChanges",
         "parameters": [
@@ -8656,20 +10987,26 @@
         "responses": {
           "200": {
             "description": "Google-Calendar Changes Listened Successfully"
+=======
+        "summary": "Get Entity",
+        "operationId": "getFollowingEntities",
+        "responses": {
+          "200": {
+            "description": "Entity fetched successfully"
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
-            "description": "Internal server errors"
+            "description": "Internal server error"
           }
         }
       }
     },
-    "/outlook-calendar/webhook": {
+    "/follow-entity/get-count": {
       "post": {
         "tags": [
-          "Web Hook"
+          "Follow-Entity"
         ],
         "security": [
           {
@@ -8679,6 +11016,47 @@
             "ApiKeyAuth": []
           }
         ],
+        "summary": "Get Following Count",
+        "operationId": "getFollowingCount",
+        "responses": {
+          "200": {
+            "description": "Entity Following Count Fetched Successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+<<<<<<< HEAD
+            "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+          }
+        }
+      }
+    },
+<<<<<<< HEAD
+    "/outlook-calendar/webhook": {
+      "post": {
+        "tags": [
+          "Web Hook"
+=======
+    "/reaction": {
+      "post": {
+        "tags": [
+          "Reaction"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+<<<<<<< HEAD
         "summary": "Outlook Calendar Webhook Callback",
         "operationId": "outlookCalendarWebhookCallback",
         "parameters": [
@@ -8688,12 +11066,17 @@
             "type": "string"
           }
         ],
+=======
+        "summary": "Create Reaction",
+        "operationId": "handleReaction",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "message": {
                     "type": "object",
                     "properties": {
@@ -8724,6 +11107,25 @@
                         }
                       }
                     }
+=======
+                  "reaction": {
+                    "type": "string"
+                  },
+                  "reaction_model_name": {
+                    "type": "string"
+                  },
+                  "model_name": {
+                    "type": "string"
+                  },
+                  "reaction_model_record_id": {
+                    "type": "integer"
+                  },
+                  "model_record_id": {
+                    "type": "integer"
+                  },
+                  "timeline_id": {
+                    "type": "integer"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -8732,21 +11134,36 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Outlook-Calendar WebHook Callback Successfully"
+=======
+            "description": "Reaction created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/zoom/deAuthorization/webhook": {
       "post": {
         "tags": [
           "Web Hook"
+=======
+    "/icon-type": {
+      "get": {
+        "tags": [
+          "Icon-Type"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8756,6 +11173,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Zoom De-Authorization WebHook",
         "operationId": "zoomDeAuthorizationWebHook",
         "parameters": [
@@ -8770,12 +11188,43 @@
             "type": "string"
           }
         ],
+=======
+        "summary": "Get All Icon-Type",
+        "operationId": "getIcons",
+        "responses": {
+          "200": {
+            "description": "Icon fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Icon-Type"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Create Icon-Type",
+        "operationId": "createIcon",
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "event": {
                     "type": "string"
                   },
@@ -8792,6 +11241,13 @@
                         "type": "string"
                       }
                     }
+=======
+                  "iconType": {
+                    "type": "string"
+                  },
+                  "iconJson": {
+                    "type": "string"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -8800,21 +11256,36 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Zoom De-Authorization WebHook Successful"
+=======
+            "description": "Icon created successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/zoom/meetings/webhook": {
       "post": {
         "tags": [
           "Web Hook"
+=======
+    "/icon-type/:id": {
+      "get": {
+        "tags": [
+          "Icon-Type"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8824,6 +11295,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Zoom-Meetings Webhook",
         "operationId": "zoomMeetingsWebhook",
         "requestBody": {
@@ -8856,11 +11328,27 @@
         "responses": {
           "200": {
             "description": "Zoom-Meetings Webhook Successfully"
+=======
+        "summary": "Get Icon-Type",
+        "operationId": "getIcon",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Icon fetched successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
           }
         }
@@ -8870,6 +11358,15 @@
       "post": {
         "tags": [
           "Web Hook"
+=======
+            "description": "Internal server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Icon-Type"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8879,17 +11376,35 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Listen Recall-Ai Webhook Bot",
         "operationId": "listenRecallAiWebhookBot",
+=======
+        "summary": "Update Icon-Type",
+        "operationId": "updateIcon",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "required": true
+          }
+        ],
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "botEventData": {
                     "type": "object",
                     "items": {}
+=======
+                  "iconJson": {
+                    "type": "string"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
@@ -8898,21 +11413,41 @@
         },
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Recall-Ai Webhook Bot Listened Successfully"
+=======
+            "description": "Icon updated successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
           },
           "500": {
+<<<<<<< HEAD
             "description": "Internal server errors"
+=======
+            "description": "Internal server error"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         }
       }
     },
+<<<<<<< HEAD
     "/zoom-phone/webhook": {
       "post": {
         "tags": [
           "Web Hook"
+=======
+    "/icon-type/get-data": {
+      "get": {
+        "$ref": "#/paths/~1icon-type/get"
+      }
+    },
+    "/super-admin": {
+      "post": {
+        "tags": [
+          "Super-Admin"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -8922,6 +11457,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Zoom-Phone Webhook Callback",
         "operationId": "zoomPhoneWebhookCallback",
         "requestBody": {
@@ -8934,11 +11470,17 @@
           "500": {
             "description": "Internal server errors"
           },
+=======
+        "summary": "Super Admin Login",
+        "operationId": "superAdminLogin",
+        "requestBody": {
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
+<<<<<<< HEAD
                   "event": {
                     "type": "string"
                   },
@@ -9027,11 +11569,19 @@
                         "type": "string"
                       }
                     }
+=======
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
                   }
                 }
               }
             }
           }
+<<<<<<< HEAD
         }
       }
     },
@@ -9061,6 +11611,12 @@
         "responses": {
           "200": {
             "description": "Zoom Connected successfully"
+=======
+        },
+        "responses": {
+          "200": {
+            "description": "Super Admin Login Successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -9071,10 +11627,17 @@
         }
       }
     },
+<<<<<<< HEAD
     "/api/auth/zoom/callback": {
       "get": {
         "tags": [
           "Strategy"
+=======
+    "/recall/generateJoinTokenUrl": {
+      "get": {
+        "tags": [
+          "Recall"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -9084,6 +11647,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Auth With Zoom",
         "operationId": "authWithZoom",
         "parameters": [
@@ -9096,11 +11660,37 @@
             "in": "query",
             "name": "state",
             "type": "string"
+=======
+        "summary": "Generate Token Url",
+        "operationId": "generateJoinTokenUrl",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "user_id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "organization_id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "meeting_id",
+            "type": "integer",
+            "required": true
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           }
         ],
         "responses": {
           "200": {
+<<<<<<< HEAD
             "description": "Authentication With Zoom Successful"
+=======
+            "description": "Generate Token successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -9111,10 +11701,17 @@
         }
       }
     },
+<<<<<<< HEAD
     "/api/auth/{strategyType}/connect": {
       "get": {
         "tags": [
           "Strategy"
+=======
+    "/org-alerts": {
+      "get": {
+        "tags": [
+          "Org-Alert"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -9124,6 +11721,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Connect Strategy",
         "operationId": "onAuthenticationRequest",
         "parameters": [
@@ -9146,6 +11744,13 @@
         "responses": {
           "200": {
             "description": "Strategy Connected Successfully"
+=======
+        "summary": "Get Orginal Alerts Setting",
+        "operationId": "getOrgAlertsSetting",
+        "responses": {
+          "200": {
+            "description": "Organization Alerts Fetched Successfully."
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -9154,12 +11759,22 @@
             "description": "Internal server error"
           }
         }
+<<<<<<< HEAD
       }
     },
     "/api/auth/{strategyType}/callback": {
       "get": {
         "tags": [
           "Strategy"
+=======
+      },
+      "post": {
+        "$ref": "#/paths/~1org-alerts/put"
+      },
+      "put": {
+        "tags": [
+          "Org-Alert"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
         ],
         "security": [
           {
@@ -9169,6 +11784,7 @@
             "ApiKeyAuth": []
           }
         ],
+<<<<<<< HEAD
         "summary": "Callback Strategy",
         "operationId": "onAuthenticationCallback",
         "parameters": [
@@ -9186,6 +11802,57 @@
         "responses": {
           "200": {
             "description": "Strategy Callback Successfully"
+=======
+        "summary": "Org-Alert Updated",
+        "operationId": "upsertAlerts",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "location_alert": {
+                    "type": "boolean"
+                  },
+                  "invite_alert": {
+                    "type": "boolean"
+                  },
+                  "failed_login_alert": {
+                    "type": "boolean"
+                  },
+                  "reset_pass_alert": {
+                    "type": "boolean"
+                  },
+                  "del_pipeline_stage": {
+                    "type": "boolean"
+                  },
+                  "del_account_alert": {
+                    "type": "boolean"
+                  },
+                  "del_contact_alert": {
+                    "type": "boolean"
+                  },
+                  "del_deals_alert": {
+                    "type": "boolean"
+                  },
+                  "del_account_count": {
+                    "type": "integer"
+                  },
+                  "del_contact_count": {
+                    "type": "integer"
+                  },
+                  "del_deals_count": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Organization Alerts Updated Successfully"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
           },
           "400": {
             "description": "Bad request, invalid credentials"
@@ -9194,6 +11861,17 @@
             "description": "Internal server error"
           }
         }
+<<<<<<< HEAD
+=======
+      },
+      "patch": {
+        "$ref": "#/paths/~1org-alerts/put"
+      }
+    },
+    "/org-alerts/get-data": {
+      "get": {
+        "$ref": "#/paths/~1org-alerts/get"
+>>>>>>> e3bc8c418240418165af554bff4cc24663cbd6bd
       }
     }
   },

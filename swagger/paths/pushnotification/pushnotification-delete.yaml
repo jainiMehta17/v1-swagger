@@ -1,0 +1,23 @@
+tags:
+  - PushNotification
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete PushNotification
+operationId: deleteManyUserNotificationSubscriptions
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          allId:
+            type: integer
+            items: {}
+responses:
+  200:
+    description: PushNotification Updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

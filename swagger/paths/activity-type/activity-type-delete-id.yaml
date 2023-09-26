@@ -1,0 +1,23 @@
+tags:
+  - Activity-Type
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Activity-Type
+operationId: deleteActivityTypes
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          allIds:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Activity-Type Deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

@@ -1,17 +1,18 @@
 tags:
-  - User
+  - Icon-Type
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get User By ID
-operationId: getUserById
+summary: Get Icon-Type
+operationId: getIcon
 parameters:
   - in: path
     name: id
-    type: string
+    type: integer
+    required: true
 responses:
   200:
-    description: User fetched successfully
+    description: Icon fetched successfully
   400:
     description: Bad request, invalid credentials
   500:

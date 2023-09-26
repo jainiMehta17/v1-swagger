@@ -1,0 +1,23 @@
+tags:
+  - Snippet-Category
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Snippet-Category
+operationId: deleteSnippetCategories
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          allId:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Snippet-Category Updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

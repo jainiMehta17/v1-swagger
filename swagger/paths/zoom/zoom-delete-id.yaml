@@ -1,0 +1,29 @@
+tags:
+  - Zoom
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Zoom
+operationId: deleteZoomMeeting
+parameters:
+  - in: path
+    name: id
+    type: string
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          host_id:
+            type: integer
+          email:
+            type: string
+responses:
+  200:
+    description: Zoom Deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

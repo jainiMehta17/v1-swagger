@@ -1,0 +1,27 @@
+tags:
+  - Icon-Type
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Icon-Type
+operationId: updateIcon
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          iconJson:
+            type: string
+responses:
+  200:
+    description: Icon updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

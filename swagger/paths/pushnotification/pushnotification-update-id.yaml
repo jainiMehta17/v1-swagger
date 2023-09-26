@@ -1,0 +1,27 @@
+tags:
+  - PushNotification
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update User Notification
+operationId: updateUserSubscription
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          subscription:
+            type: string
+responses:
+  200:
+    description: Uses notification subscription updated successfullyy
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

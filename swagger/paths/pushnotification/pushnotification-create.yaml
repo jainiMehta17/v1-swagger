@@ -1,0 +1,22 @@
+tags:
+  - PushNotification
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create PushNotification
+operationId: addUserSubscription
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          subscription:
+            type: string
+responses:
+  200:
+    description: PushNotification created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

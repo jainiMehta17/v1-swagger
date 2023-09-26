@@ -1,0 +1,31 @@
+tags:
+  - Comment
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Comment
+operationId: addComment
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          comment:
+            type: string
+          timeline_id:
+            type: integer
+          model_name:
+            type: string
+          model_record_id:
+            type: integer
+          userIds:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Comment created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

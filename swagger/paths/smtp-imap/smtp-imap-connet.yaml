@@ -1,0 +1,32 @@
+tags:
+  - Smtp-Imap
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Smtp-Imap
+operationId: testImapSmtpConnection
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          email:
+            type: string
+          password:
+            type: string
+          smtp:
+            type: object
+            items: {}
+          imap:
+            type: object
+            items: {}
+          api_purpose:
+            type: string
+responses:
+  200:
+    description: Smtp-Imap created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

@@ -1,0 +1,31 @@
+tags:
+  - Follow-Entity
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create unFollow-Entity
+operationId: unFollowEntity
+parameters:
+  - in: path
+    name: entityId
+    type: integer
+  - in: path
+    name: module
+    type: string
+required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          follower_ids:
+            type: array
+            items: {}
+responses:
+  200:
+    description: Entity UnFollowed successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

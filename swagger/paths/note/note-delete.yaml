@@ -1,17 +1,18 @@
 tags:
-  - User
+  - Note
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get User By ID
-operationId: getUserById
+summary: Get All Note
+operationId: deleteNoteById
 parameters:
   - in: path
     name: id
-    type: string
+    type: integer
+    required: true
 responses:
   200:
-    description: User fetched successfully
+    description: Note deleted successfully
   400:
     description: Bad request, invalid credentials
   500:

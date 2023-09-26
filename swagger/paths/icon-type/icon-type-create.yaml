@@ -1,0 +1,24 @@
+tags:
+  - Icon-Type
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Icon-Type
+operationId: createIcon
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          iconType:
+            type: string
+          iconJson:
+            type: string
+responses:
+  200:
+    description: Icon created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

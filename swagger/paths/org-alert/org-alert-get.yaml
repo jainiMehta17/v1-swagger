@@ -1,17 +1,13 @@
 tags:
-  - User
+  - Org-Alert
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get User By ID
-operationId: getUserById
-parameters:
-  - in: path
-    name: id
-    type: string
+summary: Get Orginal Alerts Setting
+operationId: getOrgAlertsSetting
 responses:
   200:
-    description: User fetched successfully
+    description: Organization Alerts Fetched Successfully.
   400:
     description: Bad request, invalid credentials
   500:

@@ -1,0 +1,40 @@
+tags:
+  - Pipeline
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Update Pipeline
+operationId: updateTag
+parameters:
+  - in: path
+    name: id
+    type: integer
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+          stages:
+            type: object
+            properties:
+              new:
+                type: array
+                items: {}
+              old:
+                type: array
+                items: {}
+          is_default:
+            type: boolean
+          rot_days:
+            type: integer
+responses:
+  200:
+    description: Pipeline Updated successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

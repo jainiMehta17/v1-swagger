@@ -1,0 +1,31 @@
+tags:
+  - Pipeline
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Delete Stage
+operationId: deleteManyPipelines
+parameters:
+  - in: path
+    name: id
+    type: string
+    required: true
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          currentStageId:
+            type: integer
+          newStageId:
+            type: integer
+          newPipelineId:
+            type: integer
+responses:
+  200:
+    description: Stage Deleted successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

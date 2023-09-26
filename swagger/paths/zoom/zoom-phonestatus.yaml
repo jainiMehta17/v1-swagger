@@ -1,17 +1,21 @@
 tags:
-  - User
+  - Zoom
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get User By ID
-operationId: getUserById
+summary: Get Zoom
+operationId: getZoomPhoneStatus
 parameters:
   - in: path
     name: id
-    type: string
+    type: integer
+    required: true
+  - in: query
+    name: call_id
+    type: integer
 responses:
   200:
-    description: User fetched successfully
+    description: Call status fetched successfully
   400:
     description: Bad request, invalid credentials
   500:

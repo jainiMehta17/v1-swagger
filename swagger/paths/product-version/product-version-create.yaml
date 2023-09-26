@@ -1,0 +1,28 @@
+tags:
+  - Product-Version
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Create Product-Version
+operationId: addProductVersion
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          type:
+            type: string
+          version_number:
+            type: string
+          release_date:
+            type: string
+          changes:
+            type: string
+responses:
+  200:
+    description: Product-Version created successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

@@ -1,17 +1,18 @@
 tags:
-  - User
+  - Follow-Entity
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get User By ID
-operationId: getUserById
+summary: Get Follow-Entity
+operationId: getFollowerEntities
 parameters:
   - in: path
-    name: id
+    name: module
     type: string
+required: true
 responses:
   200:
-    description: User fetched successfully
+    description: Followers fetched successfully
   400:
     description: Bad request, invalid credentials
   500:

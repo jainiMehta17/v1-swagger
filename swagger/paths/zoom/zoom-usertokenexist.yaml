@@ -1,17 +1,18 @@
 tags:
-  - User
+  - Zoom
 security:
   - cookieAuth: []
   - ApiKeyAuth: []
-summary: Get User By ID
-operationId: getUserById
+summary: Get Zoom
+operationId: isUserTokenExist
 parameters:
   - in: path
     name: id
-    type: string
+    type: integer
+    required: true
 responses:
   200:
-    description: User fetched successfully
+    description: zoom fetched successfully
   400:
     description: Bad request, invalid credentials
   500:
