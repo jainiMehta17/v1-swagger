@@ -7,13 +7,31 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: ../../components/auth/AuthRegister.yaml
-    application/xml:
-      schema:
-        $ref: ../../components/auth/AuthRegister.yaml
-    application/x-www-form-urlencoded:
-      schema:
-        $ref: ../../components/auth/AuthRegister.yaml
+        type: object
+        properties:
+          first_name:
+            type: string
+            required: true
+          last_name:
+            type: string
+          email:
+            type: string
+          password:
+            type: string
+          mobile:
+            type: string
+          organizationName:
+            type: string
+          organizationCategory:
+            type: string
+          timezone:
+            type: string
+          initial_color:
+            type: string
 responses:
-  '201':
-    description: Created
+  200:
+    description: User Registered Successfully
+  400:
+    description: Bad request, user not found or other validation errors
+  500:
+    description: Internal server error

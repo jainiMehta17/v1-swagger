@@ -222,6 +222,10 @@
     {
       "name": "Org-Alert",
       "description": "Org-Alert APIs"
+    },
+    {
+      "name": "File",
+      "description": "File APIs"
     }
   ],
   "paths": {
@@ -237,24 +241,50 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AuthRegister"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthRegister"
-              }
-            },
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/AuthRegister"
+                "type": "object",
+                "properties": {
+                  "first_name": {
+                    "type": "string",
+                    "required": true
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "mobile": {
+                    "type": "string"
+                  },
+                  "organizationName": {
+                    "type": "string"
+                  },
+                  "organizationCategory": {
+                    "type": "string"
+                  },
+                  "timezone": {
+                    "type": "string"
+                  },
+                  "initial_color": {
+                    "type": "string"
+                  }
+                }
               }
             }
           }
         },
         "responses": {
-          "201": {
-            "description": "Created"
+          "200": {
+            "description": "User Registered Successfully"
+          },
+          "400": {
+            "description": "Bad request, user not found or other validation errors"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
@@ -12940,6 +12970,82 @@
       "get": {
         "$ref": "#/paths/~1org-alerts/get"
       }
+    },
+    "/files/upload": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Upload File",
+        "operationId": "uploadFile",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File uploaded successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          },
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Get Presigned Url",
+        "operationId": "getPresignedUrl",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "keyPath",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data fetched successfully"
+          },
+          "400": {
+            "description": "Bad request, invalid credentials"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -12957,41 +13063,6 @@
           "type": "string",
           "format": "uuid",
           "required": true
-        }
-      }
-    },
-    "schemas": {
-      "AuthRegister": {
-        "type": "object",
-        "properties": {
-          "first_name": {
-            "type": "string",
-            "required": true
-          },
-          "last_name": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "password": {
-            "type": "string"
-          },
-          "mobile": {
-            "type": "string"
-          },
-          "organizationName": {
-            "type": "string"
-          },
-          "organizationCategory": {
-            "type": "string"
-          },
-          "timezone": {
-            "type": "string"
-          },
-          "initial_color": {
-            "type": "string"
-          }
         }
       }
     }

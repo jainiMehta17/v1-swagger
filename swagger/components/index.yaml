@@ -1,7 +1,3 @@
 # Security Schema
 securitySchemes:
   $ref: ./security/SecuritySchema.yaml
-schemas:
-  # Auth Definition
-  AuthRegister:
-    $ref: ./auth/AuthRegister.yaml

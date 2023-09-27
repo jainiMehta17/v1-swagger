@@ -1,0 +1,18 @@
+tags:
+  - File
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Get Presigned Url
+operationId: getPresignedUrl
+parameters:
+  - in: query
+    name: keyPath
+    type: string
+responses:
+  200:
+    description: Data fetched successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

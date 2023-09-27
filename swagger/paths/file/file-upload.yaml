@@ -1,0 +1,23 @@
+tags:
+  - File
+security:
+  - cookieAuth: []
+  - ApiKeyAuth: []
+summary: Upload File
+operationId: uploadFile
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        properties:
+          files:
+            type: string
+            format: binary
+responses:
+  200:
+    description: File uploaded successfully
+  400:
+    description: Bad request, invalid credentials
+  500:
+    description: Internal server error

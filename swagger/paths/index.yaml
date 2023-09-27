@@ -876,3 +876,10 @@
 /org-alerts/get-data:
   get:
     $ref: ./org-alert/org-alert-get.yaml
+
+# File APIs
+/files/upload:
+  post:
+    $ref: ./file/file-upload.yaml
+  get:
+    $ref: ./file/file-get-presigned-url.yaml
